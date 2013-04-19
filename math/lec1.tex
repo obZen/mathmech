@@ -1,0 +1,1546 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{hyperref}
+\usepackage[left=0.5cm, right=0.3cm, top=2cm, bottom=2cm, bindingoffset=0cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%Предел при n -> inf
+\newcommand{\limninf}{\lim\limits_{n \to \infty}}
+\newcommand{\limx}[1]{\lim\limits_{x \to #1}}
+\newcommand{\limxr}[1]{\lim\limits_{x-0 \to #1}}
+\newcommand{\limxl}[1]{\lim\limits_{x+0 \to #1}}
+\newcommand{\limxinf}{\limx{\infty}}
+%Последовательность ARG1 от ARG2 = 1 до inf
+\newcommand{\seq}[2]{ \{#1_{#2}\}_{#2=1}^\infty}
+\newcommand{\seqn}[1]{\seq{#1}{n}}
+
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\pihalf}{def}
+%opening
+\title{Математический анализ. I курс.}
+\author{}
+\date{}
+\relpenalty=10000
+\begin{document}
+\maketitle
+
+\part{Введение. Логика. Понятие функции}
+\section{Алгебра высказываний}
+	\textit{Высказывание} - суждение, которым можно приписать истину или ложь.
+	\subsection{Логические операции}
+		\begin{tabular}{l l}
+			Отрицание & $\overline{(A)}$ \\
+			Конъюнкция & $A \wedge B$ \\
+			Дизъюнкция & $A \vee B$ \\
+			Импликация & $A \Rightarrow B $(if $A$ then $B$) \\
+			Эквиваленция & $A \Leftrightarrow B$ ($A$, тогда и только тогда, когда $B$)
+		\end{tabular}
+	\subsection{Законы логических операций}
+		\paragraph{Коммутативность}
+		\begin{eqnarray}
+			(A \vee B) \Leftrightarrow (B \vee A) \\
+			(A \wedge B) \Leftrightarrow (B \wedge A)
+		\end{eqnarray}
+		\paragraph{Ассоциативность}
+		\begin{eqnarray}
+			((A \vee B) \vee C) \Leftrightarrow (A \vee (B \vee C)) \\
+			((A \wedge B) \wedge C) \Leftrightarrow (A \wedge (B \wedge C))
+		\end{eqnarray}
+		\paragraph{Дистрибутивность}
+		\begin{eqnarray}
+			(A \wedge (B \vee C)) \Leftrightarrow ((A \wedge B) \vee (A \wedge C)) \\
+			(A \vee (B \wedge C)) \Leftrightarrow ((A \vee B) \wedge (A \vee C))
+		\end{eqnarray}
+		\paragraph{Законы поглощения}
+		\begin{eqnarray}
+			A \vee 1 \Leftrightarrow 1 \\
+			A \vee 0 \Leftrightarrow A \\
+			A \wedge 1 \Leftarrow A \\
+			A \wedge 0 \Leftarrow 0 \\
+			A \vee A \Leftrightarrow A \Leftrightarrow A \wedge A \\
+			A \vee \overline{A} \Leftrightarrow 1 \\
+			A \wedge \overline{A} \Leftarrow 0\\
+			\overline{\overline{A}} \Leftrightarrow A
+		\end{eqnarray}
+		\paragraph{Силлогизм}
+		\begin{eqnarray}
+			(A \Rightarrow B) \wedge (B \Rightarrow C) \Rightarrow (A \Rightarrow C)
+		\end{eqnarray}
+		\paragraph{Законы де Моргана}ы
+		\begin{eqnarray}
+			\overline{(A \vee B)} \Leftrightarrow (\overline{A} \wedge \overline{B})\\
+			\overline{(A \wedge B)} \Leftrightarrow (\overline{A} \vee \overline{B}) \\
+			(A \Rightarrow B) \Leftrightarrow (\overline{A} \vee B) \\
+			\overline{(A \Rightarrow B) } \Leftrightarrow (A \wedge \overline{B})
+		\end{eqnarray}
+		\paragraph{Закон контропозиции}
+		\begin{eqnarray}
+			(A \Rightarrow B) \Leftrightarrow (\overline{B} \Rightarrow \overline{A})
+		\end{eqnarray}
+	\subsection{Предикаты. Кванторы.}
+		Предикат - суждения, зависящие от переменной величины и становящиеся высказыванием при определенного значения. $P(x), P(x,y)$ - одноместный и двухместный предикат соответственно.\\
+		$\forall$ (любой, для любого)\\
+		$\exists$ (существует)
+\section{Понятие функции}
+	\href{http://en.wikipedia.org/wiki/Function_(mathematics)}{Функция на Wikipedia}
+	
+		Пусть $X, Y$ множества.\\
+		Правило, которое каждому элементу множества $X$ ставит элемент из множества $Y$ называется функцией, со значениями
+		во множестве $Y$.\\
+		Однозначная функция ставит каждому $x \in X$ только один $y \in Y$.\\
+		Множество $X$ - область определения функции -- $D(f)$.\\
+		Множество $Y$ - область значений этой функции.
+		
+		График функции $f(x)$ - это множество упорядоченных пар:\\ $\{(x, f(x)) : x \in X \wedge f(x) \in Y\}$.
+	\subsection{Образ и прообраз функции} 
+		Если $A \subset X$, то $f(A) = \{f(x) : x \in A\}$ - образ множества $A$, при $f : X \to Y$\\
+		Если $B \subset Y$ , то $f^{-1}(A) = \{x : f(x) \in B)\}$ - прообраз множества $B$, при $f : X \to Y$
+	\subsection{Поведение функций}
+		\paragraph{Инъекция}
+			$f : X \to Y$\\
+			$f$ - инъекция, если\\
+			$\forall x_1, x_2 : x_1 \ne x_2 \to f(x_1) \ne f(x_2)$
+		\paragraph{Сюръекция}
+			$f : X \to Y$ - сюръекция, если\\
+			$\forall y \in Y \exists x \in X : f(x) = y$, например $f(x) = x^3$.
+		\paragraph{Биекция}
+			$f : X \to Y$ - биекция, если она и инъективна, и сюръективна. Например, $f(x) = ax + b$; $f(x) = tg(x)$ биекция на всю
+			числовую ось $y, x \in [-\pi/2; \pi/2]$.\\
+			Если существует биекция одного множества на другое, то между этими множествами можно
+			установить взаимно-однозначные соответствия: $1 \to 1$.
+	
+	\subsection{Суперпозиция}
+		Пусть, $f(x) : X \to Y; g(x) : Y \to Z$, тогда $\forall x \in X : g(f(x)) \in Z : X -> Z$ суперпозиция $gf: X \to Z$.\\
+		Например, пусть $f(x) = x^2; g(x) = sin(x)$, тогда $gf(x) = sin(x^2); fg(x) = sin^2(x)$.
+	\subsection{Математическая индукция}
+		Пусть есть $P(n), n \in N$,
+		если $P(1) = 1 \wedge \forall n in N : P(n) = 1 \to P(n+1) = 1$,
+		то $\forall n \in N : P(n) = 1$, где $P(n)$ - предикат.
+	
+		$P(1)$ - база индукции (проверяется)\\
+		$P(n)$ - предположение\\
+		$P(n) \to P(n+1)$ - шаг индукции (доказывается)
+		
+		\paragraph{Пример} Доказать: $p = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$\\
+		1) Б.и.: $n = 1: 1 = \frac{1*2}{2} \rightarrow 1 = 1$\\
+		2) Пусть $\frac{n(n+1)}{2}$ верно.\\
+		$1 + 2 + 3 + \dots + n + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$. Что и т.д.
+		
+		\paragraph{Эквивалентная формулировка мат. индукции}
+		Пусть $P(n), n \in N$ - предикат и $P(1) - 1 \wedge (\forall:P(k) = 1, k \le n) \to P(n+1) = 1$, тогда 
+		$P(n) = 1, n \in N$.
+	\subsection{Бином Ньютона}
+	$(a + b)^n = \sum\limits_{k = 0}^{n} c_{n}^{k}a^{n-k}b^{k}$, \\
+	где $C_{n}^{k} = \frac{n!}{k!(n-k)!}$
+\part{Множества}
+	\section{Понятие множества}
+		Множество является фундаментальным понятием в математике и является не определяемым. Множество есть
+		совокупность объектов, которые составляют \textit{единое целое}.
+		Например, отрезок - множество точек от $a$ до $b$: $[a, b] = \{x \in R : a \le x \le b\}$\\
+		$b \in B$, $b$ есть элемент во множестве $B$
+	\section{Операции над множествами}
+		\begin{eqnarray}
+			A \subset B, \mbox{если } \forall a : (a \in A) \to (a \in B)\\
+			X = Y \mbox{если } \forall x : (x \in X \to x \in Y) \wedge (x \in Y \to x \in X)\\
+			\mbox{Объединение } A \cup B = \{x : x \in A \vee x \in B \}\\
+			\mbox{Пересечение } A \cap B = \{x : x \in A \wedge x \in B\}\\
+			\mbox{Разность } X \setminus Y = \{x : x \in X \wedge x \notin Y\}
+		\end{eqnarray}
+		\paragraph{Универсальное множество}
+		Пустое множество $\varnothing$ не содержит элементов и является эквивалентом лжи в логике.
+		\large{U} - универсальное множество (множество всех элементов в данной задаче), является эквивалентом истины.
+	
+		\subsection{Дополнение к множеству}
+			\begin{eqnarray}
+				\overline{x} = \{x \in U:(x \notin X)\} = U \setminus X
+			\end{eqnarray}
+	\section{Законы для множеств}
+		\subsection{Поглощение}
+			\begin{eqnarray}
+				X \cap (X \cup Y) = X\\
+				X \cup (X \cap Y) = Y\\
+				X \cup X = X\\
+				X \cap X = X\\
+			\end{eqnarray}
+	
+	 	\subsection{Преобразование разности}
+			\begin{eqnarray}
+				X \setminus Y = X \cap \overline{Y}
+			\end{eqnarray}
+	\section{Декартово умножение}
+		\paragraph{Упорядоченная пара}
+		$(a, b)$ - упорядоченная пара, пара, в которой все элементы следуют в строго определенном порядке.
+		\subsection{Определение умножения}
+		\begin{eqnarray}
+			X \times Y = \{(a, b) : x \in X \wedge y \in Y\}
+		\end{eqnarray}
+		
+	\section{Бинарные отношения}
+		Пусть $\rho$ - множество отношений, $X, Y$ - произвольные множества, тогда произвольные подмножества декартового произведения $\rho \in X \times Y$ называются бинарными отношениями между $x \in X$ и $y \in Y$.
+	
+		\subsection{Свойства отношений}
+		\begin{enumerate}
+			\item $\forall x \in X : (x, x) \in \rho$ - рефлексивность.
+			\item $\forall x, y \in X : (x, y) \in \rho \to (y, x) \in \rho$ - симметричность.
+			\item $\forall x, y \in X, x \neq y : (x, y) \in \rho \to (y, x) \notin \rho$ - асимметричность.
+			\item $\forall x,y,x \in X : (x, y) \in \rho \wedge (y, z) \in \rho) \to (x, z) \in \rho$	
+		\end{enumerate}
+		
+		\paragraph{Классы отношений}
+		К первому классу отношений (отношения эквивалентности) относятся все отношения которые удовлетворяют 1, 2 и 4 свойствам (Быть одного пола, возраста). Ко второму классу (отношения порядка) относятся все, удовлетворяющие свойствам 1, 3 и 4.
+	
+	\section{Мощность множества. Эквивалентные множества.}
+		Пусть $A$ и $B$ - конечные множества.\\
+	
+		$\begin{array}{|c|c|c|c|}
+		\hline
+		A & a_1 & a_2 & a_3\\
+		\hline
+		B & b_1 & b_2 & b_3
+	%	\hline
+		\end{array}$\\
+		
+		\paragraph{Определение эквивалентности} $A, B$ эквивалентные ($A\sim B$), если между элементами этих множеств можно установить
+		взаимно однозначные соответствия ($1-1$).
+		
+		$A \sim B$ есть отношение эквивалентности на классе множеств.\\
+		1) Если $A \sim B$, то $B \sim A$.\\
+		2) Если $A \sim B \wedge B \sim C \to A \sim C$		
+		\subparagraph{Пример}
+		$A = N, B = \{2n | n \in N\} \rightarrow A \sim B$
+		\paragraph{Понятие мощности}
+		Мощность множества есть число элементов в этом множестве: $|A| = |B| = 3 \Leftrightarrow A \sim B$
+	
+	\section{Счетные множества}
+		\subsection{Определение}
+			$A$ - счетное множество, если $A \sim N$, где $N$ - множество натуральных чисел.\\
+			$|N| = \omega_0 = \omega$ - обозначения мощности множества $N$
+		\subsection{Свойства}
+			\paragraph{Теорема 1} 	$A$ - счетное множество $\Leftrightarrow A = \{a_1, a_2, \dots, a_n \}$ 
+			\subparagraph{Доказательство} $\Rightarrow f : N \to A; a_n = f(n)$\\$\Leftarrow A = {a_1, a_2, a_3, \dots}; f(n) = a_n : N \to A$
+			\paragraph{Теорема 2} Объединение счетного числа конечных множеств счетно. Пусть $A_n, n \in N$, тогда $|\cup_{n=1}^{\infty} A_n| = \omega$
+			\subparagraph{Доказательство}
+			$A_1 = \{a_1^1, a_2^1, a_3^1, \dots, a_n^1\}\\
+			 A_2 = \{a_1^2, a_2^2, a_3^2, \dots, a_n^2\}\\
+			 \vdots 
+			 A_3 = \{a_1^k, a_2^k, \dots, a_n^k\}$, объединив все множества, элементы этого объединения можно будет перенумеровать, следовательно объединение счетно.
+			\paragraph{Теорема 3} Объединение двух счетных множеств счетно. $|A| = |B| = \omega$, тогда $C = A \cup B \to |C| = \omega$
+			\subparagraph{Следствие} Объединение любого конечного числа счетных множеств счетно.
+			\paragraph{Теорема 4} Объединение счетного числа счетных множеств счетно. Пусть $\{A_n\}_{n=1}^{\infty}, \forall n : |A_n| = \omega$, тогда $|\cup_{n=1}^{\infty} A_n| = \omega$
+			\subparagraph{Следствие} Декартово произведение двух счетных множеств счетно. Пусть $|A| = \omega; |B| = \omega$, тогда $|A \times B| = \omega$
+			\paragraph{Теорема 5} Пусть $B$ - бесконечное множество, $|A| = \omega$, тогда $A \cup B \sim B$.
+			\subparagraph{Доказательство} Пусть $C = \{c_1, c_2, \dots, c_n, \dots\} \subset B$ - счетное подмножество бесконечного множества B. $C' = \{c_1, c_3, c_5, \dot\}$, $C'' = \{c_2, c_4, c_6, \dots\}$. Тогда, \\
+			$(B\setminus C) \cup C \sim B$;\\
+			$(B\setminus C) \cup C' \sim B$, так как $C \sim C'$;\\
+			$(B\setminus C) \cup C' \sim ((B\setminus C) \cup C') \cup C'' \sim B \cup C'' \sim B \cup A$.
+			\paragraph{Теорема 6} Если $B$ - бесконечное несчетное множество, тогда $B\setminus C \sim B$, где $C$ - счетное конечное подмножество $B$.
+			\subparagraph{Доказательство} О.П.  Пусть $|B\setminus C| = \omega$, тогда $B = (B\setminus C)\cup C$, по теореме 3 $|B| = \omega$, что противоречит тому, что $B$ - бесконечное множество.
+			
+	\section{Разбиение на множества}
+		Пусть $K = \{ k_{i} \}_{ i \in I }$ - семейство подмножеств (множество множеств) множества $X$. Тогда $K$ - разбиение $X$, если: 
+		\begin{itemize}
+			\item $\forall i : K_i \ne \oslash$
+			\item $\cup_{i \in I} K_i = X$
+			\item $\exists x \in K_i \cup K_j \to K_i = K_j$
+		\end{itemize}
+		Разбиение $K$ задает отношение эквивалентности на $I$.
+		
+		\paragraph{Теорема} Пусть $X$ - множество, $\rho$ - отношение эквивалентности на $X$, тогда существует разбиение 
+		$K$, такое, что $\rho = K_i$.
+
+	\section{Действительное число}
+			\paragraph{Множества чисел}
+			$N = \{1, 2, 3, 4, \dots\}$ - множество натуральных чисел. \\
+			$Z = \{\dots, -2, -1, 0, 1, 2, \dots\}$ - множество целых чисел.\\
+			$Q = \{\frac{m}{n} : n \in N \vee m \in Z\}$ - множество рациональных чисел.\\
+			$R$ - множество вещественных чисел.
+		\subsection{Определение множества действительных чисел}
+			\begin{itemize}
+				\item Аксиоматический. Для определения множества с помощью этого подхода необходимо доказать непротиворечивость аксиом с помощью конкретной модели.
+				\item Конкретная модель: сечение Дедекинда; фундаментальные последовательности; бесконечная десятичная дробь. 
+			\end{itemize}
+			\paragraph{Доказать, что $\sqrt{2}$ - не рациональное число.}
+			Пусть $\sqrt{2} \in Q \to \sqrt{2} = \frac{m}{n}$ - не сокращаемая дробь. Возведем в квадрат обе части выражения: $2 = \frac{m}{n}^2 \to 2n^2 = m^2 \Rightarrow m$ - четное, пусть $m = 2k$, $\to 2n^2 = 4k^2 \to n^2 = 2k^2$ - противоречие, дробь сокращается.
+		\subsection{Аксиоматическое определение}
+			Множество вещественных чисел есть объект, который удовлетворяет следующим аксиомам.
+			\subsubsection{I Аксиомы порядка}
+			$\forall a, b \in R :$ определены следующие аксиомы.
+			\begin{enumerate}
+				\item $\forall a, b \in R:$ имеет место \textit{ровно одно из отношений:} $a > b \vee a < b \vee a = b$.
+				\item $\forall a, b, c \in R : (a < b \wedge b < c) \Rightarrow a < c$.
+				\item Если $a < b$, то $\exists c \in R: a < c < b$.
+			\end{enumerate}
+			\subsubsection{II Аксиомы сложения}
+			$\forall a,b \in R:$ определена сумма $(a+b)\in R$, которая удовлетворяет следующим аксиомам.
+			\begin{enumerate}
+				\item $a + b = b + a$.
+				\item $(a + b) + c = a + (b + c)$.
+				\item $\exists 0 \in R : a + 0 = a$.
+				\item $\forall a\in R : \exists (-a) : a + (-a) = 0$.
+				\item $\forall a, b, c \in R, a < b: (a+c) < (b+c)$.
+			\end{enumerate}
+			\subsubsection{III Аксиомы умножения}
+			$\forall a, b \in R, ab \in R$ определены следующие аксиомы.
+			\begin{enumerate}
+				\item $ab = ba$.
+				\item $a(bc) = (ab)c$.
+				\item $\exists 1 \in R : \forall a \in R : a*1 = a$.
+				\item $\forall a \in R, a \neq 0 \exists : \frac{1}{a} \in R : a\frac{1}{a} = 1$.
+				\item $\forall a, b, c \in R : (a+b)c = ac + bc$.
+				\item $\forall a, b, c \in R, (a < b) \wedge (c > 0) : ac < b$.
+			\end{enumerate}
+			\subsubsection{VI Аксиома Архимеда}
+			$\forall c > 0 : \exists n \in N : n > c$
+			\subsubsection{V Аксиома}
+			Пусть $X, Y$ - множества, $\forall x \in X, y \in Y : x < y$, тогда $\exists c \in R : x \le c \le y$.
+		\subsection{Следствия из аксиом}
+		Для множества $Z$ действительны аксиомы I (кроме 3), II, III (кроме 4), IV.\\
+		Для множества $Q$ действительны все аксиомы, кроме V.\\
+		Для множества $R$ действительны все аксиомы.
+			\paragraph{Следствие 1} $a > b, c > d \Rightarrow a + c > b + c$.
+			\paragraph{Следствие 2} Если $a > 0$, то $-a < 0$ (Равно обратное)
+			\subparagraph{Доказательство} Пусть $-a > 0$, тогда $a + (-a) > 0$, но $a + (-a) = 0$, что противоречит неравенству.
+			\paragraph{Следствие 3} 0 и 1 - единственны.
+			\subparagraph{Доказательство} Пусть есть $0_1$ и $0_2$, тогда $0_1 = 0_1 + 0_2 = 0_2$.
+			\paragraph{Следствие 4} $-a$ и $\frac{1}{a}$ - единственны.
+			\subparagraph{Доказательство} Пусть есть $(-a)_1$ и $(-a)_2$, тогда $a + (-a)_1 = a + (-a)_2 = 0$ - по аксиоме II 4. \\
+			Пусть есть $a_1$ и $a_2$, тогда $a_1\frac{1}{a_1} = a_2\frac{1}{a_2} = 1$ - по аксиоме III 4.
+			\paragraph{Разность и частное} $a - b = c$, где $c$ такое, что $a = b+c$. $\frac{a}{b} = c$, где $c$ такое, что $a = bc$.
+			\paragraph{Следствие 5} $a-b$ и $\frac{a}{b}$ - единственны
+			\paragraph{Следствие 6} $1 > 0$.
+			\paragraph{Следствие 7} $-a = (-1)a$.
+			\subparagraph{Доказательство} $1a + (-1)a = a(1-1) = a0 = 0$. 
+		\subsection{Аксиома Архимеда и ее следствия}
+			\paragraph{Аксиома А.} 	$\forall c > 0 : \exists n \in N : n > c$.
+			\paragraph{Теорема} $\forall x \in R, h \in R, h > 0 : \exists k_0 \in Z : (k_0-1)h \le x \le k_0h$
+			\subparagraph{Доказательство} Пусть есть множество $X = \{k \in Z : k > \frac{x}{h}\}$ и $k_0 = \min X$ - минимальный элемент этого множества. Тогда, если $k_0 > \frac{x}{h}$, то $k_0 - 1 \le \frac{x}{h}$.
+			\subparagraph{Следствие 1} $\forall \epsilon > 0 : \exists n_0 \in N : n_0 < \frac{1}{n_0} < \epsilon$.
+			\subparagraph{Доказательство}
+				Зафиксируем $x = 1$. Если $k = \epsilon$, то $n_0 = k_0$.
+			\subparagraph{Следствие 2} Если $x \geq 0 \wedge \forall n \in N : x < \frac{1}{n}$, то $x = 0$.
+			\subparagraph{Доказательство}
+				Если $x < \frac{1}{n}$, так как $n$ принадлежит множеству натуральных чисел, то $x = 0$ при любых $n$ (минимальное значение дроби равно единице).
+			\subparagraph{Следствие 3} $\forall a, b \in R, (a < b) : \exists r \in Q : a < r < b$.
+			\subparagraph{Доказательство С3} $b-a>0$, тогда $\exists n_0 \in N : \frac{1}{n_0} < b-a. \exists k_0 : a < k_0\frac{1}{n_0} \wedge (k_0 - 1)\frac{1}{n_0} \le a$\\
+			$b > \frac{1}{n_0} + a \geq \frac{k_0}{n_0}$\\
+			$a < \frac{k_0}{n_0} < b$.
+			\subparagraph{Следствие 4} $\forall a,b \in R \exists \gamma \in R\setminus Q : a < \gamma < b$. $R\setminus Q$ - множество иррациональных чисел.
+	\subsection{Понятие стабилизации}
+			Пусть $m_n$ - последовательность целых чисел. Будем говорить, что $m_n$ стабилизируется к некоторому числу $m \in Z$, если $\exists k \in N : \forall n',n'' > k : m_{n'} = m_{n''}$. Обозначение: $m_n \rightrightarrows m$. $0,5,5,5$ - стабилизируется к 5.
+			
+			$\{a_n\}_{n=1}^\infty$ - последовательность вещественных чисел.\\
+			$a_1 = \alpha_0^1, \alpha_1^1\alpha_2^1\dots\alpha_k^1\dots$\\
+			$a_2 = \alpha_0^2, \alpha_1^2\alpha_2^2\dots\alpha_k^2\dots$\\
+			$\vdots$\\
+			$a_n = \alpha_0^n, \alpha_1^n\alpha_2^n\dots\alpha_k^n\dots$\\
+			$\vdots$\\
+			Последовательность стабилизируется к числу $a = \gamma_0, \gamma_1\dots$, если $\forall k \in N a_k^n \rightrightarrows \gamma_k$
+		\subsubsection{Лемма о стабилизации последовательности}
+			Если последовательность неубывающая и ограничена сверху, то она стабилизируется к некоторому числу.
+			
+			Пусть $a_n \in R$, $a_n \nearrow$ и ограничена сверху числом $m$, тогда $a_n \rightrightarrows a 
+			\le m$.
+			
+			Из леммы следует, что если последовательность не возрастает и ограничена снизу, то она тоже стабилизируется к некоторому числу. $a \geq m$.	
+				
+		\subsection{Конкретная модель множества действительных чисел}
+			\subsubsection{Последовательности}
+				\paragraph{Определение 1} Пусть $X$ - множество, $N$ - множество натуральных чисел. Отображение $f: N \to X$ называется последовательностью элементов множества $X$. $f(n) = x_n$, где $x_n \in X$. $\{X\}_{n=1}^\infty$ - множество всех элементов последовательности.
+				\subparagraph{Пример} $1,1,1,1 \dots$ - бесконечная последовательность состоящая из одного элемента. $1,0,1,0,1 \dots$ - бесконечная последовательность состоящая из двух элементов.
+				
+				\paragraph{Определение 2} Последовательность $\{x_n\}_{n=1}^\infty \subset N$ называется периодической, если $\exists N_e, m_0$, что $\forall n \ge N_e : x_{n+km_0} = x_n$, где $k \in N$ - произвольное число.
+				\subparagraph{Примеры} $x_1, x_2, \dots, x_{n-1}, x_n, x_{n+1}, x_{n+2}, \underbrace{\dots}_{m_0}, x_n, x_{n+1}, x_{n+2}$
+				
+				\textit{Множество значений элементов периодической последовательности конечно.} Однако, последовательности состоящие из конечного множества элементов необязательно периодические, например, $0,1,0,0,1,0,0,0,1...$
+			\subsubsection{Вещественное число}
+			\paragraph{Десятичная дробь}
+			$a \in R = \alpha_0, \alpha_1\alpha_2\dots$, где $\alpha_0 \in Z, \alpha_k \in \{0, 1, \dots, 9\}$ - бесконечная десятичная дробь.
+			
+			$\alpha_0,000\dots$ - целое число в виде десятичной дроби. $\frac{m}{n}$ - рациональное число можно представить в виде десятичной дроби.
+			
+			\subparagraph{Перевод рационального числа в десятичную дробь}
+			Пусть $x = 3,333\dots = 3,(3) \Rightarrow 10x = 33,(3) \Rightarrow 10x - x = 9x = 30 \Rightarrow x = \frac{30}{9} = \frac{10}{3}$. Исключение, пусть $x = 0,(9) \Rightarrow 10x = 9,(9) \Rightarrow 10x - x = 9x = 9 \Rightarrow x = 1$.
+			
+			\paragraph{На заметку}
+			$\frac{m}{n} \in Q$ - является периодической дробью. Если $a = 0,010010001\dots$, то она является десятичной не периодической дробью - $a \in R\setminus Q$ - иррациональным числом.
+			
+			\subsubsection{Умножение и сложение вещественных чисел}
+			
+			\paragraph{Срезка числа}
+			$a^{(n)}$ - n-ая срезка числа $a$. $a^{(n)} = \alpha_0, \alpha_1\alpha_2\dots\alpha_n000\dots \in Q$ \\
+			$a^{(n)} \rightrightarrows a$
+								
+			\paragraph{Операции}
+			Рассмотрим такие $a = \alpha_0,\alpha_1\alpha_2\dots > 0$ и $b = \beta_0,\beta_1\beta_2\dots > 0$.\\
+			\begin{itemize}
+				\item $a^{(n)} + b^{(n)} \rightrightarrows a + b$
+				\item $a^{(n)} - (b^{(n)} + 10^{-1}) \rightrightarrows a - b$
+				\item $\frac{a^{(n)}}{b^{(n)} + 10^{-1}} \rightrightarrows \frac{a}{b}$
+			\end{itemize}
+			
+			\subsubsection{Виды последовательностей}
+			$X = \{a_n\}_{n=1}^\infty \nearrow$ - \textit{не убывает}, если $a_n \le a_{n+1} \nearrow$; \textit{возрастает}, если $a_n < a_{n+1}$;  \textit{не возрастает}, если $a_n \geq a_{n+1}\searrow$; \textit{убывает}, если $a_n > a_{n+1} \searrow$.
+			
+			* Если $a > 0$, то $a^{(n)} \nearrow$ 
+			\subsubsection{Ограничение сверху}
+			$\{a_n\}_{n=1}^\infty$ ограничена сверху числом m, если $\forall n \in N : a_n \le m$.
+			
+			* Если $a > 0$, то $a^{(n)}$ ограничена сверху числом $a$.
+		
+		\subsection{Вложенные отрезки}
+		$I_m = [a_n, b_n]$ - последовательность отрезков, которая называется вложенной, если $\forall n \in N : I_{n+1} < I_n$.
+		
+			\subsubsection{Лемма Кантора о вложенных отрезках}
+			\paragraph{Предел}
+			Числовая последовательность $a_n \to 0$, при $n -> \infty$ ($\lim\limits_{n\to\infty} a_n = 0$), если $\forall \epsilon > 0 \exists N : \forall n > N : |a_n| < \epsilon$.	
+					
+			\paragraph{Лемма}
+			Пусть $I_n$ - последовательность вложенных отрезков, тогда $\cap_{n=1}^{\infty} I_n \neq \varnothing$. При этом, если $\lim\limits_{n\to\infty} (b_n - a_n) = 0$, то $\cap_{n=1}^\infty I_n = \{c\}$, где $c$ некоторая точка.
+			
+			\paragraph{Доказательство}
+			Рассмотрим последовательность левых концов $a_n \nearrow$, ограниченную сверху. Тогда, по лемме о стаб. последовательности: $a_n \rightrightarrows a$, где $a$ - некоторое число $\Rightarrow$ $\forall n,m \in N : a \geq a_n \wedge a \le b_m$. Аналогично: последовательность $b_n \searrow$, ограниченная снизу $\Rightarrow \forall m,n \in N : b < b_m \wedge b \geq a_n$. 
+			
+			Из этого следует, что $a_n \le a \le b \le b_m$.\\
+			$[a;b] \subset I_n. \forall n \in N : [a;b] \cap_{n=1}{\infty} I_n$.
+			
+			\paragraph{Замечание}
+			В формулировке теоремы отрезки нельзя заменить интервалами $(0, \frac{1}{n})$ - последовательность вложенных интервалов. Д: О.П. $x \in \cap_{n=1}^\infty (0, \frac{1}{n})$; $x > 0$ $\exists n_0 : \frac{1}{n_0} < x$ $x \notin (0, \frac{1}{n_0}) \Rightarrow x \in \cap(\dots)$.
+			
+			\paragraph{Замечание 2}
+			Во множестве $Q$ лемма Кантора не имеет смысла.
+			
+			\paragraph{Следствие}
+			Множество $[0, 1]$ - не счетно.
+			
+			Пусть $[0, 1]$ - счетное множество $\Rightarrow [0;1] = \{x_1,x_2,\dots,x_3\dots\}$. 
+			
+			Разделим этот отрезок на три равных отрезка. Очевидно, что $x_1$ - не попадает в один из этих отрезков:\\ $x_1 \notin I_1, I_1 = [a_1, b_1] = b_1 - a_1 = \frac{1}{3}$. 
+			
+			Разделим $I_1$ на три равных отрезка, среди них есть такой $I_2$, что $x_2 \notin I_2, I_2 = b_2 - a_2 = \frac{1}{3}^2$. 
+			
+			Пусть $\forall k \le N$ построен отрезок $I_k : x_k \notin I_k \wedge I_k = b_k - a_k = \frac{1}{3}^k \wedge I_1 \subset I_2 \subset \dots \subset I_k$.
+			
+			Разделим отрезок $I_k$ на три равных, среди них есть такой \\$I_{k+1} : x_{n+1} \notin I_{k+1} \wedge I_{k} \subset I_{k+1} \wedge I_{k+1} = b_{k+1} - a_{k+1} = \frac{1}{3}^{k+1}$. И так далее...
+			
+			По лемме Кантора последовательность $I_k$ имеет не пустое пересечение. Рассмотрим $P \cap_{k=1}^{\infty} I_k, x \in [0;1]$. Предположим $[0;1]$ занумерована, т.е. $x = x_{k_0}$, но $x_{k_0} \notin I_{k_0}$ (по построению) $\Rightarrow$ не может принадлежать пересечению $P$.
+			
+			\subsubsection{Мощность континуума}
+			$|R| = |[a;b]| = |[0;1]|$ - мощность континуума - мощность всех вещественных чисел. Любой отрезок имеет мощность континуума.
+			
+			\paragraph{Теорема}
+			Мощность объединения счетного числа множеств с мощностью континуума равно мощности континуума.
+	\section{Границы числовых множеств}
+		\subsection{Верхние и нижние границы}
+			\paragraph{Верхняя граница} Множество $X \subset R$ ограничено сверху числом $M$: $\exists M \in R : \forall x \in X : x \le M$.
+			\paragraph{Нижняя граница} Множество $X \subset R$ ограничено снизу числом $m$: $\exists m \in R : \forall x \in X : x \geq m$.
+			\paragraph{Ограниченно множество} $X \subset R$ - ограничено, если: $\exists m \in R, M \in R : \forall m \le X \le M$.
+			\subparagraph{Доказательство} $\rhd X \ne \varnothing \exists m, M : \forall x \in X : m \le x \le M$.\\
+			$k = max\{|m|,|M|\}$\\
+			$m \le X \le M$, тогда $|x| \le k$.\\
+			$\lhd m = -k; M = k$.
+		\subsection{Точные границы}
+			\paragraph{Точная верхняя граница} Пусть $X$ - множество ограниченное сверху, тогда $min\{M:\forall x \in X : x \le M\} = sup X$ - называется точной верхней границей.\\
+			\textit{1-ое определение}: $M_x = sup X$, если $\forall x \in X : x \le M_x$ и $\forall M' \in R : (M' < M_x \Rightarrow \forall x_{m'} \in X (x > M'))$.\\
+			\textit{2-ое определение}: $M_x = sup X$, если $\forall x \in X : x \le M_x$ и $\forall \epsilon > 0 : \exists x_\epsilon \in X (x_\epsilon > M_x - \epsilon)$.
+			\subparagraph{Доказательство эквивалентности двух определений}
+			$\rhd$ Пусть ${M'}_x = sup X$, возьмем $\epsilon > 0$, $M' = {M'}_x - \epsilon < {M'}_x$\\
+			По первому определению $\exists x_{M'} \in X : x_{M'} > M' \Rightarrow$ выполняется второе свойство из второго определения, первые свойства одинаковы. $\lhd$.
+			\subparagraph{Пример}
+			$sup (a,b) = b; x = \{\frac{1}{n}\}_{n=1}^\infty \to sup x = 1$.
+			\paragraph{Теорема о существовании точных границ числовых множеств}
+			Любое ограниченное сверху множество имеет точную верхнюю границу во множестве $R$.\\
+			Пусть $X \subset R$ и ограничено сверху. Тогда $\exists M_x \in R : M_x = sup x$.
+			\subparagraph{Доказательство}
+			Пусть $Y = \{M : M -$ верхняя граница множества $X\} \neq \varnothing$\\
+			$\forall x \in X, y \in Y : x \le y$, тогда (по пятой аксиоме о действ. числах) $\exists c = M_x \in R : \forall x \in X, y \in Y : x \le c \le y; y = M$.
+			\paragraph{Точная нижняя граница}
+			\textit{1-ое определение}: $m_x = inf X = max \{m : m \mbox{ - нижняя граница}\}$ если $\forall x \in X : m_x \le x$ и $\forall m' \in R : (m' > m_x \Rightarrow \exists x_{m'} : x_{m'} < m')$.\\
+			\textit{2-ое определение}: $m_x = inf X$, если $\forall x \in X : m_x \le x$ и $\forall \epsilon > 0 : \exists x_\epsilon : x_\epsilon < m_x + \epsilon$.
+			\subparagraph{Пример}
+			$inf (a,b) = a; x = \{\frac{1}{n}\}_{n=1}^\infty \to inf x = 0$.
+			\paragraph{Замечание} Во множестве рациональных чисел точные границы не определены.
+	\section{Неравенства для абсолютных величин}
+		\paragraph{Абсолютная величина}
+		$|x| = 
+		\begin{cases}
+		x,&\text{если } x \geq 0,\\
+		-x,&\text{если } x < 0.
+		\end{cases}$\\
+		$|x| < \epsilon \Leftrightarrow -\epsilon < x < \epsilon$.\\
+		$\forall x,y \in R : |x + y| \le |x| + |y|$.
+		\paragraph{Следствие 1}
+		$\forall x,y \in R : | |x| - |y| | \le |x + y|$.
+		\subparagraph{Доказательство}
+		$|x| = |(x+y) - y| \le |x+y| + |-y|$\\
+		$|x| - |y| \le |x + y| \Leftrightarrow |y| - |x| \le |x + y|$.
+		\paragraph{Следствие 2}
+		$\forall a_k \ in R : |\sum\limits_{k = 1}^{n} a_k| \le | \sum\limits_{k=1}^{n}  |a_k|$. Доказывается по индукции.
+		
+\part{Числовые последовательности}
+	
+	\section{Предел}
+		\subsection{Определения предела}
+			\paragraph{Предел} Число $a$ называют пределом последовательности $X_n$ ($a = \limninf X_n$), если\\
+			$\forall \epsilon > 0 \exists N_\epsilon \in N : \forall n \in N : (n > N_\epsilon \Rightarrow |X_n - a| < \epsilon)$.\\
+			$X_n \in (a - \epsilon; a + \epsilon) = O_\epsilon(a)$; $\epsilon$ - окрестность точки $a$.
+			
+			Последовательность, имеющая конечный предел, называется сходящейся.
+			\paragraph{Определение'} $a = \limninf X_n$, если $\exists k > 0 : \forall \epsilon > 0 \exists N_\epsilon \in R : \forall n \in N (n > N_\epsilon \Rightarrow |X_n - a| < k\epsilon)$
+			\paragraph{Определение''} $a = \limninf X_n$, если $\forall 0 < \epsilon < \epsilon_0 \exists N_\epsilon \in R : \forall n \in N (n > N_\epsilon \Rightarrow |X_n - a| < \epsilon)$.
+		\subsection{Теорема об эквивалентности определений}
+			\paragraph{Теорема}
+		 	Все определения предела эквиваленты между собой.
+			\subparagraph{Доказательство} 
+			TODO Дописать
+			
+	\section{Свойства сходящихся последовательностей}
+		\subsection{Ограниченность сходящейся последовательности}
+			\paragraph{Теорема 1} Сходящаяся последовательность ограничена, т.е. $\exists k > 0 : \forall n \in N : |X_n| \le k$.
+			\subparagraph{Доказательство}
+			Пусть $a = \limninf X_n$ \\
+			$\epsilon = 1 \exists N_1 \in N : \forall n > N_1 | X_n - a| < 1$\\
+			$a - 1 < X_n < a + 1$\\
+			$|X_n| < max\{|a+1|, |a-1|\}; k = max\{|x_1|,|x_2|\dots|x_n|,|a+1|,|a-1|\}.$\\
+			$n \in N; |X_n| \le k$.
+			
+			Обратная теорема неверна. Пусть $X_n = (-1)^n\\|X_n| \le 1$ - ограниченная последовательность, но не имеет предела.
+		\subsection{Единственность предела}
+			\paragraph{Теорема 2}
+			Предел сходящейся последовательности единственен.
+			\subparagraph{Доказательство}
+			Пусть есть $a = \limninf X_n, b = \limninf X_n$ и, без ограничения общности, будем считать, что $a < b$.\\
+			Рассмотрим $\epsilon > 0$\\
+			$\exists N_\epsilon^a \forall n > N_\epsilon^a |X_n - a| < \epsilon$,\\
+			$\exists N_\epsilon^b \forall n > N_\epsilon^b |X_n - b| < \epsilon$.\\
+			Пусть $\epsilon = \frac{b-a}{2} > 0$. (Больше нуля по предположению, что $a < b$)\\
+			$|X_n - a| < \frac{b - a}{2} \Rightarrow X_n < a + \frac{b-a}{2}$,\\
+			$|X_n - b| < \frac{b-a}{2} \Rightarrow X_n > b - \frac{b-a}{2}$.\\
+			$\forall n > max\{N_{\frac{b-a}{2}}^a, N_{\frac{b-a}{2}}^b\}$\\
+			$X_n < \frac{a+b}{2}; X_n > \frac{a+b}{2}$ - противоречие.
+		\subsection{Теорема о конечном числе элементов}
+			\paragraph{Теорема 3}
+			Конечное число элементов последовательности не влияет на сходимость или расходимость этой последовательности.
+			
+			Свойство выполняется с некоторого номера: $\exists N_0 \in N : \forall n > N_0 : P(X_n)$.
+		\subsection{Сохранение знака сходящейся последовательности}
+			\paragraph{Теорема 4}
+			Пусть $a = \limninf X_n$ и $a \neq 0 \Rightarrow \exists N_0 : \forall n > N_0 : |X_n| > \frac{|a|}{2}$, более того, если $a > 0$, то $X_n > \frac{a}{2}$; если $a < 0$, то $X_n < \frac{a}{2}$.
+			\subparagraph{Доказательство}
+			$\epsilon = \frac{|a|}{2}	> 0$. $\exists N_0 \forall n > N_0 |X_n - a| < \frac{|a|}{2}$, т.е. $-\frac{|a|}{2} < X_n < \frac{|a|}{2}$.\\
+			1) $a > 0 : X_n > \frac{a}{2}, |X_n| > \frac{|a|}{2}$\\
+			2) $a < 0 : xn < \frac{a}{2} < 0, |X_n| > \frac{|a|}{2}$
+			
+			$\limninf X_n = 0$\\
+			$X_n = \frac{1}{n}$\\
+			$Y_n = -\frac{1}{n}$\\
+			$C_n = \frac{(-1)^n}{n}$.
+		\subsection{Переход предела в неравенство}
+			\paragraph{Теорема 5}
+			Пусть $a = \lim\limits_{n\to \infty} X_n$ и $b = \lim\limits_{n\to\infty} Y_n$,
+			$\exists N_0 : \forall n > N_0 : (X_n \le Y_n)$,\\тогда $a \le b$
+			\subparagraph{Доказательство} Пусть $a > b$. Рассмотрим $\epsilon = \frac{a-b}{2}$\\
+			$\exists N_\epsilon^a : \forall n > N_\epsilon^a (X_n > \frac{a+b}{2})$,\\
+			$\exists N_\epsilon^b : \forall n > N_\epsilon^b (Y_n < \frac{a+b}{2})$.\\
+			$n > \max \{N_\epsilon^a, N_\epsilon^a, N_0\}$\\
+			$Y_n < \frac{a+b}{2} < X_n$, $X_n \le Y_n$ - противоречие.
+		\subsection{Лемма о двух милиционерах}
+			\paragraph{Теорема 6}
+			Пусть $\lim\limits_{n \to \infty} X_n = \lim\limits_{n\to \infty} Y_n = a$ и $X_n \le Z_n \le Y_n$,\\
+			тогда $\lim\limits_{n \to \infty} Z_n = a$.
+			\subparagraph{Доказательство}
+			Положим $\epsilon > 0$. $\exists N_\epsilon^X \forall n > N_\epsilon^X |X_n - a| < \epsilon \Rightarrow a\epsilon < X_n$.\\
+			$\exists N_\epsilon^Y \forall n > N_\epsilon^Y |Y_n - a| < \epsilon \Rightarrow Y_n < a + \epsilon$.\\
+			$N_\epsilon^Z = max \{N_\epsilon^X, N_\epsilon^Y\}\\ a - \epsilon < X_n \le Z_n \le Y_n < \epsilon + a$.\\
+			$\forall n > N_\epsilon^Z |Z_n - a| < \epsilon$, т.е. $\lim\limits_{n\to \infty} Z_n = a$.
+		\subsection{Абсолютное значение предела}
+			\paragraph{Теорема 7}
+			Если $X_n \to_{n\to \infty} a$, то $\lim\limits_{n\to \infty} |X_n| = |a|$.
+			\subparagraph{Доказательство}
+			Положим $\epsilon > 0$. $\exists N_\epsilon \forall n \in N ||X_n| - |a|| \le |X_n - a| < \epsilon$.
+			\subparagraph{Замечание}
+			Обратная теорема верна при $a = 0$.
+			
+			Пусть $a \neq 0$. $X_n = (-1)^na = -a, a, -a, a \dots$ - последовательность не имеет предела.\\
+			$|X_n| = |a| \Rightarrow \lim\limits_{n\to \infty} |X_n| = |a|$.
+	\section{Бесконечно малые и бесконечно большие последовательности}
+		\paragraph{Б.м. последовательность}
+		Последовательность $\seqn{\alpha}$ называется бесконечно малой, если $\limninf \alpha_n = 0$, т.е. $\forall \epsilon > 0 \exists N_\epsilon : \forall n \in N (n > N_\epsilon \Rightarrow |\alpha_n| < \epsilon)$.
+		\paragraph{Б.б. последовательность}
+		Последовательность $\seqn{A}$ называется бесконечно большой, если $\limninf A_n = \infty$, т.е. $\forall E > 0 \exists  N_E \forall n \in N (n > N_E \Rightarrow |A_n| > E)$. \\
+		$O_E(\infty) = (-\infty, -E) \cup (E, \infty)$.
+		\paragraph{$+\infty$ и $-\infty$}
+		$\limninf a_n = +\infty : \forall E > 0 \exists N_E : \forall n \in N (n > N_E \Rightarrow a_n > E)$. $O_E(+\infty) = (E; +\infty)$.\\
+		$\limninf a_n = -\infty : \forall \epsilon > 0 \exists N_\epsilon : \forall n \in N (n > N_\epsilon \Rightarrow a_n < -\epsilon)$.
+		
+		\subsection{Связь между бесконечно малыми и бесконечно большими последовательностями}
+			\paragraph{Теорема 1}
+			Пусть $\limninf \alpha_n = 0$ и $\forall n \alpha_n \neq 0$, тогда $a_n = \frac{1}{\alpha_n}$ - бесконечно большая последовательность.\\
+			Пусть $\limninf a_n = \infty$, тогда $\alpha_n = \frac{1}{a_n}$ - бесконечно малая последовательность.
+			\subparagraph{Замечание} ко второй части теоремы.
+			Если $\limninf a_n = \infty$, то, начиная с некоторого номера, все ее элементы не будут равны нулю.
+			\subparagraph{Доказательство} 1) Пусть $\alpha_n$ - б.м. последовательность.\\
+			Положим $E > 0$. $\epsilon = \frac{1}{E} > 0$ $\exists N_\epsilon : \forall n \in N : (n > N_\epsilon \Rightarrow |\alpha_n| < \epsilon)$. $|A_n| = \frac{1}{|\alpha_n|} > \frac{1}{\epsilon} = E$.
+			
+			2) Пусть $A_n \neq 0$ - б.б. последовательность, $\alpha_n = \frac{1}{A_n}$ - б.м. послед.\\
+			Положим $\epsilon > 0$. $E = \frac{1}{\epsilon} > 0$ $\exists N_E \forall n \in N |A_n| > E$. $|\alpha_n| = \frac{1}{|A_n|} < \frac{1}{E}$.
+		\subsection{Арифметические свойства б.м. последовательностей}
+			\paragraph{Теорема 2}
+			Пусть $\alpha_n$ и $\beta_n$ - б.м. п., тогда $\gamma = \alpha_n + \beta_n$ - б.м. п. и $y = a\alpha_n$, где $a \in R$ - б.м. п.
+			\subparagraph{Замечание}
+			Линейная комбинация б.м. последовательностей является б.м. последовательностью. $a\alpha_n + b\beta_n$ - б.м. п.
+			\subparagraph{Доказательство}
+			(+) Положим $\epsilon > 0$. $N_{\frac{\epsilon}{2}}^\alpha : \forall n > N_{\frac{\epsilon}{2}}^\alpha : |\alpha_n| < \frac{\epsilon}{2}$.\\
+			$\exists N_{\frac{\epsilon}{2}}^\beta : \forall(n > N_{\frac{\epsilon}{2}}^\beta : |\beta_n| < \frac{\epsilon}{2}$
+			
+			Если $N = max\{ N_{\frac{\epsilon}{2}}^\alpha,  N_{\frac{\epsilon}{2}}^\beta\}$, то неравенство (в определениях выше) выполняется одновременно.
+			
+			$|\gamma_n| = |\alpha_n + \beta_n| \le |\alpha_n| + |\beta_n| < \epsilon$.
+			
+			(*) Положим $\epsilon > 0, a \neq 0, \frac{\epsilon}{|a|} > 0$.
+			$\exists N_{\frac{\epsilon}{|a|}} : \forall n > N_{\frac{\epsilon}{|a|}} : |\alpha_n| < \frac{\epsilon}{|a|} \Rightarrow |a\alpha_n| < \epsilon$.
+		\subsection{}
+			\paragraph{Теорема 3}
+			Пусть $\seqn{a} = sup$. $\seqn{\alpha}$ - б.м. п. Тогда $\alpha_n a_n$ - б.м. п.
+			\subparagraph{Доказательство}
+			$\seqn{a};$ - ограничена, т.е. $\exists a > 0 : \forall n \in N |a_n| \le a$. $0 \le |a_n\alpha_n| \le a|\alpha_n|$. По лемме о двух милиционерах $|a_n\alpha_n|$ - б.м. п.
+		\subsection{Связь между б.м. п. и сходящимися последовательностями}
+			\paragraph{Теорема 4}
+			Для того, чтобы последовательность $a_n = \seqn{a}$ сходилась в $a = \limninf a_n$, необходимо и достаточно, чтобы $\exists \seqn{\alpha}$ - б.м. п. $a_n = a + \alpha_n$.
+			\subparagraph{Доказательство}
+			$\rhd \alpha_n = a_n - a$, надо показать, что $\alpha_n$ - б.м. п.\\
+			Положим $\epsilon > 0$ $\exists N_\epsilon \forall n \in N (n > N_\epsilon \Rightarrow |\alpha_n| = |a_n - a| < \epsilon)$.\\
+			$\lhd a_n = a+\alpha_n$ - сходится. $|a_n - a| = \alpha_n < \epsilon$. 
+		\subsection{Арифметические свойства пределов}
+			\paragraph{Теорема 5}
+			Пусть есть такие последовательности: $\seqn{a}, \seqn{b}$. $\limninf a_n = a, \limninf b_n = b$.\\
+			Тогда 
+			\begin{eqnarray}
+				\limninf a_n + b_n = a + b\\
+				\limninf ka_n = kn\\
+				\limninf a_n b_n = ab\\
+				\limninf \frac{a_n}{b_n} = \frac{a}{b}
+			\end{eqnarray}
+			Комментарий к последнему свойству: Если $b \neq 0$, то, по закону о сохранении знака, начиная с некоторого номера, все элементы $b_n$ неравны нулю.
+			\subparagraph{Доказательство}
+			1) $a_n = a + \alpha_n$ - $\alpha_n$ - б.м. п.; $b_n = b + \beta_n$ - $\beta_n$ - б.м. п., но тогда\\
+			$a_n  + b_n = (a + b) + (\alpha_n + \beta_n)$, где в первой группе выражение является числом, а во второй - б.м. последовательностью.
+			
+			3) $a_n b_n = (a+\alpha_n)(b+\beta_n) = ab + (a\beta_n + b\alpha_n + \alpha_n\beta_n)$, - выражение, где первое слагаемое число, а второе - б.м. последовательность. 
+			
+			4) $\exists N \forall n > N : |b_n| = \frac{|b|}{2}$ - по закону о сохр. знака.\\
+			$|\frac{a_n}{b_n} - \frac{a}{b}| = |\frac{a_nb - ab_n}{b_nb}| < \frac{2}{b^2}|a_nb - ab_n|$\\
+			$0 \le |\frac{a_n}{b_n} - \frac{a}{b}| < \frac{2}{b^2}|a_nb - ab_n|$. Правая часть неравенства стремиться к нулю ($a_nb \to ab, ab_n \to ab)$ и левая часть так же стремится к нулю.
+	\section{Подпоследовательности}
+		$x_1,x_2, \dots x_n, \dots = \seqn{x}$. Зададим возрастающую последовательность номеров: $n_1 < n_2 < n_3 < \dots < n_k < n_{k+1} < \dots$. Тогда $\seq{x}{nk} = x_{n1}, x_{n2}, \dots, x_{nk}, \dots$ - подпоследовательность.
+		
+		\paragraph{Определение} Последовательность $x_{nk}$ называется подпоследовательностью $\seqn{x}$
+		
+		\subsection{Теорема Больцано — Вейерштрасса}
+			\paragraph{Теорема 1}
+			Из любой ограниченной последовательности можно выделить сходящуюся подпоследовательность.
+			\subparagraph{Доказательство}
+			Пусть $\seqn{x}$ - ограничена и все ее числа заключены в отрезок $ab$.
+			%рис. 1
+			Разделим отрезок  $ab$ пополам. $\delta_1$ самый правый отрезок их двух, которой содержит бесконечное число элементов последовательности. $|\delta_1| = \frac{b-a}{2}$
+			
+			Разделим отрезок $\delta_1$ пополам. $\delta_2$ - самый правый из этих  отрезков, содержащий бесконечное число элементов. Будем так продолжать до бесконечности. 
+			
+			На каком-то $k$-ом шаге найдется такое $n_k > n_{k-1}$, причем $x_{nk} \in \delta_k$ содержит бесконечное число элементов. $|\delta_k| = \frac{b-a}{2^l} \to 0, k \to \infty$.
+			
+			$\exists a' : \cap_{k=1}^\infty \delta_k = \{a'\}$. Пусть $\delta_k = [a_k, b_k], a_k \nearrow, b_k \searrow$, кроме того: $a_k \le x_{nk} \le b_k$.
+			
+			$\exists \epsilon > 0 : \forall N_\epsilon : \forall n > N : (b_k - a_k) < \epsilon$. $a_k \le a' \le b_k, a' = \sup \{a_k\} = \inf \{b_k\}$
+			
+			$\forall n > N_\epsilon : 0 < b_k - a' \le b_k - a_k < \epsilon, \\ 0 < a' - a_l \le b_k - a_k < \epsilon$.
+			
+			По лемме о двух милиционерах: из того, что $a_k \to a'$ и $b_k \to a'$, следует $\{x_{nk}\}_{k=1}^\infty \to  a'$.
+			
+			\paragraph{Теорема 2}
+			Если последовательность неограниченная, то из нее можно выделить последовательность сходящуюся к бесконечности. Если последовательность ограничена снизу, то $\exists \lim\limits_{k\to\infty} x_{nk} = -\infty$. Если последовательность ограничена сверху, то $\exists \lim\limits_{k \to \infty} x_{nk} = + \infty$
+			\subparagraph{Доказательство}
+			Пусть $\seqn{x}$ не ограниченная последовательность, тогда $\forall m > 0 \exists N_m : |x_n| > M$.
+			
+			Зафиксируем $\epsilon_1 = 1$. $\exists n_1 : |x_{n1} > 1$\\
+			$\epsilon_2 = 2$. $\exists n_2 > n_1 : |x_{n2}| > 2$\\
+			$\vdots$\\
+			$\epsilon_k = k$. $\exists n_k > n_{k-1} : |x_{nk}| > k$.\\
+			$\vdots$.
+			
+			От сюда следует, что $x_{nk}$ - подпоследовательность $x_n$, такая, что $|x_{nk}| > k$ и $|x_{nk}| \to \infty$,
+			при $x \to \infty$.
+			
+		\subsection{Частичные пределы}
+			Вернемся к теореме Б-В(1). $a' = \lim\limits_{k \to \infty} x_{nk}$, где $a'$ - частичный предел последовательности $x_n$.
+			
+			Если $\seqn{x}$ - ограничена, то $A' = \{a'\}$ - множество частичных пределов $x_n$ ограничено.
+			
+			Наибольший из частичных пределов - верхний предел, обозначается как: $\varlimsup\limits_{n \to \infty} x_n$. Наименьший из частичных пределов - нижний предел, обозначается как: $\varliminf\limits_{n \to \infty} x_n$. Очевидно, что верхний предел меньше чем нижний предел, но, если последовательность сходится, то эти пределы равны!
+			
+			\paragraph{Лемма 1}
+			Число $a'$ - частичный предел последовательности $\seqn{x}$ тогда и только тогда, когда $O_\epsilon(a')$ содержит бесконечно много элементов последовательности: $|\{n : a' - \epsilon < x_n < a' + \epsilon\}| = \omega$.
+			
+			\subparagraph{Доказательство}
+			$\rhd \exists \{x_{nk}\}_{k=1}^\infty$ - подпоследовательность $x_n$ : $x_{nk} \to a'$.
+			
+			$\lhd \epsilon_1 = 1 : x_n \in (a' - 1, a' + 1)\\
+			\epsilon_2 = \frac{1}{2} : n_2 > n1, x_{n2} \in (a' - \frac{1}{2}, a' + \frac{1}{2}) \Rightarrow n_k > n_{k} - 1 \Rightarrow x_{nk} > a' - \frac{1}{k}$ и $x_{nk} < a' + \frac{1}{k}$. По лемме о двух милиционерах, так как $1 \pm \frac{1}{k} \to a'$, то и $x_{nk} \to a'$.
+			
+			\paragraph{Следствие}
+			Число $b'$ не является частичным пределом тогда и только тогда, когда $\exists \epsilon_0 > 0 : |\{n : x_n \in O_{\epsilon_0}(b')\} < \omega$.
+			\paragraph{Теорема 3}
+			Ограниченная последовательность всегда имеет верхний и нижний предел.
+			\subparagraph{Доказательство}
+			Пусть $\seqn{x}$ - ограничена (Множество частичных пределов $A' \neq \varnothing$ - ограничено $\Rightarrow M = \sup A'$ и $m = \inf A'$.)
+			
+			Покажем от противного, что $M \in A'$, то есть $M$ является частичным прелом $x_n$.
+			
+			Пусть $M \notin A' \forall \epsilon > 0 |O_\epsilon(M) \cap A'| = \omega$.\\
+			$a' \in O_\epsilon(M \cap A')$\\
+			$\epsilon_1 = min\{a' - M + \epsilon, M - a'\}$\\
+			$O_{\epsilon_1}(a') \subset O_\epsilon(M), O_{\epsilon_1}(a')$ содержит бесконечное число элементов $ \Rightarrow M \in A'$. Что и т.д.
+	\section{Критерий Коши сходимости числовой последовательности}
+		 Последовательность $\seqn{x}$ называется фундаментальной последовательностью (последовательностью Коши), если $\forall \epsilon > 0 \exists N_\epsilon : \forall n, m \in N (m > N_\epsilon \wedge n > N_\epsilon \Rightarrow |x_n - x_m| < \epsilon)$ 
+
+		\subparagraph{Эквивалентное определение} $\forall \epsilon > 0 \exists N_\epsilon, \forall n \in N, p \in N : (n,m > N_\epsilon \Rightarrow p(x_n, x_m) < \epsilon) $
+
+		\subsection{Лемма об ограниченности} Фундаментальная последовательность ограничена.
+		\paragraph{Доказательство}
+		Пусть $\seqn{x}$ - последовательность Коши. рассмотрим число $\epsilon = 1$. $\exists N_\epsilon : \forall n,p \in N (N > N_\epsilon \Rightarrow x_{n+p} - x_n) < 1$. Зафиксируем число $n_1 > N_\epsilon$. Тогда $x_{n_1} - 1 < x_{n+p} < 1 + x_{n_1}$.
+
+		Пусть $m = max\{|x_1|, |x_2|, \dots, |x_{n_1}|, |x_{n_1+1}| \}$, тогда $\forall n \in N (|x_n| <= m)$. Это значит, что последовательность ограничена.
+
+		\subsection{Теорема (критерий сходимости)}
+		Для того чтобы	$\seqn{x}$ сходилась, необходимо и достаточно, чтобы последовательность $\seqn{x}$ была последовательностью Коши.
+		\paragraph{Доказательство}
+			$\rhd a = \limninf x_n$, возьмем $\epsilon > 0$. $\exists N_\epsilon : \forall n \in N (n > N_\epsilon \Rightarrow |x_n - a| < \frac{\epsilon}{2})$, рассмотрим $m, n > N_\epsilon$, $|x_m - x_n| = |(x_m - a) + (a - x_n)| \le |x_m-a| + |x_n - a| < \epsilon$ - по неравенству треугольника.
+			
+			$\lhd$ Рассмотрим $\seqn{x}$ - последовательность Коши, ограниченная (по лемме). Так как она ограничена, по теореме Больцано — Вейерштрасса существует $\seq{x}{nk}$ которая сходится к числу $a$. 
+			Покажем, что вся последовательность сходится к $a$. $\forall \epsilon > 0 : \exists K_\epsilon : \forall n_k (n_k > K_\epsilon \Rightarrow |X_{nk} - a| < \frac{\epsilon}{2})$. В силу фундаментальности последовательности, $\forall \epsilon > 0 : \exists N_\epsilon : n, m > \epsilon : |x_n - x_m| < \frac{\epsilon}{2}$. А это и означает, что последовательность $\seqn{x}$ сходится к $a$.
+			
+			$|x_n - a| = |x_n - x_{nk} + x_{nk} - a| \le |x_{n} - x_{nk}| + |x_{nk} - a|$. $x_{nk} = max\{N_\epsilon, K_\epsilon\} \Rightarrow |x_n - a| < \epsilon$
+		\subsection{Отрицание фундаментальности}
+			$\seqn{x}$ не является последовательностью Коши. Это значит: $\exists \epsilon_0 > 0 : \forall N_{\epsilon_0} \exists n > N_{\epsilon_0}, p \in N : |x_{n+p} - x_n| >= \epsilon_0$
+			
+			\paragraph{Пример}
+			$\seqn{x} = 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n}$, покажем, что она не является последовательностью Коши. \\$x_1 = 1, x_2 = 1 + \frac{1}{2}, x_3 = 1 + \frac{1}{2} + \frac{1}{3}$ - с каждым слагаемым слагаемое уменьшается.
+			
+			Рассмотрим $x_{n+p} - x_n = 1 + \frac{1}{2} + \dots + \frac{1}{n} + \frac{1}{n+1} + \dots + \frac{1}{n+p} - (1 + \frac{1}{2} + \dots + \frac{1}{n}) = \frac{1}{n+1} + \dots + \frac{1}{n+p} \geq \frac{1}{n+p} + \dots + \frac{1}{n + p} = \frac{1}{np}$.
+	
+	\section{Топология множества R}
+		\subsection{Окрестность точки}
+			Пусть $\epsilon > 0$. $O_\epsilon(a) = (a - \epsilon; a + \epsilon)$ - $\epsilon$-окрестность точки a. \\
+			$O_\epsilon^\vee(a) = O_\epsilon(a) \setminus \{a\}$ - выколотая $\epsilon$-окрестность точки a.
+			
+			Для $R > 0$ : $O_R(\infty) = (-\infty, -R) \cup (R, +\infty)$. $O_R(+\infty) = (R, +\infty)$. $O_R(-\infty) = (-\infty, -R)$
+		\subsection{Предельная точка}
+			\paragraph{Опр. 1} \label{pred_t1} Точка $a$ является предельной точкой множества $A$, если любая выколотая окрестность пересекается с A : $ \forall \epsilon > 0 \exists x_\epsilon \in A\setminus\{a\} : |x_\epsilon - a| < \epsilon $, т.е. $x \in A \cap O_\epsilon^\vee(a)$
+			
+			\paragraph{Опр. 2}  \label{pred_t2} Точка $a$ является предельной точкой множества A, если в любой $\epsilon$-окрестности этой точки лежит бесконечно много элементов из множества A : $\forall \epsilon > 0 |A \cap O_\epsilon(a)| \geq \omega$.
+			
+			\paragraph{Опр. 3} \label{pred_t3} Точка $a$ является предельной точкой множества A, если \\$\exists \seqn{a} \subset A \setminus \{a\} : \forall n \neq m (a_n \neq a_m \wedge \limninf a_n = a)$
+			
+			$A'$ - множество всех предельных точек.
+		
+		\subsection{Теорема об эквивалентности определений}
+			\paragraph{Теорема} \nameref{pred_t1}, \nameref{pred_t2}, \nameref{pred_t3} эквивалентны между собой.
+			\subparagraph{Доказательство} 1) \nameref{pred_t3} $\Rightarrow$ \nameref{pred_t2} $\Rightarrow$ \nameref{pred_t1} - очевидно.
+			
+			2) Докажем, что \nameref{pred_t1} $\Rightarrow$ \nameref{pred_t2}.\\
+			Пусть $\epsilon_1 = 1$. $\exists x_1 \in A \setminus \{a\} : |x_1 - a| < 1$.\\
+			Пусть $\epsilon_2 = \min \{\frac{1}{2}; |x_1 - a|\} > 0$. $\exists x_2 \in A \setminus \{a\} : |x_2 - a| < \epsilon_2$. При этом $x_2 \neq x_1$!\\
+			Пусть $\epsilon_3 = \min \{\frac{1}{3}; |x_2 - a|\} > 0$. $\exists x_3 \in A \setminus \{a\} : |x_3 - a| < \epsilon_3$. При этом $x_3 \neq x_2 \neq x_1$!\\
+			Пусть $\epsilon_n = \min \{\frac{1}{n}; |x_{n-1} - a|\} > 0$. $\exists x_n \in A \setminus \{a\} : |x_n - a| < \epsilon_n$. При этом $x_n \neq x_{n-1}$!\\
+			
+			Из построения следует: $|x_n - a| < \epsilon_n \le \frac{1}{n} \Rightarrow \limninf x_n = a$. Т.е. мы доказали, что \nameref{pred_t1} $\Rightarrow$ \nameref{pred_t3} $\Rightarrow$ \nameref{pred_t2}, тогда верно, что \nameref{pred_t1} $\Rightarrow$ \nameref{pred_t2}. Что и т.д.
+		\subsection{Теорема Больцано - Вейерштрасса для бесконечных множеств}
+			\paragraph{Теорема} Любое ограниченное бесконечное множество имеет предельную точку.
+			\subparagraph{Доказательство}
+			Пусть $A$ - бесконечное ограниченное множество. 
+			Рассмотрим $x_1 \in A$; $x_2 \in A\setminus \{x_1\}$ - беск.; $x_3 \in A \setminus \{x_1, x_2\}$ - беск.
+			
+			Результат построения: множество $\seqn{x} \subset A$ - ограничено, причем $x_n \neq x_m$ (элементы множество попарно различны). $\Rightarrow \exists \seq{x}{nk}$ - п/п $x_n$ : $x_{n_k} \to a' a \in A'$, т.к. любая окрестность точки $a$ содержит все элементы п/п с некоторого $k$, следовательно содержит бесконечное число элементов множества $A$.
+		\subsection{Внутренняя точка множества}
+			\paragraph{Опр. 1} \label{int_t1} Точка $x \in A$ называется \textit{внутренней точкой} множества A, если она лежит в этом множестве с некоторой своей окрестностью : $\exists O_\epsilon(x) \subset A$.
+			\paragraph{Опр. 2} \label{setint_t1} $A^o$ - множество всех внутренних точке (внутренность множества) множества A : $A^o = int (A)$.
+			
+			\paragraph{Примеры}
+			\# Рассмотрим $(a, b), b > a$. $x \in (a, b), \epsilon = \min\{b-x, x-a\} > 0$. \\
+			$O_\epsilon(x) = (x-\epsilon, x+\epsilon) \subset (a,b)$\\
+			$a \le x - \epsilon \le b \Rightarrow x \in int(a,b) = (a,b)$.
+			
+			\# $int[a,b] = (a,b)$
+			
+			\# $int(Q) = \varnothing$
+			
+			\# Если $|A| \le \omega$, то $int(A) = \varnothing$.
+		\subsection{Изолированная точка}
+			Изолированной точкой называется такая точка $x : x \neq X'$, т.е. $\exists O\epsilon(x_0) : X \cap O_\epsilon{x_0} = \{x_0\}$.
+		\subsection{Открытые множества}
+			\paragraph{Опр. 1} \label{openset1} Множество $U$ называют \textit{открытым} множеством, если все его точки являются внутренними точками.
+			
+			\subparagraph{Примеры}
+			\# $(a,b), R, \varnothing$ - открытые.\\
+			\# $[a,b]$ - не открытое.
+			
+			\paragraph{Свойства открытых множеств}
+			Семейство всех открытых множеств удовлетворяет следующим свойствам:
+			\begin{enumerate}
+				\item $R$ и $\varnothing$ - открытые множества.
+				\item Объедение любого числа открытых множеств открыто: если $\{U_\alpha\}_{\alpha \in A}$, $U_\alpha$ - открыто, тогда $\cup_{\alpha \in A} U_\alpha$ - открыто.
+				\item Пересечение любого числа открытых множеств открыто: если $\seq{U}{k}, U_k$ - открыто, тогда $\cap_{k=1}^n U_k$ - открыто.
+			\end{enumerate}
+			
+			\subparagraph{Доказательство}
+			1) Докажем, что $\varnothing$ - открытое множество. \\
+			$U$ - открытое $\Leftrightarrow \forall x (x \in U \Rightarrow \exists O_\epsilon(x) \subset U)$. Возьмем $\varnothing = U$, тогда $\forall x (x \in \varnothing (= false) \Rightarrow \dots) = true \Rightarrow \varnothing$ - открытое множество.
+			
+			2) Пусть $\{U_\alpha\}_{\alpha \in A}$ - открытое множество.\\
+			Если $x \in \cup_{\alpha \in A} U_\alpha$ $\exists \alpha_x : x \in U_{\alpha_x}$ - открытое, то
+			$\exists O_\epsilon(x) \subset U_{\alpha_x} \Rightarrow O_\epsilon(x) \subset \cup_{\alpha \in A} U_\alpha$.
+			
+			3) Достаточно доказать для двух множеств и распространить по индукции.
+			
+			Пусть $U_1, U_2$ - открытые множества, если $x \in U_1 \cap U_2 \neq \varnothing$.\\
+			$\exists O_{\epsilon_1}(x) \subset U_1$ и $\exists O_{\epsilon_2}(x) \subset U_2$; \\
+			положим  $\epsilon = \min\{\epsilon_1, \epsilon_2\} > 0$, тогда $O_\epsilon(x) \subset U_1 \cap U_2$. Что и т.д.
+		\subsection{Замкнутые множества}
+			Множество $f \subset R$ называется замкнутым, если его дополнение ($R\setminus f$) открыто.
+			
+			\paragraph{Свойства замкнутых множеств}
+				\begin{enumerate}
+					\item $\varnothing$, $R$ замкнуты.
+					\item Если $f_\alpha$ замкнуто, то $\cap_{\alpha \in A} f_\alpha$ - замкнуто.
+					\item Если $f_1, \dots, f_n$ - замкнутые множества, то $\cup_{k=1}{n} f_k$ - замкнуто. 
+				\end{enumerate}
+			
+			\subparagraph{Доказательство}
+				\begin{enumerate}
+					\item $R\setminus(\cup_{\alpha \in A^r} A_\alpha) = \cup_{\alpha \in A^r} R\setminus A_\alpha$. Аналогично с $\cap$ пересечением.
+					
+					\item $R\setminus (\cap_{\alpha \in A^r}) = \cup_{\alpha \in A^r}(R\setminus f_\alpha)$. Если дополнение ко множеству открыто, то множество замкнуто.
+					
+					\item $R\setminus(f_1 \cup f_2) = (R\setminus f_1) \cap (R\setminus f_2)$. Так как множества в пересечении открытые, то объединение $f_1 \cup f_2$ замкнуто.
+				\end{enumerate}
+				
+			\paragraph{Примеры}
+				\# $\{a\}$ - замкнуто. (Любое конечное множество всегда является замкнутым!)\\
+				\# $\varnothing; [a, b] = R\setminus( (-\infty; a) \cup (b, +\infty) )$ - замкнутые множества.\\
+				\# $(a, b)$ - не является замкнутым множеством.\\
+				\# Пример, когда 3 свойство не верно для бесконечных объединений: $\forall k \in N \exists f_k = [0, 1 - \frac{1}{k+1}]$. Так как эта последовательность стремиться к единице, но не достигает ее, объедение всех множеств по k равно $[0, 1)$ - такого вида множества не являются замкнутыми, и не являются открытыми0
+				
+		\subsection{Теорема о замкнутости множества}
+			\paragraph{Теорема} Множество замкнуто тогда и только тогда, когда содержит все свои предельные точки.
+			\subparagraph{Доказательство}
+				$\rhd f$ - замкнуто. Доказать, что $f$ содержит все предельные точки.
+				
+				Положим $x_n \in f : x_n \to x_0 \in f'$, где $f'$ - множество предельных точек $f$.
+				О.П. пусть $x_0 \notin f \Rightarrow x_0 \in R \setminus f$, но $R\setminus$ - открыто $\Rightarrow \exists O_{\epsilon_0} (x_0) \subset R \setminus f$. 
+				Фиксируем $\epsilon > 0$. $\exists N_{\epsilon_0} \forall n > N_{\epsilon_0} x_n \in O_{\epsilon_0} (x_0) \subset R \setminus f \Rightarrow x_n \in R \setminus f$ - противоречие.
+				
+				$\lhd f$ содержит все предельные точки. Доказать, что $f$ - замкнуто.
+				
+				Пусть $f' \notin \varnothing$, т.е. множество предельных точек не постое. Рассмотрим $U = R \setminus f, x_0 \in U$.	
+				О.П. Положим $x_0 \notin U' \Rightarrow \forall \epsilon > 0 O_\epsilon(x_0) \nsubseteq U \Rightarrow O_\epsilon (x_0) \cap f \neq \varnothing$.
+				
+				$\epsilon_n = \frac{1}{n}$ $O_\frac{1}{n} (x_0) \cap f \ni x_n$, т.е. $|x_n - x_0| < \frac{1}{n} \to 0 \Rightarrow x_n \to x_0, x_n \in f \Rightarrow x_n \in f' \Rightarrow x_0 \in f$ - противоречие.
+				
+			\paragraph{Теорема} $(A')' \subset A$.
+			\subparagraph{Доказательство}
+				Пусть $x_0 \in (A')'$. Фиксируем $\epsilon > 0$. $O_\epsilon(x_0)$ содержит бесконечно много элементов $A'$. 
+				
+				Пусть $y \in A' \cap O_\epsilon(x_0)$. Фиксируем $\epsilon_1 = min \{|x_0 - y|; \epsilon - |x_0 - y|\} > 0$. $O_{\epsilon_1}(y) \subset O_\epsilon(x_0)$, т.е. $O_{\epsilon_1}(y)$ содержит бесконечно много элементов из множества $A \Rightarrow x_0 \in A'$. 
+				
+			\paragraph{Примеры}
+			\# $A = \{\frac{1}{n}\}_{n=1}^\infty$, $A' = \{0\}$, $(A')' = \varnothing$.\\
+			\# $Q' = R$, $(Q')' = R' = R$. 
+			
+			Важное наблюдение: $((A')')' \subset (A')' \subset A' \subset A$.
+		\section{Замыкание множеств}
+			Замыканием множества $A$ называют такое $\ol{A} = A \cup A'$.
+			
+			\paragraph{Примеры} \# $A = \{\frac{1}{n}\}_{n=1}^\infty$, $\ol{A} = \{\frac{1}{n}\}_{n=1}^\infty \cup \{0\}$.\\
+			\# $\ol{(a, b)} = [a, b]$.\\
+			\# $\ol{N} = N$.\\
+			\# $\ol{Q} = R$.
+			
+			\subsection{Свойства оператора замыкания}
+				\begin{enumerate}
+					\item $\ol{A}$ - замкнутое множество.
+					\item $\overline{\ol{A}} = \ol{A}$.
+					\item $A \subset B \Rightarrow \ol{A} = \ol{B}$.
+					\item $\ol{A \cup B} = \ol{A} \cup \ol{B}$.
+					\item $\ol{A \cap B} \subset \ol{A} \cap \ol{B}$.
+				\end{enumerate}
+				
+				\subparagraph{Доказательство свойств}
+					\begin{enumerate}
+						\item $A \cup A'$ содержит все свои предельные точки, а значит замкнуто.
+						\item $\overline{\ol{A}} = (A\cup A')\cup(A\cup A')' = A\cup A' = \ol{A}$.
+						\item $A\subset B \Rightarrow A'\subset B' \Rightarrow \ol{A} \subset \ol{B}$.
+						\item $x \in \ol{A \cup B} \Rightarrow (x \in (A\cup B) \vee x \in (A\cup B)') \Rightarrow ((x \in A \vee x \in B) \vee (x \in A' \vee x \in B')) \Rightarrow x \in \ol{A}\cup\ol{B}$.
+						\item $x \in \ol{A \cap B} \Rightarrow x \in A \cap B \vee x \in (A \cap B)' \Rightarrow x \in (A\cap B) \vee (x \in A' \wedge x \in B) \Rightarrow ( (x \in A) \vee (x \in A')) \wedge ((x \in B) \vee x \in B') \Rightarrow x \in \ol{A} \cap \ol{B}$.
+					\end{enumerate}
+					
+				\paragraph{Следствие 1}
+					Если $f$ замкнуто и $A \subset f$, то $\ol{A} \subset f$.
+				\paragraph{Следствие 2}
+					$\ol{A} = \cap\{f : f - $ - замкнуто и $ A\subset f\}$
+					
+				\paragraph{Примеры} \# $A = Q \cap [0, 1]$, $B = [0, 1] \setminus A$. $\ol{A} = [0, 1]$, $\ol{B} = [0, 1]$. $\ol{A} = \ol{B} \Rightarrow A\cap B = \varnothing$.
+				
+				\# $A = (a, b)$, $B = (b, c)$. $A \cap B = \varnothing$, $\ol{A \cap B} = \varnothing$. $\ol{A} = [a, b], \ol{B} = [b, c]$. $\ol{A} \cap \ol{B} = \{b\}$.
+	\section{Непрерывность функции на отрезке}
+	Пусть $f(x)$ - функция, определенная на множестве $X$ - $x \in X$, а $x_0 \in X'$ - предельная точка. $f(x)$ называют \textit{непрерывной} в точке $x_0$, если $\exists \limx{x_0} f(x) = f(x_0)$, т.е. функция имеет предел в этой точке.
+	
+	В изолированных точках ($x_0 \neq X')$ функция непрерывна по определению.
+	
+	Функция $f(x)$ - непрерывна слева, если $\exists \limxl{x_0} f(x) = f(x_0)$, непрерывна справа, если $\exists \limxr{x_0} f(x) = f(x_0)$.
+	
+		\subsection{Первая теорема Вейерштрасса}
+		Функция, которая непрерывна на отрезке, все время ограничена на данном отрезке.
+		\paragraph{Доказательство}
+		Требуется доказать, что $\exists k > 0 \forall x \in [a,b] : |f(x)| \leq k$.
+		
+		От противного, пусть $\exists k > 0 \exists x_k \in [a, b] : |f(x)| > k$.
+		
+		Положим $k = n \in N$. $x_n \in [a,b] : |f(x_n)| > n$.\\
+		Если $a \leq x_n < b$, то $\exists x_{n_k} \to \alpha \in [a, b]$.\\
+		$f(x)$ - непрерывна в точке $\alpha$, т.е. $\exists \limx{\alpha} f(x) = f(\alpha) \in R$.\\
+		$|f(x_{n_k})| > n_k,$ где $n_k \to \infty \Rightarrow f(x_{n_k}) \to \infty$.
+		
+		\paragraph{Контр-пример}
+		Теорема не верна на интервале $(a,b)$. Функция $f(x) = \frac{1}{x-a}$ непрерывна на интервале, но не ограничена.
+		
+		\subsection{Вторая теорема Вейерштрасса}
+		Функция непрерывная на отрезке достигает своего наибольшего и наименьшего значения на этом отрезке.
+		\paragraph{Доказательство}
+		По первой теореме Вейерштрасса функция $f(x), x \in [a, b]$ имеет точную верхнюю и нижнюю границы. Пусть $M = \sup f(x)$, а $m = \inf f(x)$. Требуется доказать, что $\exists x_m : f(x_m) = M$ и $\exists x_M : f(x_M) = m$.
+		
+		Зафиксируем последовательность $\epsilon_n = \frac{1}{n}$. \\
+		По определению $\sup f(x) : f(x_n) > M - \frac{1}{n} \Rightarrow$ можно выделить подпоследовательность $x_{n_k} \to x_M \in [a, b]$.
+		
+		$M - \frac{1}{n} < f(x_{n_k}) \leq M$. Левая часть и правая часть сходиться к $M$, следовательно, по лемме о двух милиционерах, $f(x_{n_k}) \to M$. С другой стороны, в силу непрерывности, $f(x_{n_k}) \to f(x_M)$. В силу единственности предела $f(x_M) = M$. 
+		
+		Аналогично доказывается второй случай.
+		
+		\paragraph{Контр-пример}
+		Теорема не верна на интервале $(a, b)$. Функция $f(x) = x$, у которой $\sup f(x) = b$, но не достигается на интервале $(a, b)$, и $\inf f(x) = a$ - аналогично не достигается на интервале $(a, b)$.
+		\subsection{Третья теорема Вейерштрасса}
+		Пусть $f(x)$  является непрерывной функцией на отрезке $[a,b]$ и на концах отрезка принимает значения разных знаков, тогда $\exists c \in [a,b] : f(c) = 0$.
+		\paragraph{Доказательство}
+		Без ограничения общности будем считать, что $f(a) < 0$, а $f(b) > 0$.
+		
+		Разделим отрезок $[a,b]$ пополам. Если $f(\frac{a+b}{2}) = 0$, то теорема доказана. Иначе значит, что функция принимает значения разных знаков на концах одного из отрезков $[a,d]$ и $[d,b]$, где $d$ - середина $[a,b]$.
+		
+		Поделим этот отрезок пополам. На каком-то $k-ом$ шаге будет получен отрезок $[a_k, b_k]$, на котором $f(a_k) < 0$, $f(b_k)$. Если $f(\frac{a_k + b_k}{2}) = 0$, то теорема доказана. 
+		
+		Если процесс не заканчивается на $k$, то результатом построения будет последовательность вложенных отрезков $[a_n, b_n]$, причем $|[a_n, b_n]| = \frac{b-a}{2^n} \to 0 \Rightarrow \exists c \in [a,b] : \cap_{n=0}^\infty[a_n, b_n] = \{0\}$, где $a_n \to c$, $b_n \to c \Rightarrow f(a_n) \to c$, $f(b_n) \to c$.
+		
+		Но $f(a_n) < 0 \Rightarrow f(c) \leq 0$, а $f(b_n) > 0 \Rightarrow f(c) \geq c$, из этого следует, что $f(c) = 0$. Что и требовалось доказать.
+		
+		\subsection{Следствия из теорем}
+			\subsubsection{Теорема о промежуточных значениях}
+			Формулировка? Доказательство? %todo найти и переписать
+			\paragraph{Контр-пример} Функция $f(x) = \begin{cases}
+				\frac{x}{|x|}, &x \neq 0 \\
+				1, & x = 0
+			\end{cases}$ принимает значения разных знаков, но не в одной точке не равна нулю.
+			\subsubsection{Образ отрезка}
+			$f^{-1}([a, b]) = [m, M]$ - образ отрезка.
+			\paragraph{Доказательство} 
+			Рассмотрим $\beta \in (m, M)$, и функцию $g(x) = f(x)-\beta$.
+			\begin{enumerate}
+				\item В точке $x_m$ $g(x_m) < 0$
+				\item В точке $x_M$ $g(x_M) > 0$
+			\end{enumerate} из этого следует, что $\exists c \in (x_m, x_M) \in [a, b] : g(c) = 0 \Rightarrow f(c) = \beta$, причем отрезок $[a,b]$ может быть и наоборот.
+			
+	\section{Непрерывность обратной функции}
+		\subsection{Обратная функция}
+		Пусть есть функция $f(x), x \in X \subset R$, $f(x) = Y$. $f(X) = Y$ - образ функции.\\
+		$\forall y \in Y \exists! x \in X : f(x) = y$. $y \mapsto x$ - правило по которому каждому $y$ из области значений функции ставиться $x$ из области определения называется обратной функцией: $f^{-1}(x)$
+		
+		Если $f(x)$ строго монотонная $\Rightarrow f(x)$ - биекция и $\exists f^{-1}(y)$. 
+		
+		\subsection{Непрерывность}
+		Функция $f(x)$ не убывает и непрерывна на промежутке $[a,b]$ или $(a, b)$. В этом случае $[f(a), f(b)]$ - множество значений функции. $(A, B) = (f(a), f(b))$, т.е. $x \to a$ справа, и $x \to b$ слева. $f(a) = \limxr{a} f(x)$ и $f(b) = \limxl{b} f(x)$.
+		
+		Пусть $f(x)$ без ограничения общности не убывает и непрерывна на $(a, b)$. Если $(A, B) = (f(a), f(b)$, то функция $f^{-1}(y) \in (A, B)$ и непрерывна.
+		
+		\paragraph{Доказательство}
+		Рассмотрим $y_0 \in (A, B)$ и $x_0 = f^{-1}(y_0) \in (a, b)$. Зафиксируем $\epsilon > 0$ м $x_0 \pm \epsilon \in (a, b)$.\\
+		$y_0 \in (f(x_0 - \epsilon); f(x_0 + \epsilon)) \subset (A, B)$.\\
+		Положим $\delta_\epsilon = \min \{y_0 - f(x_0 - \epsilon), f(x_0 + \epsilon) - y_0\}$.\\
+		$x_0 \in (f^{-1}(y_0 - \delta_\epsilon), f^{-1}(y_0 + \delta_\epsilon)) \subset (x_0 - \epsilon, x_0 + \epsilon)$.
+	
+	\section{Непрерывность элементарных функций}
+		\subsection{Показательная функция}
+		Функция вида $a^x$, где $a$ - некоторая константа, называется \textit{показательной}.
+		Функция $a^n$, где $n \in N$, определяется как произведение $n$-раз $a$ само на себя.
+		
+		Пусть $r = \frac{p}{q} > 0$, причем $r \in Q$, тогда $a^r = (a^{\frac{1}{q}})^p$. Если $r = 0$, то $a^0 = 1$. Если $a < 0$, то $a^r = \frac{1}{a^{-r}}$.
+		
+		\paragraph{Свойства}
+		\begin{enumerate}
+			\item $r_1 < r_2 \wedge a > 1 \Rightarrow a^{r_1} < a^{r_2}$, $a < 0 \Rightarrow a^{r_1} > a^{r_2}$
+			\item $(a^{r_1})^{r_2} = a^{r_1r_2}$
+			\item $a^{r_1}a^{r_2} = a^{r_1 + r_2}$
+			\item $\frac{a^{r_1}}{a^{r_2}} = a^{r_1 - r_2}$
+		\end{enumerate}
+		
+		\paragraph{Лемма 1} 
+		\begin{eqnarray}
+			\limninf \sqrt[n]{a} = 1
+		\end{eqnarray}
+		
+		\paragraph{Лемма 2}
+		$\forall \epsilon > 0 \exists \delta_\epsilon > 0 : \forall h \in Q (|h| < \delta_\epsilon \Rightarrow |a^h - 1| < \epsilon)$, т.е. \begin{eqnarray}
+			\lim\limits_{h\to 0} a^h = 1
+		\end{eqnarray}
+		\subparagraph{Доказательство}
+		Зафиксируем $\epsilon > 0$, без ограничения общности будем считать. что $a > 0$.\\
+		\begin{eqnarray}
+			\nonumber \exists n_1 \in N : |a^\frac{1}{n_1} - 1| < \epsilon\\
+			\nonumber \exists n_2 \in N : |a^\frac{1}{n_2} - 1| < \epsilon
+		\end{eqnarray}
+		Пусть $\delta_\epsilon = \min \{\frac{1}{n_1}, \frac{1}{n_2}\}$, тогда, если взять $|h| < \delta_\epsilon$, то будет выполняться следующее неравенство:
+		\begin{eqnarray}
+			\nonumber 1-\epsilon < a^\frac{1}{n_2} < a^{n} < a^\frac{1}{n_1} < 1+\epsilon
+		\end{eqnarray} Что и т.д.
+		
+		\paragraph{Лемма 3}
+		Пусть $\{r_n\}_{n=0}^\infty \to x \in R$, $r_n \in Q$, тогда $\exists \lim\limits_{n \to \infty} r_n$, который не зависит от выбора последовательности $r_n$.
+		\subparagraph{Доказательство}
+		По условию $r_n \to x$, т.е. выполняется критерий Коши.
+		
+		Зафиксируем $\epsilon > 0$. $\exists \delta_\epsilon \forall h \in Q (|h| < \delta_\epsilon \Rightarrow |a^h - 1| < k\epsilon)$, где $k$ - некоторая константа. 
+		Критерий Коши для нашей последовательности: $\exists N_\epsilon \forall n, m \in N (n,m > N \Rightarrow |r_n < r_m| < \epsilon)$.
+		
+		Рассмотрим модуль разности: $|a^{r_n} - a^{r_m}| = |a^{r_m}|a^{r_n - r_m} - 1| < Ak\epsilon$, где $a^{r_m} \leq A$ - некоторое число (ограничивающее последовательность), а $k$ некоторая константа.
+		Если взять $k = \frac{1}{A}$, то $Ak\epsilon = \epsilon$, из чего следует, что для $a^{r_m}$ выполняется критерий Коши, а значит она сходиться. 
+		
+			\subsubsection{Вещественный аргумент}
+			$a^x \rightleftharpoons \limninf a^{r_n}$, где $r_n$ - последовательность рациональных чисел и $r_n \to x$.
+			
+			Для показательной функции от вещественного аргумента сохраняются все свойства, определенные для функции от натурального аргумента.
+			
+			\subsubsection{Непрерывность}
+			Функция $a^x$ непрерывна на всей числовой оси.
+			\paragraph{Доказательство}
+			Будем рассматривать разность функций $|a^x - a^y| = a^|a^{x-y} - 1|$. Фиксируем $\epsilon > 0$.
+			
+			$\exists \delta_\epsilon \forall h \in R (|h| < \delta_\epsilon \Rightarrow |a^h - 1| < k\epsilon)$, где $k$-некоторая константа. Фиксируем $\delta_\epsilon$, из определения предела следует два неравенства: 
+			\begin{eqnarray}
+				\nonumber 0 < h_1 < \delta_\epsilon\\
+				\nonumber \delta_\epsilon < h_1 < 0
+			\end{eqnarray}, где $h_1, h_2 \in R$. Без ограничения общности будем считать, что $a > 1$, тогда если $h \in R : |h| < \min \{h_1, h_2\}$, то $h_2 < h < h_1$. Т.е., по аналогии с доказательством второй леммы, будет выполняться следующее неравенство:
+			\begin{eqnarray}
+				\nonumber 1 - k\epsilon < a^{h_2} < a^h < a^{h_1} < 1 + k\epsilon
+			\end{eqnarray}
+			, из него следует, что $|a^h - 1| < k\epsilon$.
+			
+			Зафиксируем $y : k = \frac{1}{a^y}$, и $x : |x - y| < \delta_\epsilon$, тогда $a^y|a^{x-y}| < \epsilon$.
+		\subsection{Непрерывность логарифмической функции}
+			Если $a > 0$ и $a \neq 1$, то $\log_a x$ - логарифмическая функция, обратная показательной. Является непрерывной, по теорема о непрерывности обратных функций.
+			
+			\paragraph{Свойства}
+			\begin{enumerate}
+				\item $\log ab = \log a + \log b$
+				\item $p\log a = \log a^p$
+			\end{enumerate}
+		\subsection{Непрерывность степенной функции}
+			Степенная функция $x^k$, где $k \in R, x > 0$. \\
+			$x^k = e^{k\ln x} \Rightarrow x^k$ - непрерывная функция.
+		\subsection{Непрерывность тригонометрических функций}
+			Функции: $\sin x, \cos x, \tg x, \ctg x$ - непрерывны на всей своей области определения. %todo доказательство непрерывности синуса
+			
+			Обратные функции: $\arcsin, \arccos, \arcctg, \arctg$ - непрерывны по теореме о непрерывности обратных функций.
+			
+			$\sinh = \frac{e^x - e^{-x}}{2}, \cosh =  \frac{e^x + e^{-x}}{2}$.
+			
+		\subsection{Элементарная функция}
+		Функцию, которая может быть получена применением конечного числа операций: $+,-,*,/,\circ$ к простейшим функциям (показательные, степенные, логарифмические, тригонометрические), называют \textit{элементарной функцией}
+		
+		\paragraph{Теорема}
+		Все элементарные функции непрерывны на всей своей области определения.
+		
+	\section{Замечательные пределы}
+	\begin{eqnarray}
+		\lim\limits_{x \to 0} (1+x)^\frac{1}{x} = e
+	\end{eqnarray}
+	\paragraph{Доказательство}
+	Рассмотрим последовательность $x_n = -\frac{1}{n}$. $\lim\limits_{n \to \infty} (1+x_n)^\frac{1}{x_n} = \lim\limits_{n \to \infty} (\frac{n-1}{n})^{-n} = \lim\limits_{n \to \infty}(\frac{n}{n-1})^n = \lim\limits_{n \to \infty}(\frac{1}{n-1} +1)^{n-1}(\frac{1}{n-1}+1) = e$.
+	Пусть $x_n \to +0$, то $p_n = [\frac{1}{x_n}] \to +\infty$.
+	
+	Положим $\epsilon > 0$, тогда $\exists N \forall n > N$ $|(1 + \frac{1}{n})n - e| < \epsilon$. Фиксируем $n_0 > N$, тогда $\exists M : n > M [\frac{1}{x_n}] > n_0$.
+	
+	$|(1 + \frac{1}{p_n})^{p_n} - e| \le \epsilon \Rightarrow$ 
+	$(1 + \frac{1}{[\frac{1}{x_n}] + 1})^{[\frac{1}{x_n}]} \leq (1 + x_n)^\frac{1}{x_n} \leq (1 + \frac{1}{[\frac{1}{x_n}]})^{[\frac{1}{x_n}] + 1} \Rightarrow$
+	$(1 + \frac{1}{[\frac{1}{x_n}]})^{[\frac{1}{x_n}]} \to e$.
+	
+	Возьмем $x_n \to -0$, тогда $\lim\limits_{n\to \infty}(1+x_n)^\frac{1}{x_n} \to e$ доказывается аналогично.
+	
+	Так как каждая из подпоследовательностей сходиться к $e$, то вся последовательность сходиться к $e$.
+	
+	\begin{eqnarray}
+		\lim\limits_{x \to 0} \frac{(1+2)^\alpha - 1}{x}
+	\end{eqnarray}
+	
+	\section{Сравнение бесконечно малых и бесконечно больших пределов}
+	\paragraph{Ограничение функции по сравнению с другой функцией}
+		Пусть функции $f(x)$ и $g(x)$, заданы в некоторой $O^v_\epsilon(x)$. Говорят, что функция $f(x)$ ограничена по сравнению с $g(x)$ и пишут $f(x) = O(g(x))$, где $x \to x_0$, если $\exists k : \exists O_\delta(x_0) : \forall x \in O^v_\delta(x_0)$ $(|f(x)| \leq k|g(x)|$.
+		\paragraph{Примеры}
+		\begin{enumerate}
+			\item $f(x) = \sin \frac{1}{x},g(x) = 1$. Очевидно, что $|f(x)| \leq |g(x)|$, т.е. $f(x) : O(g(x))$, при $x \to 0$.
+		\end{enumerate}
+		\paragraph{Функции одного порядка}
+		Говорят, что $f(x) \asymp g(x)$ одного порядка, если $\exists \lim\limits_{x\to x_0} \frac{f(x)}{g(x)}$. Обратно неверно.
+		\paragraph{Определение}
+		$f(x) = o(g(x))$, при $x\to x_0$, если $\exists \alpha(x)$- б.м. в точке $x_0$ по сравнению с $g(x) : f(x) = \alpha(x)g(x)$.
+			\subparagraph{Пример}
+			\begin{enumerate}
+				\item $x^2 = o(x)$, при $x\to 0$.
+				\item $1-\cos x = o(x)$.
+				\item $1 - \cos x = o(x^2)$.
+			\end{enumerate}
+		\paragraph{}
+		Если $g(x) \neq 0, x \in O^\vee(x_0)$, то $f(x) = o(g(x)) \Leftrightarrow \lim\limits_{x\to x_0} \frac{f(x)}{g(x)} = 0$.
+			\subparagraph{Доказательство}
+			$\vartriangleright f = \alpha g$\\
+			$\frac{f}{g} = \alpha \to 0$\\
+			$\vartriangleleft \alpha = \frac{f}{g} \to 0\\ f = \alpha g$.
+		
+		\paragraph{Эквивалентность функций}
+		Функции $f(x)$ и $g(x)$ называются эквивалентными (при $x \to x_0$), если $f(x) = h(x)*g(x)$, где $h(x) \to 1$.
+		\paragraph{Утверждение 1}
+		Если $g(x) \neq 0, x \in O^\vee(f(x))$, то $f(x) \sim g(x) \Leftrightarrow \lim\limits{x \to x_0} \frac{f(x)}{g(x)} = 1$.
+		\paragraph{Утверждение 2}
+		$f(x) \sim g(x)$ (при $x \to x_0$) $\Leftrightarrow f(x) - g(x) = o(g(x)) = o(f(x))$.
+			\subparagraph{Доказательство}
+			$\vartriangleright f \sim g, f = hg$, где $h(x) \to 1, x \to x_0$. Рассмотрим разность $f(x) - g(x) = (h - 1)g = o(g(x))$.
+			$\vartriangleleft f - g = \alpha g$ $f = (\alpha+ 1)g \sim g$.
+		\subsection{Таблица эквивалентности}
+		\begin{eqnarray}
+			x \sim \sin x \sim \tg x \sim e^{x}-1 \sim \frac{(a^x - 1)}{\ln a} \sim (1+x) \sim \ln a \log_a(1+x) \sim polynom(x)
+		\end{eqnarray}
+		
+		\subsection{Теорема}
+		При вычислении пределов произведения (частного), входящие в выражение в качестве сомножителя можно заменять на эквивалентные.
+		
+		Пусть $f \sim f_1, g \sim g_1$, при $x \to x_0$, тогда $\lim\limits_{x \to x_0} \frac{f}{g} \lim\limits{x \to x_0} \frac{f_1}{g} = \lim\limits{x \to x_0} \frac{f}{g_1} = \lim\limits{x \to x_0} \frac{f_1}{g_1}$.
+		
+		\paragraph{Доказательство} Будем считать, что функции $f(x), g(x)$ отличны от нуля.
+		
+		Рассмотрим $\frac{f(x)}{g(x)} = \frac{f(x)g_1(x)}{g_1(x)g(x)}$, где $\frac{g_1(x)}{g(x)} \to 1$.
+		
+		\paragraph{Замечание} Если функция входит в качестве суммы или разности заменять на эквивалентные нельзя.
+		
+		\section{Классификация точек разрыва}
+		Пусть есть функция $f(x), x\in O_r(x)$, если $\exists \limx{x_0 - 0} f(x) = f(x - 0)$ и $\exists \limx{x_0 + 0} f(x) = f(x+0)$, то $f(x)$ непрерывна в точке $x_0 \Leftrightarrow \exists f(x-0) = f(x + 0) = f(x_0)$.
+		
+			\subsection{Точки разрыва I рода} 
+			Точка $x_0$ называется точкой разрыва первого рода (устранимый разрыв), если хотя бы один из односторонних пределов функции в этой точке не равен значению функции в этой точке: $f(x-0) \neq f(x_0) \vee f(x+0) \neq f(x_0)$. Например, функция $f(x) = |sign(x)|$.
+			
+			Если односторонние пределы не равны, то такой разрыв называют \textit{скачком}.
+			
+			\paragraph{Утверждение}
+			Монотонная функция имеет точки разрыва только первого рода (скачок), что следует из теоремы о пределе монотонный функции.
+		
+			\subsection{Точка разрыва II рода}
+			Точка $x_0$ называется точкой разрыва второго рода, если хотя бы один из пределов этой функции не существует. Например, функция 
+			$f(x) = \begin{cases}
+				\frac{1}{x}, &x \neq 0\\
+				0, &x = 0
+			\end{cases}$ терпит разрыв второго рода в точке $x_0 = 0$. 
+			Функция $f(x) = \begin{cases}
+				1, &x \in Q\\
+				0, &x \in R\setminus Q
+			\end{cases}$ не имеет пределов (любая ее точка является точкой разрыва второго рода)
+	\section{Равномерная непрерывность функции}
+		Пусть есть функция $f(x), x \in X$.
+		\paragraph{Определение}
+		Функция $f(x)$ равномерно непрерывна на множестве $X$, если $\forall \epsilon > 0 \exists \delta_\epsilon > 0 : \forall x', x'' \in X (|x' - x''| < \delta_\epsilon \Rightarrow |f(x') - f(x'')| < \epsilon)$.
+		\paragraph{Утверждение}
+		Если $f(x)$ равномерно непрерывная на множестве $X$, то $f(x)$ непрерывная на множестве $X$. Обратное не верно.
+		\paragraph{Пример}
+		Докажем, что функция $f(x) = \sin(x), x \in (0,1)$ непрерывна, но не является равномерно непрерывной.
+			\subparagraph{Доказательство}
+			Построим отрицание для формулировки равномерно непрерывной функции:
+			\begin{eqnarray}
+				\nonumber \exists \epsilon_0 \forall \delta \exists x_\delta', x_\delta'' : (|x_\delta' - x_\delta''| < \delta \wedge |(f(x_\delta') - f(x_\delta'')| \geq \epsilon_0)
+			\end{eqnarray}
+			Пусть $\sin(\frac{1}{x_n'}) = 1$, и $\sin(\frac{1}{x_n''}) = -1$. Тогда $x_n' = \frac{1}{\pihalf + 2\pi n} \Rightarrow x_n' \to 0$, а $x_n'' = -\frac{1}{\pihalf + 2\pi n} \Rightarrow x_n'' \to 0$.
+			
+			Зафиксируем $\epsilon_0 = 2$ и возьмем произвольное $\delta > 0$. Так как разность стремиться последовательностей $x_n'$ и $x_n''$ стремиться к нулю, то $\exists (|x_n' - x_n''| < \delta)$ в этому случае $(f(x_n') - f(x_n'')) \geq 2$. Что и т.д.
+			
+		\subsection{Лемма}
+		Функция $f(x)$ равномерно непрерывна на $X \Leftrightarrow \forall x_n', x_n'' \in X : (|x_n' - x_n''| \to 0 \Rightarrow |f(x_n') - f(x_n'')| \to 0)$.
+		\paragraph{Доказательство}
+		$\rhd$ Доказательство условия \textit{очевидно}.
+		
+		$\lhd$ Доказательство достаточности от противного. Пусть $f(x)$ не является равномерно непрерывной, то есть:
+		\begin{eqnarray}
+			\nonumber \exists \epsilon_0 \forall \delta = \frac{1}{n} \exists x_n', x_n'' : (|x_n' - x_n''| < \frac{1}{n} \wedge |(f(x_n') - f(x_n'')| \geq \epsilon_0)
+		\end{eqnarray}
+		
+		$\frac{1}{n'} - \frac{1}{n''} \to 0$, тогда как $f(x_n') - f(x_n'') \nrightarrow 0$ - противоречие
+		
+		\subsection{Свойства функций равномерно непрерывных на интервале}
+			\subsubsection{Теорема о непрерывности на конечном интервале}
+			\paragraph{Теорема}
+			Пусть функция $f(x)$ равномерно непрерывна на конечном интервале $(a, b)$, тогда функция имеет предел справа в точке $a$ и предел слева в точке $b$.
+			
+			\subparagraph{Доказательство}
+			Для доказательство будем использовать критерий Коши. Пусть есть последовательность $x_n \to a$ и $x_n > a$, положим две подпоследовательности $x_n' = x_n$ и $x_n'' = x_n + m$, где $m$-фиксировано.
+			
+			Зафиксируем произвольное $\epsilon > 0$. Так как $f(x)$ равномерно непрерывна, то возьмем $\delta_\epsilon : \forall x',x'' \in X (|x' - x''| < \delta \Rightarrow |f(x') - f(x'')| < \epsilon$.
+			
+			Рассмотрим $x' - ax' < \delta_\epsilon$, $x'' - a < x'' < \delta_\epsilon$, $(x' - x'') < \delta$, тогда $(f(x') - f(x'') < \epsilon)$, что удовлетворяет критерию Коши, значит функция имеет предел в точке $a$.
+			
+			\subsubsection{Теорема Кантора о функциях непрерывных на отрезке}
+			\paragraph{Теорема}
+			Функция непрерывная на отрезке равномерно непрерывна на этом отрезке.
+			\subparagraph{Доказательство}
+			От противного. Пусть $f(x)$ не является равномерно непрерывной на отрезке, то есть $\exists x_n', x_n'' : |x_n' - x_n''| \to 0 \Rightarrow |f(x_n') - f(x_n'')) \geq \epsilon_0$.
+			
+			Положим $x_n'$ - последовательность элементов отрезка $[a, b] \Rightarrow \exists x_{n_k}' \to x_0 \in [a,b]$ и $\exists x_{n_k}'' \to  x_0 \in [a, b]$. Тогда, если $y_n = x_{n_1}', x_{n_1}'', x_{n_2}', x_{n_2}'', \dots \to x_0$, то $f(y_n)$ не имеет предела, потому то разность между соседними элементами $y_n \geq \epsilon_0$, с другой стороны $f(x)$ непрерывна по условию, поэтому $f(x) \to x_0$ - противоречие.
+			
+			\paragraph{Следствие}
+			Для того, чтобы непрерывная на конечном интервале функция была равномерно непрерывной, необходимо и достаточно, чтобы ее можно было продлить по непрерывности на концах интервала.
+\part{Дифферинцируемость}
+		\section{Производная}
+		Производная является функцией. Пусть $f(x), x \in O_r(x_0)$, тогда $\varDelta(f) = f(x) - f(x_0)$ - приращение функции в точке $x_0$, $\varDelta(x) = x-x_0$ - приращение аргумента в точке $x_0$. Если $\exists$ конечный $\limx{x_0} \frac{\varDelta(f)}{\varDelta(x)}$, то функция $f(x)$ имеет производную в точке $x_0$.
+		\paragraph{Утверждение} Если функция $f(x)$ имеет производную в точке $x_0$, то $f(x)$ непрерывна в этой точке. Обратное не верно: \#$f(x) = |x|$ - непрерывна в точке 0, но не имеет в ней производную. \# $f(x) = \begin{cases}
+			x^2, & x\in Q \\
+			0, & x \in R\setminus Q
+		\end{cases}$ 
+		(если $x \neq 0$, то функция терпит разрыв 2-ого рода в любой точке, за исключением нуля). Покажем, что в точке 0 функция дифференцируема: $\frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x}$, где $|f(x)| \leq x^2$, поэтому $\frac{f(x)}{x} \leq \frac{x^2}{|x|} = x \Rightarrow f'(x) = 0$.
+		
+		\section{Дифферинцируемость функций в точке}
+		\paragraph{Определение}
+		Функция $f(x)$ называется дифференцируемой в точке $x_0$, если $\frac{f(x) - f(x_0)}{x - x_0}$, можно представить в виде: $A(x - x_0) + o(x - x_0)$, где $o(x-x_0) = \alpha(x)(x-x_0)$ - бесконечно малое ($\alpha(x) \to 0$, при $x \to x_0$). Дифференцируемая функция обязательно будет непрерывной.
+		
+		Линейная часть приращения ($A(x - x_0)$) называется дифференциалом функции $f(x)$ в точке $x_0$ и обозначается через $df(x)$.
+		
+		\paragraph{Теорема}
+		$f(x)$ дифференцируема в точке $x_0$ того и только тогда, когда $\exists f'(x_0)$, при этом $A = f'(x_0)$.
+		\subparagraph{Доказательство} \text{}
+		$\vartriangleright$
+		\begin{eqnarray}
+		\nonumber \frac{f(x) - f(x_0)}{x - x_0} = \frac{A(x-x_0)}{x-x_0} + \frac{\alpha(x)(x - x_0)}{x-x_0}\\
+		\nonumber \frac{f(x) - f(x_0)}{x-x_0} = A + \alpha(x)
+		\end{eqnarray}
+		Левая часть стремиться к $f'(x_0)$, которая существует и равна $A$ при $x \to x_0$.
+		
+		$\vartriangleleft$ Дано  $\lim\limits_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = f'(x_0)$\\
+		$\alpha(x) = \frac{f(x) - f(x_0)}{x - x_0} - f'(x_0) | *(x-x_0)$, где $\alpha(x) \to 0$\\
+		$f(x) - f(x_0) = f'(x_0)(x-x_0) + (x-x_0)\alpha(x_0)$, где $f'(x_0) =A$.
+		
+		\paragraph{Дифференциал функции} \textit{}
+		\begin{eqnarray}
+			\nonumber df = f'(x_0)(x-x_0)
+		\end{eqnarray}, где $(x-x_0) = dx$, то есть:
+		\begin{eqnarray}
+			df = f'(x_0)dx
+		\end{eqnarray}
+		
+		\subsection{Таблица производных}
+			\begin{eqnarray}
+				(x^n) = nx^{n-1}
+			\end{eqnarray}
+			Рассмотрим $f(x) = x^n$, где $n \in N$. \\
+			$f'(x_0) = \lim\limits_{x \to x_0} \frac{x^n - x_0^n}{x - x_0} = \lim \frac{x-x_0)(x^{n-1} + x^{n-2}x_0 + \dots x_0^{n-1})}{x - x_0} = n*x_0^{n-1}$
+			
+			\begin{eqnarray}
+				(\sin(x)) = \cos(x)
+			\end{eqnarray}
+			Рассмотрим $f(x) = \sin(x)$, $f'(x_0) = \lim\limits_{x \to x_0} \frac{sin(x) - sin(x_0)}{x - x_0} = \lim\limits_{x \to x_0} \frac{2\sin\frac{x-x_0}{2}\cos{x+x_0}{2}}{x-x_0} = \cos{x_0}$ 
+			
+			\begin{eqnarray}
+				(\cos(x))' = -\sin(x)
+			\end{eqnarray}
+			Рассмотрим $f(x) = \cos(x)$, производная рассматривается аналогично $\sin(x)$.
+			
+			\begin{eqnarray}
+				(a^x)' = a^{x}\ln a\\
+				(e^x)' = e^{x}
+			\end{eqnarray}
+			Рассмотрим $f(x) = a^x$, $f'(x_0) = \lim\limits_{x \to x_0} \frac{a^x - a^{x_0}}{x-x_0} = \lim\limits_{x \to x_0} \frac{a^{x_0}(a^{x - x_0} - 1)}{x - x_0} = a^{x_0}\ln a$
+			
+		\section{Арифметические свойства производных}
+			\paragraph{Теорема} Пусть функции $u(x), v(x), x \in O_r(x_0)$ и имеют производные в этой точке: $u'(x_0), v'(x_0)$, тогда 
+			\begin{eqnarray}
+				(u(x_0) + v(x_0)) = u'(x_0) + v'(x_0)\\
+				(u(x_0)v(x_0))' = u'(x_0)v(x_0) + u(x_0)v'(x_0)\\
+				(\frac{u(x_0)}{v(x_0)})' = \frac{u'(x_0)v(x_0) - u(x_0)v'(x_0)}{u^(x)}& u(x_0) \neq 0\\
+				(C)' = 0
+			\end{eqnarray}
+			
+			\subparagraph{Доказательство}
+			Первое равенство следует из арифметических свойств пределов.
+			
+			Второе равенство. $(u(x_0)v(x_0))' = \limx{x_0} \frac{u(x)v(x) - u(x_0)v(x_0)}{x - x_0} = \limx{x_0} \frac{u(x) - u(x_0)}{x - x-0}v(x) + \limx{x_0} \frac{v(x) - v(x_0)}{x-x_0}u(x_0) = u'(x_0)v(x_0) + u(x_0)v'(x_0)$.
+			
+			Разность производных. $(\frac{1}{v(x_0)})' = \limx{x_0} \frac{ \frac{1}{x} - \frac{1}{x_0} }{x-x_0} =\limx{x_0} \frac{}{} = \frac{-v'(x_0)}{v^2{x_0}}$.
+			
+			$(\frac{u(x_0)}{v(x_0)})'$ = $(u(x_0)\frac{1}{v(x_0)})' = u'(x_0)\frac{1}{v(x_0)} - \frac{v'(x_0)u(x_0)}{v^(x_0)} = \frac{u'(x_0)v(x_0) - u(x_0)v'(x_0)}{u^(x)}$.
+			
+			\paragraph{Следствие}
+			$(ku)' = ku'$, так как $k'=0$
+		\section{Производные некоторых функций}
+			\subsection{Производная сложной функции}
+				\paragraph{Теорема}
+				Пусть функция $f(x), x \in O_r(x_0)$, функция $F(y), y \in O_r(y)$, $y_0 = f(x_0)$, тогда $g(x)=f(F(x_))$ дифференцируема в точке $x_0$ и $G'(x_0) = f'(x_0)F(y_0)$.
+				\subparagraph{Доказательство}
+				$G'(x_0) = \limx{x_0} \frac{G(x) - G(x_0)}{x-x_0}$, домножим и разделим это выражение на $f(x)-f(x_0)$,\\ $\frac{(G(x) - G(x_0))(f(x)-f(x_0))}{(x-x_0)(f(x)-f(x_0))} = \frac{ (f(F(x)) - f(F(x_0)))(f(x)-f(x_0))}{(x-x_0)(f(x)-f(x_0))} = f'(x_0)F'(x_0)$.
+			
+			\subsection{Производная обратной функции}
+				\paragraph{Теорема}
+				Пусть функция $f(x), x \in O_r(x_0)$, $f'(x_0) \neq 0$, тогда $(f^{-1})'(y_0) = \frac{1}{f'(x_0)}$, где $y_0 = f(x_0)$.
+			\subsection{Производная от показательно-степенной функции}
+				$(f^{g(x)}(x))' = (e^{g\ln f})' = e^{g\ln f}(g\ln f)' = f^g(g'\ln f) + g\frac{f'}{f}$.
+		
+		\section{Теоремы о среднем}
+			Пусть есть функция $f(x), x \in [a, b]$ и $f'(x), x \in (a, b)$.
+			\paragraph{Локальный максимум}
+				Пусть функция $f(x), x \in O_r(x_0)$. Точка $x_0$ называется локальным максимумом функции, если $\exists O_\delta(x_0) \forall x \in O_\delta^\vee(x_0) f(x) \leq f(x_0)$.
+			\subsection{Теорема Ферма}
+			Пусть функция $f(x), x \in O(x_0)$ и в точке $x_0$ имеет производную и $x_0$ - точка локального экстремума функции $f(x)$. Тогда $f'(x_0) = 0$.
+				\paragraph{Доказательство}
+					Без ограничения общности, пусть $x_0$ - точка локального \textit{максимума} функции $f(x)$.
+					
+					Рассмотрим производную слева и производную справа этой функции:
+					\begin{eqnarray}
+						\nonumber f_-'(x_0) = \limx{x_0 - 0} \frac{f(x) - f(x_0)}{x - x_0} \geq 0\\
+						\nonumber f_+'(x_0) = \limx{x_0 + 0} \frac{f(x) - f(x_0)}{x - x_0} \leq 0
+					\end{eqnarray} Очевидно, что дроби в обеих строках стремятся к нулю (так как их знаменатели равны нулю), поэтому пределы равны нулю. Числитель у первой меньше нуля (так как стремление к $x_0$ - локальному максимуму слева), а у второй больше нуля, так как идет стремление к локальному максимом справа. Числитель же всегда меньше либо равен нулю.
+					
+					В итоге:
+					\begin{eqnarray}
+						f_-'(x_0) = f_+'(x_0) = f'(x_0) = 0
+					\end{eqnarray}
+				\paragraph{Замечание 1} Обратная теорема ферма не имеет смысла. К примеру, пусть $f(x) = x^3$, положим $x_0 = 0$, тогда $f'(x) = 3x^2 = 0$, однако точка $x_0$ не является точкой локального экстремума этой функции.
+				\paragraph{Замечание 2} Наличие в локальном экстремуме производной не обязательно. Например, функция $f(x) = |x|$, имеет минимальное значение в точке $x_0 = 0$, однако не имеет производной в ней.
+				
+			\subsection{Теорема Ролля}
+				Пусть для функции $f(x)$ выполняются следующие условия:
+				\begin{enumerate}
+					\item Функция определена и непрерывна на $[a, b]$	
+					\item Функция дифференцируема на $(a, b)$
+					\item $f(a) = f(b)$
+				\end{enumerate}
+				Тогда $\exists c \in [a, b] : f'(c) = 0$,
+				
+				В геометрическом смысле, теорема утверждает, что если ординаты обоих концов гладкой кривой равны, то на кривой найдется точка, в которой касательная к кривой параллельна оси абсцисс.
+				\paragraph{Доказательство}
+					Так как $f(x)$ непрерывна, то $\exists x_m, x_M \in [a, b] : f(x_m) - mimimum, f(x_M) - maximum$. Очевидно, что $f(x_m) \geq f(x_M)$.
+					
+					Если $f(x_m) = f(x_M)$, то значит $f(x)$ константа, тогда производная этой функции обращается в ноль в любой точеке из $[a, b]$.
+					
+					Если $f(x_m) < f(x_M)$. Пусть $x_m \in (a, b)$ или $x_M \in (a, b)$, тогда точка, которая лежит в интервале $(a, b)$ является точкой экстремума, т.е., по теореме Ферма, $f(x_m) = 0$ или $f(x_M) = 0$.
+					
+				%todo дополнить замечания
+				\paragraph{Замечание 1}
+					Нельзя отказаться от непрерывности на отрезке.
+				\paragraph{Замечание 2}
+					Нельзя отказаться от дифференцируемости на отрезке.
+			\subsection{Теорема Лагранжа (формула конечных приращений)}
+				Пусть для функции $f(x)$ выполняются следующие условия: 
+				\begin{enumerate}
+					\item Функция определена и непрерывна на $[a, b]$
+					\item Функция дифференцируема на $(a, b)$
+				\end{enumerate}
+				Тогда $\exists c \in (a, b) : f'(c) = \frac{f(b) - f(a)}{b-a}$
+				
+				В геометрическом смысле это означает, что на отрезке $[a, b]$ найдется точка $c$ в которой касательная параллельна хорде, проходящей через точки, соответствующие концам отрезка.
+				\paragraph{Доказательство}
+					Рассмотрим функцию $g(x) = f(x) - f(a) - \frac{f(b)-f(a)}{b-a}(x - a)$, удовлетворяющую первому и второму условию. $g(a) = 0 = g(b) \Rightarrow$ удовлетворяет 3-ему условию теоремы Ролля. Тогда, $\exists c \in (a, b) g'(c) = f'(c) - \frac{f(b)-f(a)}{b-a} = 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a}$.
+					
+				\paragraph{Формула конечных приращений Лагранжа}
+					\begin{eqnarray}
+						\exists \xi \in (a, b) : f(b) - f(a) = f'(\xi)(b-a)	
+					\end{eqnarray}
+			\subsection{Теорема Коши}
+				Пусть для функций $f(x)$ и $g(x)$ выполняются следующие условия:
+				\begin{enumerate}
+					\item $x \in [a, b]$
+					\item Обе функции дифференцируемы на $(a, b)$
+					\item $g(x)$ не обращается в ноль на $(a, b)$.
+					\item $g'(x) \neq 0$ и $f'(x) \neq 0$
+				\end{enumerate}
+				Тогда $\exists c \in (a, b) : \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(c)}{g'(c)}$.
+				А если выполняется 4-ое условие, то $g'(c)(f(b) - f(a)) = f'(c)(g(b) - g(a)$.
+				
+				\paragraph{Доказательство}
+					Рассмотрим функцию $f(x) = (f(b) - f(a))g(x) - (g(b)-g(a)f(x))$, где $f(a) = f(b)g(a) - g(b)f(a)$, а $f(b) = f(b)g(a) - f(a)g(b)$, так как $f(a) = f(b) \Rightarrow \exists c \in (a, b) : f(c) = 0$.
+					
+					$f'(c) = (f(b) - f(a))g'(c) - (g(b)-g(a))f'(c) = 0$. Что и т.д.
+					
+				\paragraph{Следствие 1}
+				Пусть $f(x)$ определена и дифференцируема на $(a, b)$, и $\forall x \in [a, b] f'(x) \geq 0$, тогда функция $f(x)$ возрастает.
+				\subparagraph{Доказательство}
+					Пусть $\forall x_1, x_2 \in (a, b) : (x_1 < x_2) (f(x_1) \leq f(x_2)$ (т.е. функция возрастает). Рассмотрим $f(x), x \in [x_1, x_2]$. Согласно форме о конечных приращениях Лагранжа $\exists \xi \in (x_1, x_2) : f(x_2) - f(x_1) = f'(\xi)(x_2 - x_1)$, где $f'(\xi) \geq 0$ и $(x_2-x_1) > 0$, следовательно $f(x_2) \geq f(x_1)$. %todo почему больше? Доказательство от противного? Тогда где противоречие?
+					
+				\paragraph{Следствие 2}
+				Пусть $f(x)$ определена и дифференцируема на множестве $X$ (промежутке, интервале, полуинтервале) и $\exists k > 0 : \forall x \in X |f'(x)| \leq k$. Тогда $f(x)$ равномерно непрерывна на множестве $X$.
+				\subparagraph{Доказательство}
+					Зафиксируем $\epsilon > 0$. Без ограничения общности, пусть $x' > x''$, тогда, по теореме Лагранжа, $\exists \xi \in (x'', x') : |x' - x''| < \delta \epsilon$.
+					
+					Рассмотрим модуль разности функции в этих точках: $|f(x') - f(x'')| = |f'(\xi(x'-x''))| < k\delta_\epsilon = \epsilon$ и пусть $\delta_\epsilon = \frac{\epsilon}{k}$.
+				\paragraph{Следствие 3} 
+					Производная имеет точки разрыва только второго рода.
+			
+					Рассмотрим нечетную функцию $f(x) = \begin{cases}
+						x^2\sin{\frac{1}{x}}, & x \neq 0 \\
+						0, & x = 0
+					\end{cases}$. В точке $x_0 \neq 0$ производная функции существует. Проверим точку $x_0 = 0$ по определению производной: $f'(0) = \limx{0} \frac{f(x)}{x} = \limx{0} x - \sin\frac{1}{x} = 0$ (б.м. вычесть ограниченную величину). $f'(x) = 2x\sin\frac{1}{x} - x^2(\cos\frac{1}{x})\frac{1}{x^2} = 2x\sin\frac{1}{x} - \cos\frac{1}{x}$, где $\cos\frac{1}{x}$ не имеет предела, следовательно вся сумма не имеет предела, а значит производной не существует. В точке $x_0 = 0$ разрыв второго рода.
+		
+		\section{Производная высшего порядка}
+		Рассмотрим функцию $f(x), x \in (a, b)$ и $\forall x \in (a, b) \exists f'(x)$.
+		
+		$f''(x) = (f'(x))' \dots f^{(n)}(x) = (f^{(n-1)}(x))'$ Будем считать, что $f^{(0)}(x) = f(x)$. Для того, чтобы существовала $n$-ая производная, обязательно надо, что бы существовали все производные в плоть до $n-1$-ой. Если существует $n$-ая производная в точке, то $n-1$-ая производная определена в окрестности этой точки, а $n-2$-ая производная непрерывна в этой окрестности.
+		
+		Рассмотрим $f(x) = x^k$, ее $n$-ая производная $f^{(n)} = (k(k-1)x^{k-2})' \dots$. <- Дома дописать, если $k \in N$ и $k \in R$.
+		
+		Функцию которая имеет $n$-ую производную на $(a,b)$ называют $n$-раз дифференцируемой на $(a, b)$. Функцию которая имеет производную любого порядка на $(a, b)$ называют \textit{бесконечно дифференцируемой} на $(a, b)$. 
+		
+		\subsection{Формула Лейбница для производной}
+		Пусть функции $u(x), v(x)$ $n$ раз дифференцируемы на $(a, b)$. Тогда имеет место равенство:
+		\begin{eqnarray}
+			(u(x)v(x))^{(n)} = u^{(n)}v^{(0)} + nu^{(n-1)}v' + \frac{n(n-1)}{2}u^{(n-2)}v'' + \dots + nu'v^{(n-2)} + u^{(0)}v^{(n)} = \sum\limits_{k=0}^{n} C^k_nu^{(n-k)}v(k)
+		\end{eqnarray}
+		
+		Доказательство аналогично доказательству формулы бинома Ньютона (по мат. индукции).
+		
+		\section{Дифференциал высшего порядка}
+		Дифференциал первого порядка:
+		\begin{eqnarray}
+			\nonumber df = f'dx (dx = t - x \text{  } df(x, \delta x) = f(x)(\delta x))
+		\end{eqnarray}
+		
+		Зафиксируем $\delta x$. $\delta f$ - функция от переменного $x$, которая определена на $(a, b)$, тогда дифференциал второго порядка определяется следующим образом:
+		\begin{eqnarray}
+			d(df) = d^2f = d(d(f)) = d(f'dx) = dx(f''dx) =  f'' dx^2
+		\end{eqnarray}
+		Дифференциал $n$-ого порядка определяется так:
+		\begin{eqnarray}
+			d^nf = d(d^(n-1)f) = f^{(n)}dx^n
+		\end{eqnarray}
+		
+		\subsection{Формула Лейбница для дифференциалов}
+		Предположение из теоремы 1 (формула Лейбница для производной)
+		\begin{eqnarray}
+			d^n(uv) = (\sum\limits_{k=0}^{n} C^k_n u^{n-k}v^{k})dx^n = \sum\limits_{k=0}^{n} C^k_n u^{(n-k)}dx^{n-k}v^kdx^k = \sum\limits_{k=0}^{n} C^k_n d^{n-k}ud^kv
+		\end{eqnarray}
+		
+		
+		\subsection{Инвариантность дифференциала первого порядка}
+		$f(x), x \in (a, b)$, где $x$-независимая переменная. $x(t), t \in (\alpha, \beta)$, где $t$. Тогда $f(x(t))$, где есть зависимая переменная.
+				
+		Инвариантность формы первого дифференциала - $df$ одинаков при $x$ зависимом и независимом.
+		\paragraph{Доказательство}
+		Пусть $x$ независимая переменная, тогда $df = f'dx$ Пусть $x$ - зависимая переменная, тогда $df = f'(x)x'(t)dt = f'dx$, так как $x'(t)dt = dx$.
+		
+		\subsection{Инвариантность дифференциала n-ого порядка}
+		В первом случае $x$ независимый: $d^2f = f''dx^2$.
+		Во втором случае $x$ зависимый: $x = x(t)$, \\$d^2f = d(df) = d(f'dx) = df'dx + f'd(dx) = f'' dx^2 + f'd^2x$ Второй дифференциал не инвариантен относительной замены переменной. 
+		
+		Рассмотрим дифференциал третьего порядка: $d^3f = d(d^2f) = df(f'dx^2 + f'd^2x) = df''dx^2 + f''d(dx^2) + df'd^2x + f'd(d^2x) = f'''dx^3 + 2f''d^2xdx + f''dxd^2xdx + f'd^3x$.
+		Тогда получается, старшие дифференциалы \textit{не инвариантны} относительно замены переменной!
+		
+		\section{Формула Тейлора}
+			\subsection{Special for многочлен}
+			Пусть $Q(x) = Q_n(x) = q_0 + q_1x + q_2x^2 + \dots + q_nx^n$ - многочлен степени $n$. Пусть $x = x - a + a$, тогда $Q_n(x) = q_0 + q_1(x-a) + q_2(x-a)^2 + \dots + q_n(x-a)^n$.
+			Раскрыв скобки, можно получить многочлен следующего вида:
+			\begin{eqnarray}
+				\nonumber	Q_n(x) = \beta_0 + \beta_1(x-a) + \beta_2(x-a)^2 + \dots + \beta_n(x-a)^n
+			\end{eqnarray}
+			Тогда,
+			\begin{eqnarray}
+				\nonumber Q'(x) = \beta_1 + 2\beta_2(x-a) + \dots n\beta_n(x-a)^{n-1} \\
+				\nonumber Q'' (x) = 2\beta_2 + 6\beta_3(x-a) + \dots + n(n-a)\beta_n(x-a)^{n-2} \\
+				\nonumber \vdots \\
+				\nonumber Q^k(x) = k!\beta + \dots + n(n-1)(n-k + 1)(x-a)^{n-k}\beta_n
+			\end{eqnarray}
+			Если подставить в $k$-ую производную $x = a$, то $\beta_0 = Q(a)$, $\beta_1 = Q'(a)$, $\beta_2 = \frac{Q''(a)}{2}$, $\beta_k = \frac{Q^{(k)}(a)}{k!}$ - коэффициенты $\beta$ найдены через производные.
+			
+			Получаем искомую формулу:
+			\begin{eqnarray}
+				Q(x) = \sum\limits_{k=0}^{n} \frac{Q^{(k)}(a)}{k!}(x-a)^k \label{teilor}
+			\end{eqnarray}
+			
+			\subsection{Special for функция}
+			Будем рассматривать функцию $f(x)$, которая $n$-раз дифференцируема в $O(a)$. Сопоставим $f(x)$ многочлен $Q_{n-1}$ \begin{eqnarray}(x) = \sum\limits_{k=0}^{n-1} \frac{f^{(k)}(a)}{k!}(x-a)^k = f(0) + \frac{f'(0)}{1!}(x-a) + \dots + \frac{f^{(n-1)}}{(n-1)!}(x-a)^{n-1}\end{eqnarray} - многочлен Тейлора функции $f$.
+	
+			Для всех $ 0 \leq k \leq n-1$ имеет место равенство:	
+			\begin{eqnarray}
+				Q^{(k)}_{n-1}(a) = f^{(k)}(a)
+			\end{eqnarray}
+			Многочлен удовлетворяющий такому уравнению, обязательно будет иметь вид \ref{teilor}
+			
+			В окрестности точки $a$ значения производной функции приблизительно равны со значениями многочлена Тейлора для этой функции.
+			
+			Формула Тейлора:	
+			\begin{eqnarray}
+				f(x) = Q_{n-1})x + R_n(x)
+			\end{eqnarray}
+			Где $R_n(x)$ является остаточным членом формулы Тейлора, который может быть записан в форме Лагранжа:
+			\begin{eqnarray}
+				R_n(x) = \frac{f^{(n)}(\xi)}{n!}(x-a)^n
+			\end{eqnarray}
+			Без ограничения общности $\xi \in (a, x)$. Так же $\xi = a + \theta(x-a)$, где $0 < \xi < 1$, тогда остаточный член может быть записан в таком виде (форма Лагранжа?):
+			\begin{eqnarray}
+				R_n(x) = \frac{f^{(n)}(a + \theta(x-a))(x-a)^n}{n!}
+			\end{eqnarray}
+			Форма Коши:
+			\begin{eqnarray}
+				R_n(x) = \frac{(x-a)^n(1-\theta)^{n-1}}{n!}
+			\end{eqnarray}
+				
+			\subsection{Формула Тейлора с остаточным членом в форме Лагранжа, Коши}
+			Пусть $f(x)$ $n-1$ раз дифференцируема на отрезке $[a, x]$, имеет $n$-ую производную на интервале $(a, x)$. Тогда остаточный член в формуле Тейлора может быть записан в форме Лагранжа или в форме Коши.
+			
+			\paragraph{Доказательство}
+			Рассмотрим функцию $f(x) = Q_{n-1}(x) + R_n(x)$. Хотим найти свободный член в виде $R_n = (x-a)^pH$,
+			тогда $f(x) = f(a) + \frac{f'(a)}{1!}(x-a)^1 + \dots + \frac{f^{(k)}}{k!}(x-a)^k + \frac{f^{(n-1)(a)}}{(n-1)!}(x-a)^(n-1) + (x-a)^pH$
+			
+			Зафиксируем $x$, и $u = a$. Будем рассматривать функцию $\phi(x) =  f(u) + \frac{f'(a)}{1!}(x-u)^1 + \dots + \frac{f^{(k)}(u)}{k!}(x-u)^k + \dots + \frac{f^{(n-1)(u)}}{(n-1)!}(x-u)^(n-1) + (x-u)^pH$
+			
+			Зафиксируем: $\phi(a) = f(x)$ и $\phi(x) = f(x)$, т.е. концах промежутка $(a, x)$ функция $\phi$ и $f$ принимают одинаковые значения. Значит, по теореме Лагранжа, $\exists \xi = \theta(x-a) \in (0, x) : \phi'(\xi) = 0$ Найдем производную $\phi'(x) = f'(u) + f''(u)(x-u) - f'(u) + \frac{f'''(u)}{2!}(x-u)^2 - f''(u)(x-u) + \dots + \frac{f^{(n)}(u)}{(n-1)!}(x-u)^{n-1} - \frac{f^{(n-1)}(u)}{n-2}(x-u)^{n-2} - p(x-u)^{p-1}H(x) = $. Тогда, $\phi'(\xi) = \frac{f^{(n)}(\xi)}{(n-1)!}(x - \xi)^{n-1} - p(x-\xi)^{p-1}H(x) = 0$.
+			Получаем формулу для $H(x)$:
+			\begin{eqnarray}
+				\nonumber H(x) = \frac{f^{(n)}(\xi)(x-\xi)^n}{p(n-1)!(x-\xi)^{p-1}}
+			\end{eqnarray}
+			
+			Для $R(x)$:
+			\begin{eqnarray}
+				R_n(x) = (x - \xi)^pH(x)
+			\end{eqnarray}
+			
+		\subsection{Формула Тейлора с остаточным членов в Форме Пеана}
+		Пусть функция $f(x)$ удовлетворяет условиям предыдущей теоремы и $f^{(n)}(x)$ непрерывна в точке $a$. Тогда $f(x) = Q_n(x) + o((x-a)^n)$.
+		
+		\paragraph{Доказательство}
+		Перепишем функцию с остаточным членом в форме Лагранжа $f(x) = Q_{n-1}(x) + \frac{f^{(n)}(\xi)}{n!}(x-a)^n$ Заметим, что $\alpha(x) = f^{(n)}(\xi) - f^{(n)}(a)$ стремиться к нулю. Тогда получается, что $Q_{n-1}(x) + \frac{f^{(n)}(\xi)}{n!}(x-a)^n = Q_{n-1}(x) + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{\alpha(x)}{n!}(x-a)^n = Q_n(x) + o((x-a)^n)$.
+		
+		\subsection{Формула Маклорена}
+		Формула Тейлора при $a = 0$ называется \textit{формулой Маклорена}
+		\begin{eqnarray}
+			f(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2 + \dots + \frac{f^{(n)}(0)}{n!}x^n + o(x^n)
+		\end{eqnarray}
+		
+		\paragraph{Лемма}
+		Пусть функция $f(x)$ дифференцируема и является четной, тогда $f'(x)$ - нечетная. Аналогично , производная нечетной функции, есть четная функция.
+		
+		\subparagraph{Доказательство}
+		Рассмотрим $f(x) = f(-x) \Rightarrow f'(x) = -f'(-x)$, что означает $f'(x)$ нечетная функция.
+		
+		\paragraph{Примеры}
+		\# $f(x) = e^x$. Разложение для этой функции по формуле Маклорена: $e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \dots + \frac{x^n}{n!} + o(x^n)$.
+		
+		\# $f(x) = sin(x)$ - нечетная функция. Значит четные производные у нее есть четные функции, а нечетные производные есть функции нечетные. $sin''(0) = sin''''(0) = \dots = 0$, т.е. в формуле Тейлора не будет слагаемых с четными производными. $f'(0) = 1; f'''(0) = -1 \dots$. Тогда, $\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + (-1)^{k}\frac{x^{2k+1}}{(2k + 1)!} + o(x^{2k+2})$.
+		
+		<- Дома: f(x) = cos(c)
+\end{document}

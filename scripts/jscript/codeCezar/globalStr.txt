@@ -1,0 +1,1000 @@
+inect is a motion sensing input device by Microsoft for the Xbox 360 video game console and Windows PCs. Based around a webcam-style add-on peripheral for the Xbox 360 console, it enables users to control and interact with the Xbox 360 without the need to touch a game controller, through a natural user interface using gestures and spoken commands. The project is aimed at broadening the Xbox 360's audience beyond its typical gamer base. Kinect competes with the Wii Remote Plus and PlayStation Move with PlayStation Eye motion controllers for the Wii and PlayStation 3 home consoles, respectively. A version for Windows was released on February 1, 2012.
+
+Kinect was launched in North America on November 4, 2010, in Europe on November 10, 2010, in Australia, New Zealand and Singapore on November 18, 2010, and in Japan on November 20, 2010. Purchase options for the sensor peripheral include a bundle with the game Kinect Adventures and console bundles with either a 4 GB or 250 GB Xbox 360 console and Kinect Adventures.
+
+After selling a total of 8 million units in its first 60 days, the Kinect holds the Guinness World Record of being the "fastest selling consumer electronics device". 18 million units of the Kinect sensor had been shipped as of January 2012.
+
+Microsoft released Kinect software development kit for Windows 7 on June 16, 2011. This SDK will allow developers to write Kinecting apps in C++/CLI, C#, or Visual Basic .NET.
+
+Technology
+
+Kinect builds on software technology developed internally by Rare, a subsidiary of Microsoft Game Studios owned by Microsoft, and on range camera technology by Israeli developer PrimeSense, which developed a system that can interpret specific gestures, making completely hands-free control of electronic devices possible by using an infrared projector and camera and a special microchip to track the movement of objects and individuals in three dimension. This 3D scanner system called Light Coding employs a variant of image-based 3D reconstruction.
+
+The Kinect sensor is a horizontal bar connected to a small base with a motorized pivot and is designed to be positioned lengthwise above or below the video display. The device features an "RGB camera, depth sensor and multi-array microphone running proprietary software", which provide full-body 3D motion capture, facial recognition and voice recognition capabilities. At launch, voice recognition was only made available in Japan, the United Kingdom, Canada and the United States. Mainland Europe received the feature later in spring 2011. Currently voice recognition is supported in Australia, Canada, France, Germany, Ireland, Italy, Japan, Mexico, New Zealand, United Kingdom and United States. The Kinect sensor's microphone array enables the Xbox 360 to conduct acoustic source localization and ambient noise suppression, allowing for things such as headset-free party chat over Xbox Live.
+
+The depth sensor consists of an infrared laser projector combined with a monochrome CMOS sensor, which captures video data in 3D under any ambient light conditions. The sensing range of the depth sensor is adjustable, and the Kinect software is capable of automatically calibrating the sensor based on gameplay and the player's physical environment, accommodating for the presence of furniture or other obstacles.
+
+Described by Microsoft personnel as the primary innovation of Kinect, the software technology enables advanced gesture recognition, facial recognition and voice grecognition. According to information supplied to retailers, Kinect is capable of simultaneously tracking up to six people, including two active players for motion analysis with a feature extraction of 20 joints per player. However, PrimeSense has stated that the number of people the device can "see" (but not process as players) is only limited by how many will fit in the field-of-view of the camera.
+ hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha hahahaha 
+ This infrared image shows the laser grid Kinect uses to calculate depth
+ 
+ The depth map is visualized here using color gradients from white (near) to blue (far)
+
+Reverse engineering has determined that the Kinect sensor outputs video at a frame rate of 30 Hz. The RGB video stream uses 8-bit VGA resolution (640 ? 480 pixels) with a Bayer color filter, while the monochrome depth sensing video stream is in VGA resolution (640 ? 480 pixels) with 11-bit depth, which provides 2,048 levels of sensitivity. The Kinect sensor has a practical ranging limit of 1.2–3.5 m (3.9–11 ft) distance when used with the Xbox software. The area required to play Kinect is roughly 6 m2, although the sensor can maintain tracking through an extended range of approximately 0.7–6 m (2.3–20 ft). The sensor has an angular field of view of 57° horizontally and 43° vertically, while the motorized pivot is capable of tilting the sensor up to 27° either up or down. The horizontal field of the Kinect sensor at the minimum viewing distance of ~0.8 m (2.6 ft) is therefore ~87 cm (34 in), and the vertical field is ~63 cm (25 in), resulting in a resolution of just over 1.3 mm (0.051 in) per pixel. The microphone array features four microphone capsules[43] and operates with each channel processing 16-bit audio at a sampling rate of 16 kHz.
+
+Because the Kinect sensor's motorized tilt mechanism requires more power than the Xbox 360's USB ports can supply,[44] the device makes use of a proprietary connector combining USB communication with additional power. Redesigned Xbox 360 S models include a special AUX port for accommodating the connector,[45] while older models require a special power supply cable (included with the sensor[43]) that splits the connection into separate USB and power connections; power is supplied from the mains by way of an AC adapter.
+
+Launch
+Microsoft had an advertising budget of US$500 million for the launch of Kinect, a larger sum than the investment at launch of the Xbox console.[72] The marketing campaign You Are the Controller, aiming to reach new audiences, included advertisements on Kellogg's cereal boxes and Pepsi bottles, commercials during shows such as Dancing with the Stars and Glee as well as print ads in various magazines such as People and InStyle.[73]
+
+On October 19, Microsoft advertised Kinect on The Oprah Winfrey Show by giving free Xbox 360 consoles and Kinect sensors to the people in the audience.[74] Two weeks later, Kinect bundles with Xbox 360 consoles were also given away to the audience of Late Night with Jimmy Fallon.[75] On October 23, Microsoft held a pre-launch party for Kinect in Beverly Hills. The party was hosted by Ashley Tisdale and was attended by soccer star David Beckham and his three sons, Cruz, Brooklyn, and Romeo. Guests were treated to sessions with Dance Central and Kinect Adventures, followed by Tisdale having a Kinect voice chat with Nick Cannon.[76] Between November 1 and November 28, Burger King gave away a free Kinect bundle "every 15 minutes".[77]
+
+A major event was organized on November 3 in Times Square, where singer Ne-Yo performed with hundreds of dancers in anticipation of Kinect's midnight launch.[78] During the festivities, Microsoft gave away T-shirts and Kinect games.
+Huffman coding
+From Wikipedia, the free encyclopedia 
+ Jump to: navigation, search 	This article includes a list of references, but its sources remain unclear because it has insufficient inline citations. Please help to improve this article by introducing more precise citations. (January 2011) 
+
+ 
+ Huffman tree generated from the exact frequencies of the text "this is an example of a huffman tree". The frequencies and codes of each character are below. Encoding the sentence with this code requires 135 bits, as opposed to 288 bits if 36 characters of 8 bits were used. (This assumes that the code tree structure is known to the decoder and thus does not need to be counted as part of the transmitted information.)Char	Freq	Code
+space	7	111
+a	4	010
+e	4	000
+f	3	1101
+h	2	1010
+i	2	1000
+m	2	0111
+n	2	0010
+s	2	1011
+t	2	0110
+l	1	11001
+o	1	00110
+p	1	10011
+r	1	11000
+u	1	00111
+x	1	10010
+
+
+In computer science and information theory, Huffman coding is an entropy encoding algorithm used for lossless data compression. The term refers to the use of a variable-length code table for encoding a source symbol (such as a character in a file) where the variable-length code table has been derived in a particular way based on the estimated probability of occurrence for each possible value of the source symbol. It was developed by David A. Huffman while he was a Ph.D. student at MIT, and published in the 1952 paper "A Method for the Construction of Minimum-Redundancy Codes".
+
+Huffman coding uses a specific method for choosing the representation for each symbol, resulting in a prefix code (sometimes called "prefix-free codes", that is, the bit string representing some particular symbol is never a prefix of the bit string representing any other symbol) that expresses the most common source symbols using shorter strings of bits than are used for less common source symbols. Huffman was able to design the most efficient compression method of this type: no other mapping of individual source symbols to unique strings of bits will produce a smaller average output size when the actual symbol frequencies agree with those used to create the code. The running time of Huffman's method is fairly efficient, it takes  operations to construct it. A method was later found to design a Huffman code in linear time if input probabilities (also known as weights) are sorted. [1].
+
+For a set of symbols with a uniform probability distribution and a number of members which is a power of two, Huffman coding is equivalent to simple binary block encoding, e.g., ASCII coding. Huffman coding is such a widespread method for creating prefix codes that the term "Huffman code" is widely used as a synonym for "prefix code" even when such a code is not produced by Huffman's algorithm.
+
+Although Huffman's original algorithm is optimal for a symbol-by-symbol coding (i.e. a stream of unrelated symbols) with a known input probability distribution, it is not optimal when the symbol-by-symbol restriction is dropped, or when the probability mass functions are unknown, not identically distributed, or not independent (e.g., "cat" is more common than "cta"). Other methods such as arithmetic coding and LZW coding often have better compression capability: both of these methods can combine an arbitrary number of symbols for more efficient coding, and generally adapt to the actual input statistics, the latter of which is useful when input probabilities are not precisely known or vary significantly within the stream. However, the limitations of Huffman coding should not be overstated; it can be used adaptively, accommodating unknown, changing, or context-dependent probabilities. In the case of known independent and identically distributed random variables, combining symbols reduces inefficiency in a way that approaches optimality as the number of symbols combined increases.Contents  [hide] 
+1 History
+2 Problem definition 
+2.1 Informal description
+2.2 Formalized description
+2.3 Samples
+3 Basic technique 
+3.1 Compression
+3.2 Decompression
+4 Main properties
+5 Variations 
+5.1 n-ary Huffman coding
+5.2 Adaptive Huffman coding
+5.3 Huffman template algorithm
+5.4 Length-limited Huffman coding/minimum variance huffman coding
+5.5 Huffman coding with unequal letter costs
+5.6 Optimal alphabetic binary trees (Hu-Tucker coding)
+5.7 The canonical Huffman code
+6 Applications
+7 See also
+8 Notes
+9 References
+10 External links
+
+[edit]
+History
+
+In 1951, David A. Huffman and his MIT information theory classmates were given the choice of a term paper or a final exam. The professor, Robert M. Fano, assigned a term paper on the problem of finding the most efficient binary code. Huffman, unable to prove any codes were the most efficient, was about to give up and start studying for the final when he hit upon the idea of using a frequency-sorted binary tree and quickly proved this method the most efficient.[2]
+
+In doing so, the student outdid his professor, who had worked with information theory inventor Claude Shannon to develop a similar code. Huffman avoided the major flaw of the suboptimal Shannon-Fano coding by building the tree from the bottom up instead of from the top down.
+[edit]
+Problem definition
+[edit]
+Informal description
+Given
+A set of symbols and their weights (usually proportional to probabilities).
+Find
+A prefix-free binary code (a set of codewords) with minimum expected codeword length (equivalently, a tree with minimum weighted path length from the root).
+[edit]
+Formalized description
+
+Input.
+ Alphabet , which is the symbol alphabet of size .
+ Set , which is the set of the (positive) symbol weights (usually proportional to probabilities), i.e. .
+
+Output.
+ Code , which is the set of (binary) codewords, where  is the codeword for .
+
+Goal.
+ Let  be the weighted path length of code . Condition:  for any code .
+[edit]
+SamplesInput (A, W)	Symbol (ai)	a	b	c	d	e	Sum
+Weights (wi)	0.10	0.15	0.30	0.16	0.29	= 1
+Output C	Codewords (ci)	010	011	11	00	10	 
+Codeword length (in bits)
+ (li)	3	3	2	2	2
+Weighted path length
+ (li wi )	0.30	0.45	0.60	0.32	0.58	L(C) = 2.25
+Optimality	Probability budget
+ (2-li)	1/8	1/8	1/4	1/4	1/4	= 1.00
+Information content (in bits)
+ (?log2 wi) ?	3.32	2.74	1.74	2.64	1.79	 
+Entropy
+ (?wi log2 wi)	0.332	0.411	0.521	0.423	0.518	H(A) = 2.205
+
+
+For any code that is biunique, meaning that the code is uniquely decodeable, the sum of the probability budgets across all symbols is always less than or equal to one. In this example, the sum is strictly equal to one; as a result, the code is termed a complete code. If this is not the case, you can always derive an equivalent code by adding extra symbols (with associated null probabilities), to make the code complete while keeping it biunique.
+
+As defined by Shannon (1948), the information content h (in bits) of each symbol ai with non-null probability is
+
+
+The entropy H (in bits) is the weighted sum, across all symbols ai with non-zero probability wi, of the information content of each symbol:
+
+
+(Note: A symbol with zero probability has zero contribution to the entropy, since  So for simplicity, symbols with zero probability can be left out of the formula above.)
+
+As a consequence of Shannon's source coding theorem, the entropy is a measure of the smallest codeword length that is theoretically possible for the given alphabet with associated weights. In this example, the weighted average codeword length is 2.25 bits per symbol, only slightly larger than the calculated entropy of 2.205 bits per symbol. So not only is this code optimal in the sense that no other feasible code performs better, but it is very close to the theoretical limit established by Shannon.
+
+Note that, in general, a Huffman code need not be unique, but it is always one of the codes minimizing .
+[edit]
+Basic technique
+[edit]
+Compression
+ 
+ A source generates 4 different symbols  with probability . A binary tree is generated from left to right taking the two least probable symbols and putting them together to form another equivalent symbol having a probability that equals the sum of the two symbols. The process is repeated until there is just one symbol. The tree can then be read backwards, from right to left, assigning different bits to different branches. The final Huffman code is: Symbol	Code
+a1	0
+a2	10
+a3	110
+a4	111
+
+ The standard way to represent a signal made of 4 symbols is by using 2 bits/symbol, but the entropy of the source is 1.74 bits/symbol. If this Huffman code is used to represent the signal, then the average length is lowered to 1.85 bits/symbol; it is still far from the theoretical limit because the probabilities of the symbols are different from negative powers of two.
+
+The technique works by creating a binary tree of nodes. These can be stored in a regular array, the size of which depends on the number of symbols, . A node can be either a leaf node or an internal node. Initially, all nodes are leaf nodes, which contain the symbol itself, the weight (frequency of appearance) of the symbol and optionally, a link to a parent node which makes it easy to read the code (in reverse) starting from a leaf node. Internal nodes contain symbol weight, links to two child nodes and the optional link to a parent node. As a common convention, bit '0' represents following the left child and bit '1' represents following the right child. A finished tree has up to  leaf nodes and  internal nodes. A Huffman tree that omits unused symbols produces the most optimal code lengths.
+
+The process essentially begins with the leaf nodes containing the probabilities of the symbol they represent, then a new node whose children are the 2 nodes with smallest probability is created, such that the new node's probability is equal to the sum of the children's probability. With the previous 2 nodes merged into one node (thus not considering them anymore), and with the new node being now considered, the procedure is repeated until only one node remains, the Huffman tree.
+
+The simplest construction algorithm uses a priority queue where the node with lowest probability is given highest priority:
+Create a leaf node for each symbol and add it to the priority queue.
+While there is more than one node in the queue: 
+Remove the two nodes of highest priority (lowest probability) from the queue
+Create a new internal node with these two nodes as children and with probability equal to the sum of the two nodes' probabilities.
+Add the new node to the queue.
+The remaining node is the root node and the tree is complete.
+
+Since efficient priority queue data structures require O(log n) time per insertion, and a tree with n leaves has 2n?1 nodes, this algorithm operates in O(n log n) time, where n is the number of symbols.
+
+If the symbols are sorted by probability, there is a linear-time (O(n)) method to create a Huffman tree using two queues, the first one containing the initial weights (along with pointers to the associated leaves), and combined weights (along with pointers to the trees) being put in the back of the second queue. This assures that the lowest weight is always kept at the front of one of the two queues:
+Start with as many leaves as there are symbols.
+Enqueue all leaf nodes into the first queue (by probability in increasing order so that the least likely item is in the head of the queue).
+While there is more than one node in the queues: 
+Dequeue the two nodes with the lowest weight by examining the fronts of both queues.
+Create a new internal node, with the two just-removed nodes as children (either node can be either child) and the sum of their weights as the new weight.
+Enqueue the new node into the rear of the second queue.
+The remaining node is the root node; the tree has now been generated.
+
+Although this algorithm may appear "faster" complexity-wise than the previous algorithm using a priority queue, this is not actually the case because the symbols need to be sorted by probability before-hand, a process that takes O(n log n) time in itself.
+
+In many cases, time complexity is not very important in the choice of algorithm here, since n here is the number of symbols in the alphabet, which is typically a very small number (compared to the length of the message to be encoded); whereas complexity analysis concerns the behavior when n grows to be very large.
+
+It is generally beneficial to minimize the variance of codeword length. For example, a communication buffer receiving Huffman-encoded data may need to be larger to deal with especially long symbols if the tree is especially unbalanced. To minimize variance, simply break ties between queues by choosing the item in the first queue. This modification will retain the mathematical optimality of the Huffman coding while both minimizing variance and minimizing the length of the longest character code.
+
+Here's an example using the French subject string "j'aime aller sur le bord de l'eau les jeudis ou les jours impairs":
+
+[edit]
+Decompression
+
+Generally speaking, the process of decompression is simply a matter of translating the stream of prefix codes to individual byte values, usually by traversing the Huffman tree node by node as each bit is read from the input stream (reaching a leaf node necessarily terminates the search for that particular byte value). Before this can take place, however, the Huffman tree must be somehow reconstructed. In the simplest case, where character frequencies are fairly predictable, the tree can be preconstructed (and even statistically adjusted on each compression cycle) and thus reused every time, at the expense of at least some measure of compression efficiency. Otherwise, the information to reconstruct the tree must be sent a priori. A naive approach might be to prepend the frequency count of each character to the compression stream. Unfortunately, the overhead in such a case could amount to several kilobytes, so this method has little practical use. If the data is compressed using canonical encoding, the compression model can be precisely reconstructed with just  bits of information (where  is the number of bits per symbol). Another method is to simply prepend the Huffman tree, bit by bit, to the output stream. For example, assuming that the value of 0 represents a parent node and 1 a leaf node, whenever the latter is encountered the tree building routine simply reads the next 8 bits to determine the character value of that particular leaf. The process continues recursively until the last leaf node is reached; at that point, the Huffman tree will thus be faithfully reconstructed. The overhead using such a method ranges from roughly 2 to 320 bytes (assuming an 8-bit alphabet). Many other techniques are possible as well. In any case, since the compressed data can include unused "trailing bits" the decompressor must be able to determine when to stop producing output. This can be accomplished by either transmitting the length of the decompressed data along with the compression model or by defining a special code symbol to signify the end of input (the latter method can adversely affect code length optimality, however).
+[edit]
+Main properties
+
+The probabilities used can be generic ones for the application domain that are based on average experience, or they can be the actual frequencies found in the text being compressed. (This variation requires that a frequency table or other hint as to the encoding must be stored with the compressed text; implementations employ various tricks to store tables efficiently.)
+
+Huffman coding is optimal when the probability of each input symbol is a negative power of two. Prefix codes tend to have inefficiency on small alphabets, where probabilities often fall between these optimal points. "Blocking", or expanding the alphabet size by grouping multiple symbols into "words" of fixed or variable-length before Huffman coding helps both to reduce that inefficiency and to take advantage of statistical dependencies between input symbols within the group (as in the case of natural language text). The worst case for Huffman coding can happen when the probability of a symbol exceeds 2?1 = 0.5, making the upper limit of inefficiency unbounded. These situations often respond well to a form of blocking called run-length encoding; for the simple case of Bernoulli processes, Golomb coding is a provably optimal run-length code.
+
+Arithmetic coding produces some gains over Huffman coding, although arithmetic coding has higher computational complexity. Also, arithmetic coding was historically a subject of some concern over patent issues. However, as of mid-2010, various well-known effective techniques for arithmetic coding have passed into the public domain as the early patents have expired.
+[edit]
+Variations
+
+Many variations of Huffman coding exist, some of which use a Huffman-like algorithm, and others of which find optimal prefix codes (while, for example, putting different restrictions on the output). Note that, in the latter case, the method need not be Huffman-like, and, indeed, need not even be polynomial time. An exhaustive list of papers on Huffman coding and its variations is given by "Code and Parse Trees for Lossless Source Encoding"[1].
+[edit]
+n-ary Huffman coding
+
+The n-ary Huffman algorithm uses the {0, 1, ... , n ? 1} alphabet to encode message and build an n-ary tree. This approach was considered by Huffman in his original paper. The same algorithm applies as for binary (n equals 2) codes, except that the n least probable symbols are taken together, instead of just the 2 least probable. Note that for n greater than 2, not all sets of source words can properly form an n-ary tree for Huffman coding. In this case, additional 0-probability place holders must be added. This is because the tree must form an n to 1 contractor; for binary coding, this is a 2 to 1 contractor, and any sized set can form such a contractor. If the number of source words is congruent to 1 modulo n-1, then the set of source words will form a proper Huffman tree.
+[edit]
+Adaptive Huffman coding
+
+A variation called adaptive Huffman coding involves calculating the probabilities dynamically based on recent actual frequencies in the sequence of source symbols, and changing the coding tree structure to match the updated probability estimates. It is very rare in practice, because the cost of updating the tree makes it slower than optimized adaptive arithmetic coding, that is more flexible and has a better compression.
+[edit]
+Huffman template algorithm
+
+Most often, the weights used in implementations of Huffman coding represent numeric probabilities, but the algorithm given above does not require this; it requires only that the weights form a totally ordered commutative monoid, meaning a way to order weights and to add them. The Huffman template algorithm enables one to use any kind of weights (costs, frequencies, pairs of weights, non-numerical weights) and one of many combining methods (not just addition). Such algorithms can solve other minimization problems, such as minimizing , a problem first applied to circuit design [2].
+[edit]
+Length-limited Huffman coding/minimum variance huffman coding
+
+Length-limited Huffman coding is a variant where the goal is still to achieve a minimum weighted path length, but there is an additional restriction that the length of each codeword must be less than a given constant. The package-merge algorithm solves this problem with a simple greedy approach very similar to that used by Huffman's algorithm. Its time complexity is , where  is the maximum length of a codeword. No algorithm is known to solve this problem in linear or linearithmic time, unlike the presorted and unsorted conventional Huffman problems, respectively.
+[edit]
+Huffman coding with unequal letter costs
+
+In the standard Huffman coding problem, it is assumed that each symbol in the set that the code words are constructed from has an equal cost to transmit: a code word whose length is N digits will always have a cost of N, no matter how many of those digits are 0s, how many are 1s, etc. When working under this assumption, minimizing the total cost of the message and minimizing the total number of digits are the same thing.
+
+Huffman coding with unequal letter costs is the generalization in which this assumption is no longer assumed true: the letters of the encoding alphabet may have non-uniform lengths, due to characteristics of the transmission medium. An example is the encoding alphabet of Morse code, where a 'dash' takes longer to send than a 'dot', and therefore the cost of a dash in transmission time is higher. The goal is still to minimize the weighted average codeword length, but it is no longer sufficient just to minimize the number of symbols used by the message. No algorithm is known to solve this in the same manner or with the same efficiency as conventional Huffman coding.
+[edit]
+Optimal alphabetic binary trees (Hu-Tucker coding)
+
+In the standard Huffman coding problem, it is assumed that any codeword can correspond to any input symbol. In the alphabetic version, the alphabetic order of inputs and outputs must be identical. Thus, for example,  could not be assigned code , but instead should be assigned either  or . This is also known as the Hu-Tucker problem, after the authors of the paper presenting the first linearithmic solution to this optimal binary alphabetic problem[3], which has some similarities to Huffman algorithm, but is not a variation of this algorithm. These optimal alphabetic binary trees are often used as binary search trees.
+[edit]
+The canonical Huffman code
+
+If weights corresponding to the alphabetically ordered inputs are in numerical order, the Huffman code has the same lengths as the optimal alphabetic code, which can be found from calculating these lengths, rendering Hu-Tucker coding unnecessary. The code resulting from numerically (re-)ordered input is sometimes called the canonical Huffman code and is often the code used in practice, due to ease of encoding/decoding. The technique for finding this code is sometimes called Huffman-Shannon-Fano coding, since it is optimal like Huffman coding, but alphabetic in weight probability, like Shannon-Fano coding. The Huffman-Shannon-Fano code corresponding to the example is , which, having the same codeword lengths as the original solution, is also optimal.
+[edit]
+Applications
+
+Arithmetic coding can be viewed as a generalization of Huffman coding, in the sense that they produce the same output when every symbol has a probability of the form 1/2k; in particular it tends to offer significantly better compression for small alphabet sizes. Huffman coding nevertheless remains in wide use because of its simplicity and high speed. Intuitively, arithmetic coding can offer better compression than Huffman coding because its "code words" can have effectively non-integer bit lengths, whereas code words in Huffman coding can only have an integer number of bits. Therefore, there is an inefficiency in Huffman coding where a code word of length k only optimally matches a symbol of probability 1/2k and other probabilities are not represented as optimally; whereas the code word length in arithmetic coding can be made to exactly match the true probability of the symbol.
+
+Huffman coding today is often used as a "back-end" to some other compression methods. DEFLATE (PKZIP's algorithm) and multimedia codecs such as JPEG and MP3 have a front-end model and quantization followed by Huffman coding (or variable-length prefix-free codes with a similar structure, although perhaps not necessarily designed by using Huffman's algorithm[clarification needed]).
+[edit]
+See also
+Adaptive Huffman coding
+Canonical Huffman code
+Huffyuv
+Modified Huffman coding - used in fax machines
+Shannon-Fano coding
+Data compression
+Lempel–Ziv–Welch
+Varicode
+[edit]
+Notes
+^ Jan van Leeuwen, On the construction of Huffman trees, ICALP 1976, 382-410
+^ see Ken Huffman (1991)
+^ T.C. Hu and A.C. Tucker, Optimal computer search trees and variable length alphabetical codes, Journal of SIAM on Applied Mathematics, vol. 21, no. 4, December 1971, pp. 514-532.
+[edit]
+References
+For Java Implementation see: GitHub:Glank
+D.A. Huffman, "A Method for the Construction of Minimum-Redundancy Codes", Proceedings of the I.R.E., September 1952, pp 1098–1102. Huffman's original article.
+Ken Huffman. Profile: David A. Huffman, Scientific American, September 1991, pp. 54–58
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms, Second Edition. MIT Press and McGraw-Hill, 2001. ISBN 0-262-03293-7. Section 16.3, pp. 385–392.
+[edit]
+External links	This article's use of external links may not follow Wikipedia's policies or guidelines. Please improve this article by removing excessive or inappropriate external links, and converting useful links where appropriate into footnote references. (August 2010) 
+	Wikimedia Commons has media related to: Huffman coding
+
+Huffman Encoding process animation
+Huffman Encoding & Decoding Animation
+n-ary Huffman Template Algorithm
+Huffman Tree visual graph generator
+Sloane A098950 Minimizing k-ordered sequences of maximum height Huffman tree
+Mordecai J. Golin, Claire Kenyon, Neal E. Young "Huffman coding with unequal letter costs" (PDF), STOC 2002: 785-791
+Huffman Coding: A CS2 Assignment a good introduction to Huffman coding
+A quick tutorial on generating a Huffman tree
+Pointers to Huffman coding visualizations
+Huffman in C
+Description of an implementation in Python
+Explanation of Huffman coding with examples in several languages
+Interactive Huffman Tree Construction
+A C program doing basic Huffman coding on binary and text files
+Efficient implementation of Huffman codes for blocks of binary sequences
+Introductory description to text compression using Huffman Coding[hide]
+v · t · e 
+Data compression methods
+Entropy (information theory)
+From Wikipedia, the free encyclopedia 
+ Jump to: navigation, search 
+
+In information theory, entropy is a measure of the uncertainty associated with a random variable.[1] In this context, the term usually refers to the Shannon entropy, which quantifies the expected value of the information contained in a message.[2] Entropy is typically measured in bits, nats, or bans.[3]
+
+Equivalently, the Shannon entropy is a measure of the average information content one is missing when one does not know the value of the random variable. The concept was introduced by Claude E. Shannon in his 1948 paper "A Mathematical Theory of Communication".[4]
+
+Shannon's entropy represents an absolute limit on the best possible lossless compression of any communication, under certain constraints:[5] treating messages to be encoded as a sequence of independent and identically distributed random variables, Shannon's source coding theorem shows that, in the limit, the average length of the shortest possible representation to encode the messages in a given alphabet is their entropy divided by the logarithm of the number of symbols in the target alphabet.[citation needed]
+
+A single toss of a fair coin has an entropy of one bit. A series of two fair coin tosses has an entropy of two bits. The entropy rate for the coin is one bit per toss. However, if the coin is not fair, then the uncertainty is lower (if asked to bet on the next outcome, we would bet preferentially on the most frequent result), and thus the Shannon entropy is lower. Mathematically, a sequence of coin flips (fair or not) is an example of a Bernoulli process, and its entropy is given by the binary entropy function. The entropy rate of English text is between 1.0 and 1.5 bits per letter,[6] or as low as 0.6 to 1.3 bits per letter, according to estimates by Shannon based on human experiments.[7]Contents  [hide] 
+1 Introduction
+2 Definition
+3 Example
+4 Rationale
+5 Aspects 
+5.1 Relationship to thermodynamic entropy
+5.2 Entropy as information content
+5.3 Data compression
+5.4 Limitations of entropy as information content
+5.5 Limitations of entropy as a measure of unpredictability
+5.6 Data as a Markov process
+5.7 b-ary entropy
+6 Efficiency
+7 Characterization 
+7.1 Continuity
+7.2 Symmetry
+7.3 Maximum
+7.4 Additivity
+8 Further properties
+9 Extending discrete entropy to the continuous case: differential entropy
+10 Relative Entropy
+11 Use in combinatorics 
+11.1 Loomis-Whitney inequality
+11.2 Approximation to binomial coefficient
+12 See also
+13 References
+14 Further reading
+15 External links
+
+[edit]
+Introduction
+
+Entropy is a measure of unpredictability or information content. To get an informal, intuitive understanding of the connection between these three English terms, consider the example of a poll on some political issue. Usually, such polls happen because the outcome of the poll isn't already known. In other words, the outcome of the poll is relatively unpredictable, and actually performing the poll and learning the results gives some new information; these are just different ways of saying that the entropy of the poll results is large. Now consider the case that the same poll is performed a second time shortly after the first poll. Since the result of the first poll is already known, the outcome of the second poll can be predicted well and the results should not contain any new information; in this case the entropy of the second poll results is small.
+
+Now consider the example of a coin toss. When the coin is fair, that is, when the probability of heads is the same as the probability of tails, then the entropy of the coin toss is as high as it could be. This is because there is no way to predict the outcome of the coin toss ahead of time - the best we can do is predict that the coin will come up heads, and our prediction will be correct with probability 1/2. Such a coin toss has one bit of entropy since there are two possible outcomes that occur with equal probability, and learning the actual outcome contains one bit of information. Contrarily, a coin toss with a coin that has two heads and no tails has zero entropy since the coin will always come up heads, and the outcome can be predicted perfectly. Most collections of data in the real world lie somewhere in between.
+
+English text has fairly low entropy. In other words, it is fairly predictable. Even if we don't know exactly what is going to come next, we can be fairly certain that, for example, there will be many more e's than z's, or that the combination 'qu' will be much more common than any other combination with a 'q' in it and the combination 'th' will be more common than 'z', 'q', or 'qu'. Uncompressed, English text has about one bit of entropy for each character (commonly encoded as eight bits) of message.[8][9]
+
+If a compression scheme is lossless—that is, you can always recover the entire original message by uncompressing—then a compressed message has the same quantity of information as the original, but communicated in fewer bits. That is, it has more information per bit, or a higher entropy. This means a compressed message is more unpredictable, because there is no redundancy; each bit of the message is communicating a unique bit of information. Roughly speaking, Shannon's source coding theorem says that a lossless compression scheme cannot compress messages, on average, to have more than one bit of information per bit of message. The entropy of a message multiplied by the length of that message is a measure of how much information the message contains.
+
+Shannon's theorem also implies that no lossless compression scheme can compress all messages. If some messages come out smaller, at least one must come out larger. In practical use, this is not a problem, because we are generally only interested in compressing certain types of messages, for example English documents as opposed to jibberish text, or digital photographs rather than noise, and it is unimportant if our compression algorithm makes certain kinds of random sequences larger.
+[edit]
+Definition
+
+Named after Boltzmann's H-theorem, Shannon denoted the entropy H of a discrete random variable X with possible values {x1, ..., xn} and probability mass function P(X) as,
+
+
+Here E is the expected value operator, and I is the information content of X.[10][11]
+
+I(X) is itself a random variable. The entropy can explicitly be written as
+
+
+where b is the base of the logarithm used. Common values of b are 2, Euler's number e, and 10, and the unit of entropy is bit for b = 2, nat for b = e, and dit (or digit) for b = 10.[12]
+
+In the case of p(xi) = 0 for some i, the value of the corresponding summand 0 logb 0 is taken to be 0, which is consistent with the well-known limit:
+.
+[edit]
+Example
+ 
+ Entropy H(X) (i.e. the expected surprisal) of a coin flip, measured in bits, graphed versus the fairness of the coin Pr(X=1), where X=1 represents a result of heads.
+
+ Note that the maximum of the graph depends on the distribution. Here, at most 1 bit is required to communicate the outcome of a fair coin flip (2 possible values), but the result of a fair die (6 possible values) would require at most log26 bits.
+Main article: Binary entropy function
+Main article: Bernoulli process
+
+Consider tossing a coin with known, not necessarily fair, probabilities of coming up heads or tails; this is known as the Bernoulli process.
+
+The entropy of the unknown result of the next toss of the coin is maximized if the coin is fair (that is, if heads and tails both have equal probability 1/2). This is the situation of maximum uncertainty as it is most difficult to predict the outcome of the next toss; the result of each toss of the coin delivers a full 1 bit of information.
+
+However, if we know the coin is not fair, but comes up heads or tails with probabilities p and q, where p ? q, then there is less uncertainty. Every time it is tossed, one side is more likely to come up than the other. The reduced uncertainty is quantified in a lower entropy: on average each toss of the coin delivers less than a full 1 bit of information.
+
+The extreme case is that of a double-headed coin that never comes up tails, or a double-tailed coin that never results in a head. Then there is no uncertainty. The entropy is zero: each toss of the coin delivers no information. In this respect, entropy can be normalized by dividing it by information length. The measure is called metric entropy and allows to measure the randomness of the information.
+[edit]
+Rationale
+
+As said, for a random variable  with  outcomes , the Shannon entropy, a measure of uncertainty (see further below) and denoted by , is defined as
+	(1)
+
+
+where  is the probability mass function of outcome .
+
+To understand the meaning of Eq. (1), first consider a set of  possible outcomes (events) , with equal probability . An example would be a fair die with  values, from  to . The uncertainty for such a set of  outcomes is defined by
+	(2)
+
+
+For concreteness, consider the case in which the base of the logarithm is . In order to specify an outcome of a fair -sided die roll, we need to specify one of the  values, which requires  bits. Hence in this case, the uncertainty of an outcome is the number of bits needed to specify the outcome.
+
+Intuitively, if we have two independent sources of uncertainty, the overall uncertainty should be the sum of the individual uncertainties. The logarithm captures this additivity characteristic for independent uncertainties. For example, consider appending to each value of the first die the value of a second die, which has  possible outcomes . There are thus  possible outcomes . The uncertainty for such a set of  outcomes is then
+	(3)
+
+
+Thus the uncertainty of playing with two dice is obtained by adding the uncertainty of the second die  to the uncertainty of the first die . In the case that  this means that to specify the outcome of an -sided die roll and an -sided die roll, we need to specify  bits.
+
+Now return to the case of playing with one die only (the first one). Since the probability of each event is , we can write
+
+
+In the case of a non-uniform probability mass function (or density in the case of continuous random variables), we let
+	(4)
+
+
+which is also called a surprisal; the lower the probability , i.e. , the higher the uncertainty or the surprise, i.e. , for the outcome .
+
+The average uncertainty , with  being the average operator, is obtained by
+	(5)
+
+
+and is used as the definition of the entropy  in Eq. (1). The above also explains why information entropy and information uncertainty can be used interchangeably.[13] In the case that , Eq. (1) measures the expected number of bits that we need in order to specify the outcome of a random experiment.
+
+One may also define the conditional entropy of two events X and Y taking values xi and yj respectively, as
+
+
+where p(xi,yj) is the probability that X=xi and Y=yj. This quantity should be understood as the amount of randomness in the random variable X given that you know the value of Y. For example, the entropy associated with a six-sided die is H(die), but if you were told that it had in fact landed on 1, 2, or 3, then its entropy would be equal to H(die: the die landed on 1, 2, or 3).
+[edit]
+Aspects
+[edit]
+Relationship to thermodynamic entropy
+Main article: Entropy in thermodynamics and information theory
+
+The inspiration for adopting the word entropy in information theory came from the close resemblance between Shannon's formula and very similar known formulae from thermodynamics.
+
+In statistical thermodynamics the most general formula for the thermodynamic entropy S of a thermodynamic system is the Gibbs entropy,
+
+
+where kB is the Boltzmann constant, and pi is the probability of a microstate. The Gibbs entropy was defined by J. Willard Gibbs in 1878 after earlier work by Boltzmann (1872).[14]
+
+The Gibbs entropy translates over almost unchanged into the world of quantum physics to give the von Neumann entropy, introduced by John von Neumann in 1927,
+
+
+where ? is the density matrix of the quantum mechanical system and Tr is the trace.
+
+At an everyday practical level the links between information entropy and thermodynamic entropy are not evident. Physicists and chemists are apt to be more interested in changes in entropy as a system spontaneously evolves away from its initial conditions, in accordance with the second law of thermodynamics, rather than an unchanging probability distribution. And, as the minuteness of Boltzmann's constant kB indicates, the changes in S / kB for even tiny amounts of substances in chemical and physical processes represent amounts of entropy which are extremely large compared to anything seen in data compression or signal processing. Furthermore, in classical thermodynamics the entropy is defined in terms of macroscopic measurements and makes no reference to any probability distribution, which is central to the definition of information entropy.
+
+At a multidisciplinary level, however, connections can be made between thermodynamic and informational entropy, although it took many years in the development of the theories of statistical mechanics and information theory to make the relationship fully apparent. In fact, in the view of Jaynes (1957), thermodynamic entropy, as explained by statistical mechanics, should be seen as an application of Shannon's information theory: the thermodynamic entropy is interpreted as being proportional to the amount of further Shannon information needed to define the detailed microscopic state of the system, that remains uncommunicated by a description solely in terms of the macroscopic variables of classical thermodynamics, with the constant of proportionality being just the Boltzmann constant. For example, adding heat to a system increases its thermodynamic entropy because it increases the number of possible microscopic states for the system, thus making any complete state description longer. (See article: maximum entropy thermodynamics). Maxwell's demon can (hypothetically) reduce the thermodynamic entropy of a system by using information about the states of individual molecules; but, as Landauer (from 1961) and co-workers have shown, to function the demon himself must increase thermodynamic entropy in the process, by at least the amount of Shannon information he proposes to first acquire and store; and so the total thermodynamic entropy does not decrease (which resolves the paradox). Landauer's principle has implications on the amount of heat a computer must dissipate to process a given amount of information, though modern computers are nowhere near the efficiency limit.
+[edit]
+Entropy as information content
+Main article: Shannon's source coding theorem
+
+Entropy is defined in the context of a probabilistic model. Independent fair coin flips have an entropy of 1 bit per flip. A source that always generates a long string of B's has an entropy of 0, since the next character will always be a 'B'.
+
+The entropy rate of a data source means the average number of bits per symbol needed to encode it. Shannon's experiments with human predictors show an information rate of between 0.6 and 1.3 bits per character,[15] depending on the experimental setup; the PPM compression algorithm can achieve a compression ratio of 1.5 bits per character in English text.
+
+From the preceding example, note the following points:
+The amount of entropy is not always an integer number of bits.
+Many data bits may not convey information. For example, data structures often store information redundantly, or have identical sections regardless of the information in the data structure.
+
+Shannon's definition of entropy, when applied to an information source, can determine the minimum channel capacity required to reliably transmit the source as encoded binary digits (see caveat below in italics). The formula can be derived by calculating the mathematical expectation of the amount of information contained in a digit from the information source. See also Shannon-Hartley theorem.
+
+Shannon's entropy measures the information contained in a message as opposed to the portion of the message that is determined (or predictable). Examples of the latter include redundancy in language structure or statistical properties relating to the occurrence frequencies of letter or word pairs, triplets etc. See Markov chain.
+[edit]
+Data compression
+Main article: Data compression
+
+Entropy effectively bounds the performance of the strongest lossless (or nearly lossless) compression possible, which can be realized in theory by using the typical set or in practice using Huffman, Lempel-Ziv or arithmetic coding. The performance of existing data compression algorithms is often used as a rough estimate of the entropy of a block of data.[16][17] See also Kolmogorov complexity. In practice, compression algorithms deliberately include some judicious redundancy in the form of checksums to protect against errors.
+[edit]
+Limitations of entropy as information content
+
+There are a number of entropy-related concepts that mathematically quantify information content in some way:
+the self-information of an individual message or symbol taken from a given probability distribution,
+the entropy of a given probability distribution of messages or symbols, and
+the entropy rate of a stochastic process.
+
+(The "rate of self-information" can also be defined for a particular sequence of messages or symbols generated by a given stochastic process: this will always be equal to the entropy rate in the case of a stationary process.) Other quantities of information are also used to compare or relate different sources of information.
+
+It is important not to confuse the above concepts. Oftentimes it is only clear from context which one is meant. For example, when someone says that the "entropy" of the English language is about 1.5 bits per character, they are actually modeling the English language as a stochastic process and talking about its entropy rate.
+
+Although entropy is often used as a characterization of the information content of a data source, this information content is not absolute: it depends crucially on the probabilistic model. A source that always generates the same symbol has an entropy rate of 0, but the definition of what a symbol is depends on the alphabet. Consider a source that produces the string ABABABABAB... in which A is always followed by B and vice versa. If the probabilistic model considers individual letters as independent, the entropy rate of the sequence is 1 bit per character. But if the sequence is considered as "AB AB AB AB AB..." with symbols as two-character blocks, then the entropy rate is 0 bits per character.
+
+However, if we use very large blocks, then the estimate of per-character entropy rate may become artificially low. This is because in reality, the probability distribution of the sequence is not knowable exactly; it is only an estimate. For example, suppose one considers the text of every book ever published as a sequence, with each symbol being the text of a complete book. If there are N published books, and each book is only published once, the estimate of the probability of each book is 1/N, and the entropy (in bits) is -log2 1/N = log2 N. As a practical code, this corresponds to assigning each book a unique identifier and using it in place of the text of the book whenever one wants to refer to the book. This is enormously useful for talking about books, but it is not so useful for characterizing the information content of an individual book, or of language in general: it is not possible to reconstruct the book from its identifier without knowing the probability distribution, that is, the complete text of all the books. The key idea is that the complexity of the probabilistic model must be considered. Kolmogorov complexity is a theoretical generalization of this idea that allows the consideration of the information content of a sequence independent of any particular probability model; it considers the shortest program for a universal computer that outputs the sequence. A code that achieves the entropy rate of a sequence for a given model, plus the codebook (i.e. the probabilistic model), is one such program, but it may not be the shortest.
+
+For example, the Fibonacci sequence is 1, 1, 2, 3, 5, 8, 13, ... . Treating the sequence as a message and each number as a symbol, there are almost as many symbols as there are characters in the message, giving an entropy of approximately log2(n). So the first 128 symbols of the Fibonacci sequence has an entropy of approximately 7 bits/symbol. However, the sequence can be expressed using a formula [F(n) = F(n-1) + F(n-2) for n={3,4,5,...}, F(1)=1, F(2)=1] and this formula has a much lower entropy and applies to any length of the Fibonacci sequence.
+[edit]
+Limitations of entropy as a measure of unpredictability
+
+In cryptanalysis, entropy is often roughly used as a measure of the unpredictability of a cryptographic key. For example, a 128-bit key that is randomly generated has 128 bits of entropy. It takes (on average)  guesses to break by brute force. If the key's first digit is 0, and the others random, then the entropy is 127 bits, and it takes (on average)  guesses.
+
+However, this measure fails if the possible keys are not of equal probability. If the key is half the time "password" and half the time a true random 128-bit key, then the entropy is approximately 65 bits. Yet half the time the key may be guessed on the first try, if your first guess is "password", and on average, it takes around  guesses (not ) to break this password.
+
+Similarly, consider a 1000000-digit binary one-time pad. If the pad has 1000000 bits of entropy, it is perfect. If the pad has 999999 bits of entropy, evenly distributed (each individual bit of the pad having 0.999999 bits of entropy) it may still be considered very good. But if the pad has 999999 bits of entropy, where the first digit is fixed and the remaining 999999 digits are perfectly random, then the first digit of the ciphertext will not be encrypted at all.
+[edit]
+Data as a Markov process
+
+A common way to define entropy for text is based on the Markov model of text. For an order-0 source (each character is selected independent of the last characters), the binary entropy is:
+
+
+where pi is the probability of i. For a first-order Markov source (one in which the probability of selecting a character is dependent only on the immediately preceding character), the entropy rate is:
+
+
+where i is a state (certain preceding characters) and  is the probability of  given  as the previous character.
+
+For a second order Markov source, the entropy rate is
+
+[edit]
+b-ary entropy
+
+In general the b-ary entropy of a source  = (S,P) with source alphabet S = {a1, ..., an} and discrete probability distribution P = {p1, ..., pn} where pi is the probability of ai (say pi = p(ai)) is defined by:
+
+
+Note: the b in "b-ary entropy" is the number of different symbols of the "ideal alphabet" which is being used as the standard yardstick to measure source alphabets. In information theory, two symbols are necessary and sufficient for an alphabet to be able to encode information, therefore the default is to let b = 2 ("binary entropy"). Thus, the entropy of the source alphabet, with its given empiric probability distribution, is a number equal to the number (possibly fractional) of symbols of the "ideal alphabet", with an optimal probability distribution, necessary to encode for each symbol of the source alphabet. Also note that "optimal probability distribution" here means a uniform distribution: a source alphabet with n symbols has the highest possible entropy (for an alphabet with n symbols) when the probability distribution of the alphabet is uniform. This optimal entropy turns out to be .
+[edit]
+Efficiency
+
+A source alphabet with non-uniform distribution will have less entropy than if those symbols had uniform distribution (i.e. the "optimized alphabet"). This deficiency in entropy can be expressed as a ratio:
+
+
+Efficiency has utility in quantifying the effective use of a communications channel.
+[edit]
+Characterization
+
+Shannon entropy is characterized by a small number of criteria, listed below. Any definition of entropy satisfying these assumptions has the form
+
+
+where K is a constant corresponding to a choice of measurement units.
+
+In the following,  and .
+[edit]
+Continuity
+
+The measure should be continuous, so that changing the values of the probabilities by a very small amount should only change the entropy by a small amount.
+[edit]
+Symmetry
+
+The measure should be unchanged if the outcomes xi are re-ordered.
+ etc.
+[edit]
+Maximum
+
+The measure should be maximal if all the outcomes are equally likely (uncertainty is highest when all possible events are equiprobable).
+
+
+For equiprobable events the entropy should increase with the number of outcomes.
+
+[edit]
+Additivity
+
+The amount of entropy should be independent of how the process is regarded as being divided into parts.
+
+This last functional relationship characterizes the entropy of a system with sub-systems. It demands that the entropy of a system can be calculated from the entropies of its sub-systems if the interactions between the sub-systems are known.
+
+Given an ensemble of n uniformly distributed elements that are divided into k boxes (sub-systems) with b1, b2, ... , bk elements each, the entropy of the whole ensemble should be equal to the sum of the entropy of the system of boxes and the individual entropies of the boxes, each weighted with the probability of being in that particular box.
+
+For positive integers bi where b1 + ... + bk = n,
+
+
+Choosing k = n, b1 = ... = bn = 1 this implies that the entropy of a certain outcome is zero:
+
+
+This implies that the efficiency of a source alphabet with n symbols can be defined simply as being equal to its n-ary entropy. See also Redundancy (information theory).
+[edit]
+Further properties
+
+The Shannon entropy satisfies the following properties, for some of which it is useful to interpret entropy as the amount of information learned (or uncertainty eliminated) by revealing the value of a random variable X:
+Adding or removing an event with probability zero does not contribute to the entropy:
+.
+It can be confirmed using the Jensen inequality that
+.
+
+This maximal entropy of  is effectively attained by a source alphabet having a uniform probability distribution: uncertainty is maximal when all possible events are equiprobable.
+The entropy or the amount of information revealed by evaluating (X,Y) (that is, evaluating X and Y simultaneously) is equal to the information revealed by conducting two consecutive experiments: first evaluating the value of Y, then revealing the value of X given that you know the value of Y. This may be written as
+
+If Y=f(X) where f is deterministic, then . Applying the previous formula to  yields
+, so  ,
+
+thus the entropy of a variable can only decrease when the latter is passed through a deterministic function.
+If X and Y are two independent experiments, then knowing the value of Y doesn't influence our knowledge of the value of X (since the two don't influence each other by independence):
+
+The entropy of two simultaneous events is no more than the sum of the entropies of each individual event, and are equal if the two events are independent. More specifically, if X and Y are two random variables on the same probability space, and (X,Y) denotes their Cartesian product, then
+
+
+Proving this mathematically follows easily from the previous two properties of entropy.
+[edit]
+Extending discrete entropy to the continuous case: differential entropy
+Main article: Differential entropy
+
+The Shannon entropy is restricted to random variables taking discrete values. The corresponding formula for a continuous random variable with probability density function f(x) on the real line is defined by analogy, using the above form of the entropy as an expectation:
+
+
+This formula is usually referred to as the continuous entropy, or differential entropy. A precursor of the continuous entropy  is the expression for the functional  in the H-theorem of Boltzmann.
+
+Although the analogy between both functions is suggestive, the following question must be set: is the differential entropy a valid extension of the Shannon discrete entropy? Differential entropy lacks a number of properties that the Shannon discrete entropy has – it can even be negative – and thus corrections have been suggested, notably limiting density of discrete points.
+
+To answer this question, we must establish a connection between the two functions:
+
+We wish to obtain a generally finite measure as the bin size goes to zero. In the discrete case, the bin size is the (implicit) width of each of the n (finite or infinite) bins whose probabilities are denoted by pn. As we generalize to the continuous domain, we must make this width explicit.
+
+To do this, start with a continuous function f discretized as shown in the figure. As the figure indicates, by the mean-value theorem there exists a value xi in each bin such that
+
+
+and thus the integral of the function f can be approximated (in the Riemannian sense) by
+
+
+where this limit and "bin size goes to zero" are equivalent.
+
+We will denote
+
+
+and expanding the logarithm, we have
+
+
+As , we have
+
+
+and also
+
+
+But note that  as , therefore we need a special definition of the differential or continuous entropy:
+
+
+which is, as said before, referred to as the differential entropy. This means that the differential entropy is not a limit of the Shannon entropy for . Rather, it differs from the limit of the Shannon entropy by an infinite offset.
+
+It turns out as a result that, unlike the Shannon entropy, the differential entropy is not in general a good measure of uncertainty or information. For example, the differential entropy can be negative; also it is not invariant under continuous co-ordinate transformations.
+[edit]
+Relative Entropy
+
+Another useful measure of entropy that works equally well in the discrete and the continuous case is the relative entropy of a distribution. It is defined as the Kullback-Leibler divergence from the distribution to a reference measure m as follows. Assume that a probability distribution p is absolutely continuous with respect to a measure m, i.e. is of the form p(dx) = f(x)m(dx) for some non negative m-integrable function f with m-integral 1, then the relative entropy can be defined as
+
+
+In this form the relative entropy generalises (up to change in sign) both the discrete entropy, where the measure m is the counting measure, and the differential entropy, where the measure m is the Lebesgue measure. If the measure m is itself a probability distribution, the relative entropy is non negative, and zero iff p = m as measures. It is defined for any measure space, hence coordinate independent and invariant under co-ordinate reparameterizations if one properly takes into account the transformation of the measure m. The relative entropy, and implicitly entropy and differential entropy, do depend on the "reference" measure m.
+[edit]
+Use in combinatorics
+
+Entropy has become a useful quantity in combinatorics.
+[edit]
+Loomis-Whitney inequality
+
+A simple example of this is an alternate proof of the Loomis-Whitney inequality: for every subset , we have
+
+
+where , that is,  is the orthogonal projection in the ith coordinate.
+
+The proof follows as a simple corollary of Shearer's inequality: if  are random variables and  are subsets of  such that every integer between 1 and d lie in exactly r of these subsets, then
+
+
+where  is the Cartesian product of random variables  with indexes j in  (so the dimension of this vector is equal to the size of ).
+
+We sketch how Loomis-Whitney follows from this: Indeed, let X be a uniformly distributed random variable with values in A and so that each point in A occurs with equal probability. Then (by the further properties of entropy mentioned above) , where |A| denotes the cardinality of A. Let . The range of  is contained in  and hence . Now use this to bound the right side of Shearer's inequality and exponentiate the opposite sides of the resulting inequality you obtain.
+[edit]
+Approximation to binomial coefficient
+
+For integers  let . Then
+
+
+where .[18]
+
+Here is a sketch proof. Note that  is one term of the expression . Rearranging gives the upper bound. For the lower bound one first shows, using some algebra, that it is the largest term in the summation. But then,
+
+
+since there are  terms in the summation. Rearranging gives the lower bound.
+
+A nice interpretation of this is that the number of binary strings of length  with exactly  many 1's is approximately .[19]
+[edit]
+See also	Statistics portal
+	Cryptography portal
+
+Conditional entropy
+Cross entropy – is a measure of the average number of bits needed to identify an event from a set of possibilities between two probability distributions
+Entropy (arrow of time)
+Entropy encoding – a coding scheme that assigns codes to symbols so as to match code lengths with the probabilities of the symbols.
+Entropy estimation
+Entropy power inequality
+Entropy rate
+Fisher information
+Hamming distance
+History of entropy
+History of information theory
+Joint entropy – is the measure how much entropy is contained in a joint system of two random variables.
+Kolmogorov-Sinai entropy in dynamical systems
+Levenshtein distance
+Mutual information
+Negentropy
+Perplexity
+Qualitative variation – other measures of statistical dispersion for nominal distributions
+Quantum relative entropy – a measure of distinguishability between two quantum states.
+Renyi entropy – a generalisation of Shannon entropy; it is one of a family of functionals for quantifying the diversity, uncertainty or randomness of a system.
+Shannon index
+Theil index
+Weighted entropy
+[edit]
+References	This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed. (April 2012) 
+
+^ Ihara, Shunsuke (1993). Information theory for continuous systems. World Scientific. p. 2. ISBN 978-981-02-0985-8.
+^ In this context, a 'message' means a specific realization of the random variable.
+^ Brillouin, Leon (2004). Science & Information Theory. Dover Publications. p. 293. ISBN 978-0-486-43918-1.
+^ Shannon, Claude E. (July/October 1948). "A Mathematical Theory of Communication". Bell System Technical Journal 27 (3): 379–423. (PDF)
+^ Goise, Francois & Olla, Stefano (2008). Entropy methods for the Boltzmann equation: lectures from a special semester at the Centre Emile Borel, Institut H. Poincare, Paris, 2001. Springer. p. 14. ISBN 978-3-540-73704-9.
+^ Schneier, B: Applied Cryptography, Second edition, page 234. John Wiley and Sons.
+^ Shannon, Claude E.: Prediction and entropy of printed English, The Bell System Technical Journal, 30:50–64, January 1951.
+^ Schneier, B: Applied Cryptography, Second edition, page 234. John Wiley and Sons.
+^ Shannon, Claude E.: Prediction and entropy of printed English, The Bell System Technical Journal, 30:50–64, January 1951.
+^ Borda, Monica (2011). Fundamentals in Information Theory and Coding. Springer. p. 11. ISBN 978-3-642-20346-6.
+^ In this context, a 'message' means a specific realization of the random variable.
+^ Brillouin, Leon (2004). Science & Information Theory. Dover Publications. p. 293. ISBN 978-0-486-43918-1.
+^ Shannon, Claude E. (July/October 1948). "A Mathematical Theory of Communication". Bell System Technical Journal 27 (3): 379–423. (PDF)
+^ Goise, Francois & Olla, Stefano (2008). Entropy methods for the Boltzmann equation: lectures from a special semester at the Centre Emile Borel, Institut H. Poincare, Paris, 2001. Springer. p. 14. ISBN 978-3-540-73704-9.
+^ Schneier, B: Applied Cryptography, Second edition, page 234. John Wiley and Sons.
+^ Shannon, Claude E.: Prediction and entropy of printed English, The Bell System Technical Journal, 30:50–64, January 1951.
+^ Schneier, B: Applied Cryptography, Second edition, page 234. John Wiley and Sons.
+^ Shannon, Claude E.: Prediction and entropy of printed English, The Bell System Technical Journal, 30:50–64, January 1951.
+^ Borda, Monica (2011). Fundamentals in Information Theory and Coding. Springer. p. 11. ISBN 978-3-642-20346-6.
+^ Han, Te Sun & Kobayashi, Kingo (2002). Mathematics of Information and Coding. American Mathematical Society. pp. 19–20. ISBN 978-0-8218-4256-0.
+^ Schneider, T.D, Information theory primer with an appendix on logarithms, National Cancer Institute, 14 April 2007.
+^ Jaynes, E.T. (May 1957). "Information Theory and Statistical Mechanics". Physical Review 106 (4): 620–630. Bibcode 1957PhRv..106..620J. doi:10.1103/PhysRev.106.620.
+^ Compare: Boltzmann, Ludwig (1896, 1898). Vorlesungen uber Gastheorie : 2 Volumes – Leipzig 1895/98 UB: O 5262-6. English version: Lectures on gas theory. Translated by Stephen G. Brush (1964) Berkeley: University of California Press; (1995) New York: Dover ISBN 0-486-68455-5
+^ Mark Nelson (2006-08-24). "The Hutter Prize". Retrieved 2008-11-27.
+^ T. Schurmann and P. Grassberger, Entropy Estimation of Symbol Sequences, CHAOS,Vol. 6, No. 3 (1996) 414–427
+^ T. Schurmann, Bias Analysis in Entropy Estimation J. Phys. A: Math. Gen. 37 (2004) L295-L301.
+^ Aoki, New Approaches to Macroeconomic Modeling. page 43.
+^ Probability and Computing, M. Mitzenmacher and E. Upfal, Cambridge University Press
+
+This article incorporates material from Shannon's entropy on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+[edit]
+Further reading
+Martin, Nathaniel F.G. & England, James W. (2011). Mathematical Theory of Entropy. Cambridge University Press. ISBN 978-0-521-17738-2.
+[edit]
+External links
+Introduction to entropy and information on Principia Cybernetica Web
+Entropy an interdisciplinary journal on all aspect of the entropy concept. Open access.
+Information is not entropy, information is not uncertainty ! – a discussion of the use of the terms "information" and "entropy".
+I'm Confused: How Could Information Equal Entropy? – a similar discussion on the bionet.info-theory FAQ.
+Description of information entropy from "Tools for Thought" by Howard Rheingold
+A java applet representing Shannon's Experiment to Calculate the Entropy of English
+Slides on information gain and entropy
+An Intuitive Guide to the Concept of Entropy Arising in Various Sectors of Science – a wikibook on the interpretation of the concept of entropy.
+Calculator for Shannon entropy estimation and interpretation
+Network Event Detection With Entropy Measures, Dr. Raimund Eimann, University of Auckland, PDF; 5993 kB – a PhD thesis demonstrating how entropy measures may be used in network anomaly detection.[hide]
+v · t · e 
+Data compression methods
+
+Information theory	Entropy · Complexity · Redundancy · Lossy · Timeline of information theory · Quantization · Rate distortion theory 
+
+Lossless	Entropy encoding	Shannon–Fano · Shannon–Fano–Elias · Huffman (Adaptive · Canonical · Modified)  · Arithmetic · Range · Golomb · Universal (Gamma · Exp-Golomb · Fibonacci · Levenstein) 
+
+Dictionary	RLE · Byte pair encoding · DEFLATE · Lempel–Ziv (LZ77 and LZ78 · LZSS · LZW · LZWL · LZO · LZMA · LZX · LZRW · LZJB · LZS · LZT · ROLZ · Statistical Lempel Ziv) 
+
+Others	CTW · BWT · PPM · DMC · Delta 
+
+
+Audio	Theory	Companding · Convolution · Dynamic range · Latency · Sampling · Nyquist–Shannon theorem · Sound quality 
+
+Audio codec parts	LPC (LAR · LSP)  · WLPC · CELP · ACELP · A-law · ?-law · ADPCM · DPCM · MDCT · Fourier transform · Psychoacoustic model 
+
+Others	Bit rate (CBR · ABR · VBR)  · Speech compression · Sub-band coding 
+
+
+Image	Terms	Color space · Pixel · Chroma subsampling · Compression artifact · Image resolution 
+
+Methods	RLE · Fractal · Wavelet · EZW · SPIHT · LP · DCT · Chain code · KLT 
+
+Others	Test images · PSNR quality measure · Quantization 
+
+
+Video	Terms	Video characteristics · Frame · Frame rate · Interlace · Frame types · Video quality · Video resolution 
+
+Video codec parts	Motion compensation · DCT 
+
+Others	Video codecs · Lossless compressed · Uncompressed · Bit rate (CBR · ABR · VBR)
+Entropy encoding
+From Wikipedia, the free encyclopedia 
+ Jump to: navigation, search 
+
+In information theory an entropy encoding is a lossless data compression scheme that is independent of the specific characteristics of the medium.
+
+One of the main types of entropy coding creates and assigns a unique prefix-free code to each unique symbol that occurs in the input. These entropy encoders then compress data by replacing each fixed-length input symbol with the corresponding variable-length prefix-free output codeword. The length of each codeword is approximately proportional to the negative logarithm of the probability. Therefore, the most common symbols use the shortest codes.
+
+According to Shannon's source coding theorem, the optimal code length for a symbol is ?logbP, where b is the number of symbols used to make output codes and P is the probability of the input symbol.
+
+Two of the most common entropy encoding techniques are Huffman coding and arithmetic coding. If the approximate entropy characteristics of a data stream are known in advance (especially for signal compression), a simpler static code may be useful. These static codes include universal codes (such as Elias gamma coding or Fibonacci coding) and Golomb codes (such as unary coding or Rice coding).
+[edit]
+Entropy as a measure of similarity
+
+Besides using entropy encoding as a way to compress digital data, an entropy encoder can also be used to measure the amount of similarity between streams of data. This is done by generating an entropy coder/compressor for each class of data; unknown data is then classified by feeding the uncompressed data to each compressor and seeing which compressor yields the highest compression. The coder with the best compression is probably the coder trained on the data that was most similar to the unknown data.
+History of entropy
+From Wikipedia, the free encyclopedia 
+ Jump to: navigation, search 
+
+The concept of entropy developed in response to the observation that a certain amount of functional energy released from combustion reactions is always lost to dissipation or friction and is thus not transformed into useful work. Early heat-powered engines such as Thomas Savery's (1698), the Newcomen engine (1712) and the Cugnot steam tricycle (1769) were inefficient, converting less than two percent of the input energy into useful work output; a great deal of useful energy was dissipated or lost. Over the next two centuries, physicists investigated this puzzle of lost energy; the result was the concept of entropy.
+
+In the early 1850s, Rudolf Clausius set forth the concept of the thermodynamic system and posited the argument that in any irreversible process a small amount of heat energy ?Q is incrementally dissipated across the system boundary. Clausius continued to develop his ideas of lost energy, and coined the term entropy.
+
+Since the mid-20th century the concept of entropy has found application in the field of information theory, describing an analogous loss of data in information transmission systems.Contents  [hide] 
+1 Classical thermodynamic views
+2 1854 definition
+3 1856 definition
+4 1862 definition
+5 1865 definition
+6 Later developments
+7 Statistical thermodynamic views
+8 Information theory
+9 Popular use
+10 Terminology overlap
+11 See also
+12 References
+13 External links
+
+[edit]
+Classical thermodynamic views
+Main article: classical thermodynamics
+
+An early formulation of the Second Law by Thomas Aquinas, in the Summa Theologica (1274), is: "It is impossible for an effect to be stronger than its cause.".[1] Here, "be stronger than" in modern terminology corresponds to "have less entropy than." Another early formulation is that "a cause must be equal to or greater than its effect."[2]
+
+In 1803, mathematician Lazare Carnot published a work entitled Fundamental Principles of Equilibrium and Movement. This work includes a discussion on the efficiency of fundamental machines, i.e. pulleys and inclined planes. Lazare Carnot saw through all the details of the mechanisms to develop a general discussion on the conservation of mechanical energy. Over the next three decades, Lazare Carnot’s theorem was taken as a statement that in any machine the accelerations and shocks of the moving parts all represent losses of moment of activity, i.e. the useful work done. From this Lazare drew the inference that perpetual motion was impossible. This loss of moment of activity was the first-ever rudimentary statement of the second law of thermodynamics and the concept of 'transformation-energy' or entropy, i.e. energy lost to dissipation and friction.[3]
+
+Lazare Carnot died in exile in 1823. During the following year Lazare’s son Sadi Carnot, having graduated from the Ecole Polytechnique training school for engineers, but now living on half-pay with his brother Hippolyte in a small apartment in Paris, wrote the Reflections on the Motive Power of Fire. In this paper, Sadi visualized an ideal engine in which any heat (i.e., caloric) converted into work, could be reinstated by reversing the motion of the cycle, a concept subsequently known as thermodynamic reversibility. Building on his father's work, Sadi postulated the concept that “some caloric is always lost” in the conversion into work, even in his idealized reversible heat engine, which excluded frictional losses and other losses due to the imperfections of any real machine. He also discovered that this idealized efficiency was dependent only on the temperatures of the heat reservoirs between which the engine was working, and not on the types of working fluids. Any real heat engine could not realize the Carnot cycle's reversibility, and was condemned to be even less efficient. This loss of usable caloric was a precursory form of the increase in entropy as we now know it. Though formulated in terms of caloric, rather than entropy, this was an early insight into the second law of thermodynamics.
+[edit]
+1854 definition
+ 
+Rudolf Clausius - originator of the concept of "entropy"
+
+In his 1854 memoir, Clausius first develops the concepts of interior work, i.e. that "which the atoms of the body exert upon each other", and exterior work, i.e. that "which arise from foreign influences [to] which the body may be exposed", which may act on a working body of fluid or gas, typically functioning to work a piston. He then discusses the three categories into which heat Q may be divided:
+Heat employed in increasing the heat actually existing in the body.
+Heat employed in producing the interior work.
+Heat employed in producing the exterior work.
+
+Building on this logic, and following a mathematical presentation of the first fundamental theorem, Clausius then presented the first-ever mathematical formulation of entropy, although at this point in the development of his theories he called it "equivalence-value", perhaps referring to the concept of the mechanical equivalent of heat which was developing at the time rather than entropy, a term which was to come into use later.[4] He stated:[5]
+
+the second fundamental theorem in the mechanical theory of heat may thus be enunciated: If two transformations which, without necessitating any other permanent change, can mutually replace one another, be called equivalent, then the generations of the quantity of heat Q from work at the temperature T , has the equivalence-value:
+
+ and the passage of the quantity of heat Q from the temperature T1 to the temperature T2, has the equivalence-value: 
+
+ wherein T is a function of the temperature, independent of the nature of the process by which the transformation is effected.
+
+In modern terminology, we think of this equivalence-value as "entropy", symbolized by S. Thus, using the above description, we can calculate the entropy change ?S for the passage of the quantity of heat Q from the temperature T1, through the "working body" of fluid (see heat engine), which was typically a body of steam, to the temperature T2 as shown below:
+ 
+ Diagram of Sadi Carnot's heat engine, 1824
+
+If we make the assignment:
+
+
+Then, the entropy change or "equivalence-value" for this transformation is:
+
+
+which equals:
+
+
+and by factoring out Q, we have the following form, as was derived by Clausius:
+
+[edit]
+1856 definition
+
+In 1856, Clausius stated what he called the "second fundamental theorem in the mechanical theory of heat" in the following form:
+
+
+where N is the "equivalence-value" of all uncompensated transformations involved in a cyclical process. This equivalence-value was a precursory formulation of entropy.[6]
+[edit]
+1862 definition
+Main article: disgregation
+
+In 1862, Clausius stated what he calls the “theorem respecting the equivalence-values of the transformations” or what is now known as the second law of thermodynamics, as such:
+The algebraic sum of all the transformations occurring in a cyclical process can only be positive, or, as an extreme case, equal to nothing.
+
+Quantitatively, Clausius states the mathematical expression for this theorem is as follows. Let ?Q be an element of the heat given up by the body to any reservoir of heat during its own changes, heat which it may absorb from a reservoir being here reckoned as negative, and T the absolute temperature of the body at the moment of giving up this heat, then the equation:
+
+
+must be true for every reversible cyclical process, and the relation:
+
+
+must hold good for every cyclical process which is in any way possible. This was an early formulation of the second law and one of the original forms of the concept of entropy.
+[edit]
+1865 definition
+
+In 1865, Clausius gave irreversible heat loss, or what he had previously been calling "equivalence-value", a name:[7][8]“	I propose to name the quantity S the entropy of the system, after the Greek word [????? trope], the transformation. I have deliberately chosen the word entropy to be as similar as possible to the word energy: the two quantities to be named by these words are so closely related in physical significance that a certain similarity in their names appears to be appropriate.	”
+
+
+Although Clausius did not specify why he chose the symbol "S" to represent entropy, it is arguable that Clausius chose "S" in honor of Sadi Carnot, to whose 1824 article Clausius devoted over 15 years of work and research. On the first page of his original 1850 article "On the Motive Power of Heat, and on the Laws which can be Deduced from it for the Theory of Heat", Clausius calls Carnot the most important of the researchers in the theory of heat.[9]
+[edit]
+Later developments
+
+In 1876, physicist J. Willard Gibbs, building on the work of Clausius, Hermann von Helmholtz and others, proposed that the measurement of "available energy" ?G in a thermodynamic system could be mathematically accounted for by subtracting the "energy loss" T?S from total energy change of the system ?H. These concepts were further developed by James Clerk Maxwell [1871] and Max Planck [1903].
+[edit]
+Statistical thermodynamic views
+Main article: statistical thermodynamics
+
+In 1877, Ludwig Boltzmann formulated the alternative definition of entropy S defined as:
+
+
+where
+kB is Boltzmann's constant and
+? is the number of microstates consistent with the given macrostate.
+
+Boltzmann saw entropy as a measure of statistical "mixedupness" or disorder. This concept was soon refined by J. Willard Gibbs, and is now regarded as one of the cornerstones of the theory of statistical mechanics.
+[edit]
+Information theory
+
+An analog to thermodynamic entropy is information entropy. In 1948, while working at Bell Telephone Laboratories electrical engineer Claude Shannon set out to mathematically quantify the statistical nature of “lost information” in phone-line signals. To do this, Shannon developed the very general concept of information entropy, a fundamental cornerstone of information theory. Although the story varies, initially it seems that Shannon was not particularly aware of the close similarity between his new quantity and earlier work in thermodynamics. In 1949, however, when Shannon had been working on his equations for some time, he happened to visit the mathematician John von Neumann. During their discussions, regarding what Shannon should call the “measure of uncertainty” or attenuation in phone-line signals with reference to his new information theory, according to one source:[10]“	My greatest concern was what to call it. I thought of calling it ‘information’, but the word was overly used, so I decided to call it ‘uncertainty’. When I discussed it with John von Neumann, he had a better idea. Von Neumann told me, ‘You should call it entropy, for two reasons. In the first place your uncertainty function has been used in statistical mechanics under that name, so it already has a name. In the second place, and more important, nobody knows what entropy really is, so in a debate you will always have the advantage.	”
+
+
+According to another source, when von Neumann asked him how he was getting on with his information theory, Shannon replied:[11]“	The theory was in excellent shape, except that he needed a good name for “missing information”. “Why don’t you call it entropy”, von Neumann suggested. “In the first place, a mathematical development very much like yours already exists in Boltzmann’s statistical mechanics, and in the second place, no one understands entropy very well, so in any discussion you will be in a position of advantage.	”
+
+
+In 1948 Shannon published his famous paper A Mathematical Theory of Communication, in which he devoted a section to what he calls Choice, Uncertainty, and Entropy.[12] In this section, Shannon introduces an H function of the following form:
+
+
+where K is a positive constant. Shannon then states that “any quantity of this form, where K merely amounts to a choice of a unit of measurement, plays a central role in information theory as measures of information, choice, and uncertainty.” Then, as an example of how this expression applies in a number of different fields, he references R.C. Tolman’s 1938 Principles of Statistical Mechanics, stating that “the form of H will be recognized as that of entropy as defined in certain formulations of statistical mechanics where pi is the probability of a system being in cell i of its phase space… H is then, for example, the H in Boltzmann’s famous H theorem.” As such, over the last fifty years, ever since this statement was made, people have been overlapping the two concepts or even stating that they are exactly the same.
+
+Shannon's information entropy is a much more general concept than statistical thermodynamic entropy. Information entropy is present whenever there are unknown quantities that can be described only by a probability distribution. In a series of papers by E. T. Jaynes starting in 1957,[13][14] the statistical thermodynamic entropy can be seen as just a particular application of Shannon's information entropy to the probabilities of particular microstates of a system occurring in order to produce a particular macrostate.
+[edit]
+Popular use
+
+The term entropy is often used in popular language to denote a variety of unrelated phenomena. One example is the concept of corporate entropy as put forward somewhat humorously by authors Tom DeMarco and Timothy Lister in their 1987 classic publication Peopleware, a book on growing and managing productive teams and successful software projects. Here, they view energy waste as red tape and business team inefficiency as a form of entropy, i.e. energy lost to waste. This concept has caught on and is now common jargon in business schools.
+[edit]
+Terminology overlap
+
+When necessary, to disambiguate between the statistical thermodynamic concept of entropy, and entropy-like formulae put forward by different researchers, the statistical thermodynamic entropy is most properly referred to as the Gibbs entropy. The terms Boltzmann-Gibbs entropy or BG entropy, and Boltzmann-Gibbs-Shannon entropy or BGS entropy are also seen in the literature.
+Thermodynamic free energy
+From Wikipedia, the free encyclopedia 
+ Jump to: navigation, search Thermodynamics
+ 
+The classical Carnot heat engine
+Branches[show]
+Laws[show]
+Systems[show]
+System properties[show]
+Material properties[show]
+Equations[show]
+Potentials[hide]
+Free energy · Free entropy Internal energy	
+Enthalpy	
+Helmholtz free energy	
+Gibbs free energy	
+
+History and culture[show]
+Scientists[show]
+v · t · e 
+
+
+The thermodynamic free energy is the amount of work that a thermodynamic system can perform. The concept is useful in the thermodynamics of chemical or thermal processes in engineering and science. The free energy is the internal energy of a system minus the amount of energy that cannot be used to perform work. This unusable energy is given by the entropy of a system multiplied by the temperature of the system.
+
+Like the internal energy, the free energy is a thermodynamic state function.Contents  [hide] 
+1 Overview 
+1.1 Meaning of "free"
+2 Application
+3 History
+4 See also
+5 References
+
+[edit]
+Overview
+
+Free energy is that portion of any first-law energy that is available to perform thermodynamic work; i.e., work mediated by thermal energy. Free energy is subject to irreversible loss in the course of such work.[1] Since first-law energy is always conserved, it is evident that free energy is an expendable, second-law kind of energy that can perform work within finite amounts of time. Several free energy functions may be formulated based on system criteria. Free energy functions are Legendre transformations of the internal energy. For processes involving a system at constant pressure p and temperature T, the Gibbs free energy is the most useful because, in addition to subsuming any entropy change due merely to heat, it does the same for the pdV work needed to "make space for additional molecules" produced by various processes. (Hence its utility to solution-phase chemists, including biochemists.) The Helmholtz free energy has a special theoretical importance since it is proportional to the logarithm of the partition function for the canonical ensemble in statistical mechanics. (Hence its utility to physicists; and to gas-phase chemists and engineers, who do not want to ignore pdV work.)
+
+The historically earlier Helmholtz free energy is defined as F = U ? TS, where U is the internal energy, T is the absolute temperature, and S is the entropy. Its change is equal to the amount of reversible work done on, or obtainable from, a system at constant T. Thus its appellation "work content", and the designation A from Arbeit, the German word for work. Since it makes no reference to any quantities involved in work (such as p and V), the Helmholtz function is completely general: its decrease is the maximum amount of work which can be done by a system, and it can increase at most by the amount of work done on a system.
+
+The Gibbs free energy G = H ? TS, where H is the enthalpy. (H = U + pV, where p is the pressure and V is the volume.)
+
+Historically, these energy terms have been used inconsistently. In physics, free energy most often refers to the Helmholtz free energy, denoted by A, while in chemistry, free energy most often refers to the Gibbs free energy.
+
+Since both fields use both functions, a compromise has been suggested, using A to denote the Helmholtz function and G for the Gibbs function. While A is preferred by IUPAC, G is sometimes still in use, and the correct free energy function is often implicit in manuscripts and presentations.
+[edit]
+Meaning of "free"
+
+In the 18th and 19th centuries, the theory of heat, i.e., that heat is a form of energy having relation to vibratory motion, was beginning to supplant both the caloric theory, i.e., that heat is a fluid, and the four element theory, in which heat was the lightest of the four elements. In a similar manner, during these years, heat was beginning to be distinguished into different classification categories, such as “free heat”, “combined heat”, “radiant heat”, specific heat, heat capacity, “absolute heat”, “latent caloric”, “free” or “perceptible” caloric (calorique sensible), among others.
+
+In 1780, for example, Laplace and Lavoisier stated: “In general, one can change the first hypothesis into the second by changing the words ‘free heat, combined heat, and heat released’ into ‘vis viva, loss of vis viva, and increase of vis viva.’” In this manner, the total mass of caloric in a body, called absolute heat, was regarded as a mixture of two components; the free or perceptible caloric could affect a thermometer, whereas the other component, the latent caloric, could not.[2] The use of the words “latent heat” implied a similarity to latent heat in the more usual sense; it was regarded as chemically bound to the molecules of the body. In the adiabatic compression of a gas, the absolute heat remained constant but the observed rise in temperature implied that some latent caloric had become “free” or perceptible.
+
+During the early 19th century, the concept of perceptible or free caloric began to be referred to as “free heat” or heat set free. In 1824, for example, the French physicist Sadi Carnot, in his famous “Reflections on the Motive Power of Fire”, speaks of quantities of heat ‘absorbed or set free’ in different transformations. In 1882, the German physicist and physiologist Hermann von Helmholtz coined the phrase ‘free energy’ for the expression E ? TS, in which the change in F (or G) determines the amount of energy ‘free’ for work under the given conditions.[3]
+
+Thus, in traditional use, the term “free” was attached to Gibbs free energy, i.e., for systems at constant pressure and temperature, or to Helmholtz free energy, i.e., for systems at constant volume and temperature, to mean ‘available in the form of useful work.’[4] With reference to the Gibbs free energy, we add the qualification that it is the energy free for non-volume work.[5]
+
+An increasing number of books and journal articles do not include the attachment “free”, referring to G as simply Gibbs energy (and likewise for the Helmholtz energy). This is the result of a 1988 IUPAC meeting to set unified terminologies for the international scientific community, in which the adjective ‘free’ was supposedly banished.[6] This standard, however, has not yet been universally adopted, and many published articles and books still include the descriptive ‘free’.[citation needed]
+[edit]
+Application
+
+The experimental usefulness of these functions is restricted to conditions where certain variables (T, and V or external p) are held constant, although they also have theoretical importance in deriving Maxwell relations. Work other than pdV may be added, e.g., for electrochemical cells, or  work in elastic materials and in muscle contraction. Other forms of work which must sometimes be considered are stress-strain, magnetic, as in adiabatic demagnetization used in the approach to absolute zero, and work due to electric polarization. These are described by tensors.
+
+In most cases of interest there are internal degrees of freedom and processes, such as chemical reactions and phase transitions, which create entropy. Even for homogeneous "bulk" materials, the free energy functions depend on the (often suppressed) composition, as do all proper thermodynamic potentials (extensive functions), including the internal energy.Name	Symbol	Formula	Natural variables
+Helmholtz free energy			
+Gibbs free energy			
+
+
+Ni is the number of molecules (alternatively, moles) of type i in the system. If these quantities do not appear, it is impossible to describe compositional changes. The differentials for reversible processes are (assuming only pV work)
+
+
+
+where ?i is the chemical potential for the i-th component in the system. The second relation is especially useful at constant T and p, conditions which are easy to achieve experimentally, and which approximately characterize living creatures.
+
+
+Any decrease in the Gibbs function of a system is the upper limit for any isothermal, isobaric work that can be captured in the surroundings, or it may simply be dissipated, appearing as T times a corresponding increase in the entropy of the system and/or its surrounding.
+
+An example is surface free energy, the amount of increase of free energy when the area of surface increases by every unit area.
+
+The path integral Monte Carlo method is a numerical approach for determining the values of free energies, based on quantum dynamical principles.
+[edit]
+History
+
+The quantity called "free energy" is a more advanced and accurate replacement for the outdated term affinity, which was used by chemists in previous years to describe the force that caused chemical reactions. The term affinity, as used in chemical relation, dates back to at least the time of Albertus Magnus in 1250.[citation needed]
+
+From the 1998 textbook Modern Thermodynamics[7] by Nobel Laureate and chemistry professor Ilya Prigogine we find: "As motion was explained by the Newtonian concept of force, chemists wanted a similar concept of ‘driving force’ for chemical change. Why do chemical reactions occur, and why do they stop at certain points? Chemists called the ‘force’ that caused chemical reactions affinity, but it lacked a clear definition."
+
+During the entire 18th century, the dominant view with regard to heat and light was that put forth by Isaac Newton, called the Newtonian hypothesis, which states that light and heat are forms of matter attracted or repelled by other forms of matter, with forces analogous to gravitation or to chemical affinity.
+
+In the 19th century, the French chemist Marcellin Berthelot and the Danish chemist Julius Thomsen had attempted to quantify affinity using heats of reaction. In 1875, after quantifying the heats of reaction for a large number of compounds, Berthelot proposed the principle of maximum work, in which all chemical changes occurring without intervention of outside energy tend toward the production of bodies or of a system of bodies which liberate heat.
+
+In addition to this, in 1780 Antoine Lavoisier and Pierre-Simon Laplace laid the foundations of thermochemistry by showing that the heat given out in a reaction is equal to the heat absorbed in the reverse reaction. They also investigated the specific heat and latent heat of a number of substances, and amounts of heat given out in combustion. In a similar manner, in 1840 Swiss chemist Germain Hess formulated the principle that the evolution of heat in a reaction is the same whether the process is accomplished in one-step process or in a number of stages. This is known as Hess' law. With the advent of the mechanical theory of heat in the early 19th century, Hess’s law came to be viewed as a consequence of the law of conservation of energy.
+
+Based on these and other ideas, Berthelot and Thomsen, as well as others, considered the heat given out in the formation of a compound as a measure of the affinity, or the work done by the chemical forces. This view, however, was not entirely correct. In 1847, the English physicist James Joule showed that he could raise the temperature of water by turning a paddle wheel in it, thus showing that heat and mechanical work were equivalent or proportional to each other, i.e., approximately, . This statement came to be known as the mechanical equivalent of heat and was a precursory form of the first law of thermodynamics.
+
+By 1865, the German physicist Rudolf Clausius had shown that this equivalence principle needed amendment. That is, one can use the heat derived from a combustion reaction in a coal furnace to boil water, and use this heat to vaporize steam, and then use the enhanced high-pressure energy of the vaporized steam to push a piston. Thus, we might naively reason that one can entirely convert the initial combustion heat of the chemical reaction into the work of pushing the piston. Clausius showed, however, that we must take into account the work that the molecules of the working body, i.e., the water molecules in the cylinder, do on each other as they pass or transform from one step of or state of the engine cycle to the next, e.g., from (P1,V1) to (P2,V2). Clausius originally called this the “transformation content” of the body, and then later changed the name to entropy. Thus, the heat used to transform the working body of molecules from one state to the next cannot be used to do external work, e.g., to push the piston. Clausius defined this transformation heat as dQ = TdS.
+
+In 1873, Willard Gibbs published A Method of Geometrical Representation of the Thermodynamic Properties of Substances by Means of Surfaces, in which he introduced the preliminary outline of the principles of his new equation able to predict or estimate the tendencies of various natural processes to ensue when bodies or systems are brought into contact. By studying the interactions of homogeneous substances in contact, i.e., bodies, being in composition part solid, part liquid, and part vapor, and by using a three-dimensional volume-entropy-internal energy graph, Gibbs was able to determine three states of equilibrium, i.e., "necessarily stable", "neutral", and "unstable", and whether or not changes will ensue. In 1876, Gibbs built on this framework by introducing the concept of chemical potential so to take into account chemical reactions and states of bodies that are chemically different from each other. In his own words, to summarize his results in 1873, Gibbs states:
+If we wish to express in a single equation the necessary and sufficient condition of thermodynamic equilibrium for a substance when surrounded by a medium of constant pressure p and temperature T, this equation may be written:
+?(? ? T? + p?) = 0
+
+when ? refers to the variation produced by any variations in the state of the parts of the body, and (when different parts of the body are in different states) in the proportion in which the body is divided between the different states. The condition of stable equilibrium is that the value of the expression in the parenthesis shall be a minimum.
+
+
+In this description, as used by Gibbs, ? refers to the internal energy of the body, ? refers to the entropy of the body, and ? is the volume of the body.
+
+Hence, in 1882, after the introduction of these arguments by Clausius and Gibbs, the German scientist Hermann von Helmholtz stated, in opposition to Berthelot and Thomas’ hypothesis that chemical affinity is a measure of the heat of reaction of chemical reaction as based on the principle of maximal work, that affinity is not the heat given out in the formation of a compound but rather it is the largest quantity of work which can be gained when the reaction is carried out in a reversible manner, e.g., electrical work in a reversible cell. The maximum work is thus regarded as the diminution of the free, or available, energy of the system (Gibbs free energy G at T = constant, P = constant or Helmholtz free energy F at T = constant, V = constant), whilst the heat given out is usually a measure of the diminution of the total energy of the system (Internal energy). Thus, G or F is the amount of energy “free” for work under the given conditions.
+
+Up until this point, the general view had been such that: “all chemical reactions drive the system to a state of equilibrium in which the affinities of the reactions vanish”. Over the next 60 years, the term affinity came to be replaced with the term free energy. According to chemistry historian Henry Leicester, the influential 1923 textbook Thermodynamics and the Free Energy of Chemical Reactions by Gilbert N. Lewis and Merle Randall led to the replacement of the term “affinity” by the term “free energy” in much of the English-speaking world.

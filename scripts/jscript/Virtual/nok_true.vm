@@ -1,0 +1,31 @@
+set one 1
+set nul 0
+toint one
+toint nul
+
+set a 1
+set b 1
+read a
+read b
+toint a
+toint b
+
+lejmp a b setNokB
+set nok a
+jmp work
+:setNokB
+set nok b
+
+:work
+set maxnok 1
+mul a b maxnok
+
+:begin
+eqjmp maxnok nok :out
+add nok one nok
+
+set ta 1
+set tb 1
+
+mod nok a ta
+mod nok b tb

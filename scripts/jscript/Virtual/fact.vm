@@ -1,0 +1,27 @@
+set a 1
+toint a
+set n 0
+toint n
+set one 1
+toint one
+set nul 0
+toint nul
+
+read n
+eqjmp n nul a
+
+begin:
+mul a n a
+sub n one n
+
+lejmp n nul ex
+jmp begin
+
+ex:
+write a
+jmp exit
+
+a:
+write one
+
+exit:

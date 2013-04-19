@@ -1,0 +1,47 @@
+set one 1
+set nul 0
+toint one
+toint nul
+
+set a 1
+set b 1
+read a
+read b
+toint a
+toint b
+
+lejmp a b seta
+set max a
+:seta
+set max b
+toint max
+
+set ta 1
+set tb 1
+toint ta
+toint tb
+
+set nok 1
+toint nok
+add max one max
+
+:begin
+add nok one nok
+eqjmp nok max exitfail
+
+mod a nok ta
+mod b nok tb
+
+eqjmp ta nul fs
+jmp begin
+:fs
+eqjmp tb nul exit
+jmp begin
+:exit
+write nok
+jmp end
+
+:exitfail
+write one
+
+:end

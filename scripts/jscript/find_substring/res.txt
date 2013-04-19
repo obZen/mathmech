@@ -1,0 +1,111 @@
+Сервер сценариев Windows (Microsoft R) версия 5.8
+c Корпорация Майкрософт (Microsoft Corp.), 1996-2001. Все права защищены.
+
+HASH_FIND (simpleHash)
+Position: 36; Collision: 0
+Position: 6691; Collision: 6
+Position: 13342; Collision: 12
+Position: 19997; Collision: 18
+Position: 26648; Collision: 24
+Position: 33345; Collision: 30
+Position: 39996; Collision: 36
+Position: 46637; Collision: 42
+Position: 53274; Collision: 48
+Position: 59915; Collision: 54
+Position: 66552; Collision: 60
+Position: 73193; Collision: 66
+Position: 79830; Collision: 72
+Position: 86471; Collision: 78
+Position: 93108; Collision: 84
+Position: 99749; Collision: 90
+Position: 106386; Collision: 96
+Position: 113027; Collision: 102
+Position: 119664; Collision: 108
+Position: 126305; Collision: 114
+Position: 132942; Collision: 120
+Position: 139583; Collision: 126
+Position: 146220; Collision: 132
+Position: 152861; Collision: 138
+
+TIME = 0:640
+HASH_FIND (squareHash)
+Position: 36; Collision: 0
+Position: 6691; Collision: 0
+Position: 13342; Collision: 0
+Position: 19997; Collision: 0
+Position: 26648; Collision: 0
+Position: 33345; Collision: 0
+Position: 39996; Collision: 0
+Position: 46637; Collision: 0
+Position: 53274; Collision: 0
+Position: 59915; Collision: 0
+Position: 66552; Collision: 0
+Position: 73193; Collision: 0
+Position: 79830; Collision: 0
+Position: 86471; Collision: 0
+Position: 93108; Collision: 0
+Position: 99749; Collision: 0
+Position: 106386; Collision: 0
+Position: 113027; Collision: 0
+Position: 119664; Collision: 0
+Position: 126305; Collision: 0
+Position: 132942; Collision: 0
+Position: 139583; Collision: 0
+Position: 146220; Collision: 0
+Position: 152861; Collision: 0
+
+TIME = 0:722
+HASH_FIND (degreeHash)
+Position: 36; Collision: 0
+Position: 6691; Collision: 1
+Position: 13342; Collision: 2
+Position: 19997; Collision: 3
+Position: 26648; Collision: 4
+Position: 33345; Collision: 5
+Position: 39996; Collision: 6
+Position: 46637; Collision: 7
+Position: 53274; Collision: 8
+Position: 59915; Collision: 9
+Position: 66552; Collision: 10
+Position: 73193; Collision: 11
+Position: 79830; Collision: 12
+Position: 86471; Collision: 13
+Position: 93108; Collision: 14
+Position: 99749; Collision: 15
+Position: 106386; Collision: 16
+Position: 113027; Collision: 17
+Position: 119664; Collision: 18
+Position: 126305; Collision: 19
+Position: 132942; Collision: 20
+Position: 139583; Collision: 21
+Position: 146220; Collision: 22
+Position: 152861; Collision: 23
+
+TIME = 0:603
+BRUTAL FIND
+Position: 36; Collision: 0
+Position: 6691; Collision: 0
+Position: 13342; Collision: 0
+Position: 19997; Collision: 0
+Position: 26648; Collision: 0
+Position: 33345; Collision: 0
+Position: 39996; Collision: 0
+Position: 46637; Collision: 0
+Position: 53274; Collision: 0
+Position: 59915; Collision: 0
+Position: 66552; Collision: 0
+Position: 73193; Collision: 0
+Position: 79830; Collision: 0
+Position: 86471; Collision: 0
+Position: 93108; Collision: 0
+Position: 99749; Collision: 0
+Position: 106386; Collision: 0
+Position: 113027; Collision: 0
+Position: 119664; Collision: 0
+Position: 126305; Collision: 0
+Position: 132942; Collision: 0
+Position: 139583; Collision: 0
+Position: 146220; Collision: 0
+Position: 152861; Collision: 0
+
+TIME = 1:70

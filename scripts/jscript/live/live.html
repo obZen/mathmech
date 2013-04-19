@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <title>Fields must be survive</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+        classBlackPoint = 'blackPoint';
+        classWhitePoint = 'whitePoint';
+        idBoardTable    = 'table#mainPlace';
+        
+        currentBoard = new Array(); 
+        lastBoard    = new Array();
+        
+        sizeBoard    = 30; // Size of game board (size * size)
+        timeToUpdateStep = 1000; 
+        cntBlackPoints = 0;
+        
+        function Point(i, j) {
+            this.x = i;
+            this.y = j;
+            this.createId = function () { return "_" + this.x + "X" + this.y; }
+        }
+        
+        function createPointFromStr(str) {
+                var arrstr = str.split(/[^0-9]+/);
+                return new Point(arrstr[1], arrstr[2]);
+        }
+        
+        function generationFieldsTable(array) {
+            var str = "";
+            for(var i = 0; i < array.length; ++i) {
+                str += "<tr>";
+                for(var j = 0; j < array[i].length; ++j) {
+                    var current_class = (array[i][j] == 'B') ? classBlackPoint  : classWhitePoint;
+                    str += "<td id='" + (new Point(i, j)).createId() + "' class='" + current_class +"'></td>";
+                }
+                str += "</tr>";
+            }
+            return str;
+        }
+        
+        function setPoint(event) {
+            var id = event.data.td_id;
+            var p  = createPointFromStr(id);
+            
+            if($(id).hasClass(classWhitePoint)) {
+                $(id).removeClass(classWhitePoint).addClass(classBlackPoint);
+                lastBoard[p.x][p.y] = 'B';
+                ++cntBlackPoints;
+            }
+            else if ($(id).hasClass(classBlackPoint)) {
+                $(id).removeClass(classBlackPoint).addClass(classWhitePoint);   
+                lastBoard[p.x][p.y] = 'W';
+                --cntBlackPoints;
+            }
+        }
+        
+        // Bind point to click-handler's
+        function bindPoints() {
+            for(var i = 0; i < sizeBoard; ++i) 
+                    for(var j = 0; j < sizeBoard; ++j) {
+                        var p = new Point(i, j);
+                        $("#" + p.createId()).bind("click.board", {td_id: "#" + p.createId()}, setPoint);
+                    }
+        }
+        
+        stepIdProc = 0;
+        // Death or life
+        function startLife() {
+            $('*').unbind('click.board'); // Not allowed to changed game board!
+            $("button#startButton").prop("disabled", true);
+            $("button#runButton").prop("disabled", true);
+            stepIdProc = setInterval(step, timeToUpdateStep);
+        }
+        
+        function step() {
+            for(var i = 0; i < sizeBoard; ++i) {
+                for(var j = 0; j < sizeBoard; ++j) {
+                    var ambient = _getAmbientField(i, j);
+                    var k = 0;
+                    
+                    for(var t = 0; t < ambient.length; ++t)
+                        if(ambient[t] == 'B') ++k;
+                    
+                    var currentPoint = new Point(i, j);
+                    
+                    if(lastBoard[i][j] == 'W') {
+                        if(k == 3) { 
+                            currentBoard[i][j] = 'B'
+                            ++cntBlackPoints;
+                            
+                            $("#" + currentPoint.createId()).removeClass(classWhitePoint).addClass(classBlackPoint);
+                        }
+                    } else if (lastBoard[i][j] == 'B') {
+                        if(k < 2 || k > 3) {
+                            currentBoard[i][j] = 'W';
+                            --cntBlackPoints;
+                            $("#" + currentPoint.createId()).removeClass(classBlackPoint).addClass(classWhitePoint);
+                        } else 
+                            currentBoard[i][j] = 'B';
+                    }
+                }
+            }
+                
+            //$(idBoardTable).html(generationFieldsTable(currentBoard));
+           
+            for(var i = 0; i < sizeBoard; ++i)
+                for(var j = 0; j < sizeBoard; ++j) {
+                    lastBoard[i][j] = currentBoard[i][j];
+                    currentBoard[i][j] = 'W';
+                }
+            
+            if(cntBlackPoints == 0) { 
+                alert("GAME OVER! Ha-Ha!");
+                stopStep();
+            }
+        }
+        
+        function stopStep() {
+            clearInterval(stepIdProc);
+            bindPoints();
+            $("button#startButton").prop("disabled", false);
+            $("button#runButton").prop("disabled", false);
+        }
+        function _getAmbientField(i, j) {
+                var res = new Array();
+                var ti, tj;
+                
+                // top i-1, j
+                if(i == 0) ti = sizeBoard - 1;
+                else ti = i-1;
+                tj = j;
+                res[0] = lastBoard[ti][tj];
+                
+                // top-right i-1, j+1
+                tj = (j+1)%sizeBoard;
+                res[1] = lastBoard[ti][tj];
+                
+                // right i, j+1
+                ti = i;
+                res[2] = lastBoard[ti][tj];
+                
+                // bottom-right i+1, j+1
+                ti = (i+1)%sizeBoard;
+                tj = (j+1)%sizeBoard;
+                res[3] = lastBoard[ti][tj];
+                
+                // bottom i+1, j
+                tj = j;
+                res[4] = lastBoard[ti][tj];
+                
+                // bottom-left i+1, j-1
+                if(j == 0) tj = sizeBoard - 1;
+                else tj = j-1;
+                res[5] = lastBoard[ti][tj];
+                
+                // left i, j-1
+                ti = i;
+                res[6] = lastBoard[ti][tj];
+                
+                // top-left
+                if(i == 0) ti = sizeBoard -1;
+                else ti = i-1;
+                res[7] = lastBoard[ti][tj];
+                
+                return res;
+            }
+            
+        function run() {
+            sizeBoard        = parseInt($("#inputSize").val()); // Size of game board (size * size)
+            timeToUpdateStep = parseInt($("#inputTimeUpdate").val()); 
+           
+            for(var i = 0; i < sizeBoard; ++i) {
+                currentBoard[i] = new Array();
+                lastBoard[i] = new Array();
+                for(var j = 0; j < sizeBoard; ++j) {
+                    currentBoard[i][j] = 'W';
+                    lastBoard[i][j] = 'W';
+                }
+            }
+            $(idBoardTable).html(generationFieldsTable(currentBoard));
+            bindPoints();
+            
+            $("button#stopButton").show();
+            $("button#startButton").show();
+        }
+        
+        </script>
+        
+        <style type="text/css">
+            .blackPoint { background: #000000;}
+            .whitePoint { background: #ffffff;}
+            td {  border: 1px #000000 dotted; padding: 0px; margin: 0px;}
+        </style>
+    </head>
+    <body>
+        <p></p>
+        <table id="mainPlace" style="width: 50%; height: 90%;">
+            
+        </table>
+        <button id="runButton" onclick="run()">Set data</button>
+        <button id="startButton" onclick="startLife()">Start</button>
+        <button id="stopButton" onclick="stopStep()">Stop</button> <br/>
+        Size: <input  id="inputSize" value="40" />
+        Update time: <input  id="inputTimeUpdate" value="100" />
+        
+        <script>
+            $("button#stopButton").hide();
+            $("button#startButton").hide();
+        </script>
+    </body>
+</html>
