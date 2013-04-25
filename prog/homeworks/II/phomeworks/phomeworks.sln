@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bank_account", "bank_account\bank_account.vcxproj", "{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lal", "lal\lal.vcxproj", "{12E5CCE5-86F8-4397-B371-ABC30D48123E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dequee", "dequee\dequee.vcxproj", "{8FFAB49B-F612-4913-AF16-671AE7C8C747}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		unittest|Win32 = unittest|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.Debug|Win32.ActiveCfg = Release|Win32
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.Debug|Win32.Build.0 = Release|Win32
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.Release|Win32.ActiveCfg = Release|Win32
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.Release|Win32.Build.0 = Release|Win32
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.unittest|Win32.ActiveCfg = unittest|Win32
+		{B74B9B1A-12F0-4E8E-8E28-DF56A5D61660}.unittest|Win32.Build.0 = unittest|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.Debug|Win32.Build.0 = Debug|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.Release|Win32.ActiveCfg = Release|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.Release|Win32.Build.0 = Release|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.unittest|Win32.ActiveCfg = Release|Win32
+		{12E5CCE5-86F8-4397-B371-ABC30D48123E}.unittest|Win32.Build.0 = Release|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.Debug|Win32.Build.0 = Debug|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.Release|Win32.ActiveCfg = Release|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.Release|Win32.Build.0 = Release|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.unittest|Win32.ActiveCfg = Release|Win32
+		{8FFAB49B-F612-4913-AF16-671AE7C8C747}.unittest|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
