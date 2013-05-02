@@ -1,6 +1,10 @@
-import unittest, random
-from gameoflife.pages.automatonpage import *
+import unittest
 import sys
+
+from PyQt4 import QtGui
+
+from pages.mainpage import MainPage
+
 
 class AutomatonWidgetCase(unittest.TestCase):
     def setUp(self):
@@ -8,6 +12,6 @@ class AutomatonWidgetCase(unittest.TestCase):
 
 
     def testShowPage(self):
-        self.window = AutomatonPage()
+        self.window = MainPage()
         self.window.show()
         self.assertEqual(self.app.exec(), 0)

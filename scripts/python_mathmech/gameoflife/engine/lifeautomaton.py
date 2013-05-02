@@ -1,28 +1,43 @@
 import copy
 
 class TorPoint:
+    """
+        Точка в двумерном ограниченном пространстве замкнутом самом на себе
+    """
     def __init__(self, maxRowCount, maxColumnCount):
-        self._maxRowCount = maxRowCount
-        self._maxColumnCount = maxColumnCount
+        self.maxRowCount = maxRowCount
+        self.maxColumnCount = maxColumnCount
 
     def getPoint(self, rowIndex, columnIndex):
-        rowIndex = rowIndex if abs(rowIndex) < self._maxRowCount else rowIndex % self._maxRowCount
-        columnIndex = columnIndex if abs(columnIndex) < self._maxColumnCount else columnIndex % self._maxColumnCount
+        rowIndex = rowIndex if abs(rowIndex) < self.maxRowCount else rowIndex % self.maxRowCount
+        columnIndex = columnIndex if abs(columnIndex) < self.maxColumnCount else columnIndex % self.maxColumnCount
         return (
-            rowIndex if rowIndex >= 0 else self._maxRowCount + rowIndex,
-            columnIndex if columnIndex >= 0 else self._maxColumnCount + columnIndex
+            rowIndex if rowIndex >= 0 else self.maxRowCount + rowIndex,
+            columnIndex if columnIndex >= 0 else self.maxColumnCount + columnIndex
         )
 
 class LifeAutomaton:
+    """
+        Реализует механику генерации поколений клеток в игре жизнь
+    """
+    _torPoint = None
     def __init__(self, rowCount, columnCount):
-        self.rowCount = rowCount
-        self.columnCount = columnCount
         # {(rowIndex, columnIndex), ...}
         self._livingCells = set()
-        self._torPoint = TorPoint(self.rowCount, self.columnCount)
         self._livingCellsCount = 0
+        self.rowCount = rowCount
+        self.columnCount = columnCount
+        self._torPoint = TorPoint(self.rowCount, self.columnCount)
 
-    #todo релизовать поведение LifeAutomaton при изменении размера (удалить все живие клетки, если размер уменьшается)
+    def _validateLivingCells(self, newRowCount, newColumnCount):
+        for point in self.getAllLivingCells():
+            if point[0] >= newRowCount:
+                self._livingCells.remove(point)
+            elif point[1] >= newColumnCount:
+                self._livingCells.remove(point)
+
+    _rowCount = 0
+    _columnCount = 0
     @property
     def rowCount(self):
         return self._rowCount
@@ -31,7 +46,13 @@ class LifeAutomaton:
     def rowCount(self, v):
         if v <= 0:
             raise AttributeError('Row count must be more than 0')
+
+        if v < self.rowCount:
+            self._validateLivingCells(v, self._columnCount)
+
         self._rowCount = v
+        if self._torPoint is not None:
+            self._torPoint.maxRowCount = v
 
     @property
     def columnCount(self):
@@ -41,7 +62,13 @@ class LifeAutomaton:
     def columnCount(self, v):
         if v <= 0:
             raise AttributeError('Column count must be more than 0')
+
+        if v < self.columnCount:
+            self._validateLivingCells(self._rowCount, v)
+
         self._columnCount = v
+        if self._torPoint is not None:
+            self._torPoint.maxColumnCount = v
 
     @property
     def livingCellsCount(self):
@@ -82,7 +109,7 @@ class LifeAutomaton:
         for point in self._livingCells:
             yield point
 
-    def getLivingCells(self):
+    def getAllLivingCells(self):
         return copy.deepcopy(self._livingCells)
 
     def _getCorrectPoint(self, rowIndex, columnIndex):

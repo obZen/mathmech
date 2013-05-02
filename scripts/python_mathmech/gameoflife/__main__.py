@@ -1,9 +1,10 @@
-from gameoflife.pages.automatonpage import *
+from pages.mainpage import MainPage
+from PyQt4 import QtGui
 import sys
 
 def main():
     app = QtGui.QApplication(sys.argv)
-    mainWindow = AutomatonPage()
+    mainWindow = MainPage()
     mainWindow.show()
     app.exec()
 

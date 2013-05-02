@@ -1,10 +1,16 @@
 import unittest, random
-from gameoflife.LifeAutomaton import *
+from engine.lifeautomaton import LifeAutomaton
 
 class LifeAutomatonCase(unittest.TestCase):
     def testSize(self):
-        for row in range(1, random.randrange(5, 100)):
-            for column in range(1, random.randrange(5, 100)):
+        l = LifeAutomaton(10, 10)
+        l.invertCells([(9, 9), (5, 5), (8, 8)])
+        l.rowCount = 8
+        l.columnCount = 8
+        self.assertEqual(l.getAllLivingCells(), {(5, 5)})
+
+        for row in range(1, 100):
+            for column in range(1, 100):
                 life = LifeAutomaton(row, column)
 
                 self.assertEqual(row, life.rowCount)
@@ -25,11 +31,11 @@ class LifeAutomatonCase(unittest.TestCase):
             cells.append((random.randrange(0, 10), random.randrange(0, 10)))
         life.invertCells(cells)
 
-        for living_cell in life.getLivingCells():
+        for living_cell in life.getAllLivingCells():
             self.assertEqual(True, living_cell in cells)
 
         life.invertCells(cells)
-        self.assertEqual(0, len(life.getLivingCells()))
+        self.assertEqual(0, len(life.getAllLivingCells()))
 
     def testGenerationCells(self):
         life = LifeAutomaton(random.randrange(1, 100), random.randrange(1, 100))
@@ -38,9 +44,9 @@ class LifeAutomatonCase(unittest.TestCase):
             cells.append((random.randrange(0, life.rowCount), random.randrange(0, life.columnCount)))
         life.invertCells(cells)
 
-        print(life.getLivingCells())
+        print(life.getAllLivingCells())
         for count in range(0, 30):
             life.generateNextPopulation()
-            print(life.getLivingCells())
+            print(life.getAllLivingCells())
 
         self.assertEqual(True, True) # Ничего не упало - хорошо! :)

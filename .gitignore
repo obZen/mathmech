@@ -58,3 +58,5 @@ obj/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+unittest/
+__pycache__

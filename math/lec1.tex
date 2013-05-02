@@ -20,7 +20,7 @@
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\pihalf}{def}
 %opening
-\title{Математический анализ. I курс.}
+\title{Математический анализ. 1 семестр.}
 \author{}
 \date{}
 \relpenalty=10000
@@ -1543,4 +1543,29 @@
 		\# $f(x) = sin(x)$ - нечетная функция. Значит четные производные у нее есть четные функции, а нечетные производные есть функции нечетные. $sin''(0) = sin''''(0) = \dots = 0$, т.е. в формуле Тейлора не будет слагаемых с четными производными. $f'(0) = 1; f'''(0) = -1 \dots$. Тогда, $\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + (-1)^{k}\frac{x^{2k+1}}{(2k + 1)!} + o(x^{2k+2})$.
 		
 		<- Дома: f(x) = cos(c)
+		
+	\section{Расширение неопределенности. Правило Лопиталя.}
+	Пусть есть две функции $f(x)$ и $g(x)$, $x \in O_r(a)$. 
+	$f(x) =  \alpha_p(x-a)^p + o((x-a)^p)$, $g(x) = \beta_q(x-a)^q + o((x-a)^q)$, где $p,q \geq 1$
+	
+	$\limx{a} \frac{f(x)}{g(x)} = 
+	\begin{cases}
+		0,& p > q\\
+		\frac{\alpha_p}{\beta_q},& p=q\\
+		\infty,& p<q
+	\end{cases}$
+	
+	\subsection{Правило Лопиталя для неопределенности вида $\frac{0}{0}$}
+	Пусть 
+	\begin{enumerate}
+		\item $f(x), g(x)$ определены и дифференцируемы в $O(a)\subset\{a\}$, где $a \in R$, или $a = \pm \infty$, или $a = \infty$.
+		\item $\limx{a} f(x) = \limx{a} g(x) = 0$
+		\item $g(x) \neq 0$ и $g'(x) \neq 0$ в $O(a)\subset\{a\}$
+	\end{enumerate}
+	Тогда, если $\exists \limx{a} \frac{f'(x)}{g'(x)} = A$, то $\exists \limx{a} \frac{f(x)}{g(x)} = A$.
+	
+	\paragraph{Доказательство}
+	Рассмотрим $x_k \to a$. Покажем, что $\frac{f(x_k)}{g(x_k)} = A$.
+	
+	$f(x_k) \to 0$, $g(x_k) \to 0$. Зафиксируем $k$, тогда $\exists n_k : |f(x_{n_k})| < |\frac{f(x_{n_k})}{k}|$ и $|g(x_{n_k})| < |\frac{g(x_{n_k})}{k}$.
 \end{document}

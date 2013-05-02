@@ -1,2 +1,2 @@
 __author__ = 'Dejust'
-__name__ = 'pages'
+__name__ = 'engine'
