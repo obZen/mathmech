@@ -1,0 +1,12 @@
+------------------------
+Установка
+------------------------
+Перед запуском программы необходимо установить PyQt4 для python3 на свой компьютер.
+
+В Ubuntu:
+    Установить пакет python3-pyqt4 командой в терминале
+        sudo apt-get install python3-pyqt4
+    
+В Windows:
+    Скачать и запустить установщик с этой страницы
+        http://www.riverbankcomputing.com/software/pyqt/download
